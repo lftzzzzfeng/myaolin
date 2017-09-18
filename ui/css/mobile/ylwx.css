@@ -1,0 +1,81 @@
+body{ font-size:1.0rem; font-family:"微软雅黑";}
+li{ list-style:none;}
+*{ padding: 0; margin: 0;}
+input, button, select, textarea { outline: none;}
+textarea {resize: none;}
+table { border-collapse: collapse;border-spacing: 0;}
+a{ text-decoration:none;}
+.dl_logo{width:100%; min-height: 50px; height: auto;overflow: hidden; padding: 20px 0; text-align: center;}
+.dl_logo img{width:30%; margin: 30px auto;}
+.dl_con{width:100%; min-height: 150px; height: auto; overflow: hidden;}
+.dl_con .dl_name{width:90%; height: 45px; line-height: 45px; margin: 0 auto;  background: #f6f6f6; border: 1px solid #e5e5e5; clear: both; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+.dl_con .dl_name img{width:7%; float: left; margin: 8px 3%;}
+.dl_con .dl_name .dl_right{width:87%;height: 45px; float: left;}
+.dl_con .dl_name .dl_right input{width:100%; height: 43px; line-height: 43px; border: none; background: none;}
+.dl_warn{width:77%; height: 25px; line-height: 25px; margin: 0 auto; padding-left: 13%;}
+.dl_warn p{ color: #666; font-size: 0.8rem; display: none;}
+.xz_gq{width:90%; height: 50px; line-height: 50px; margin: 0 auto;}
+.share_radio{width:25px; height:25px;  float:left; border-radius:50%; border:1px solid #e5e5e5; background: #f6f6f6; text-align:center;  margin:10px 10px 0 4%;}
+.xz_left{width:50%; float: left;}
+.dl_tj{width:90%; height: 45px; background: #d1b473;border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; margin: 0 auto; margin-top: 25px;}
+.dl_tj input{width:100%; height: 45px; background: none; border: none; color: #fff; font-size: 1.1rem;}
+.dl_qx{ background: #cccccc;}
+.dl_con p{width:90%; height: 40px; line-height: 40px;  margin: 0 auto; text-align: right; color: #999999; margin-top: 15px;}
+.dl_con p a{ color: #d1b473;}
+/*服务协议*/
+.fw_con{width:100%; min-height: 200px; height: auto; overflow: hidden;}
+.fw_con p.fw_p{text-align: center; font-size: 1.1rem; color: #000; line-height: 50px; margin-top: 30px;}
+.fw_con p.fw_pa{ text-align: left; color: #333; line-height: 30px; text-indent: 2em; padding: 0 5%;}
+.fw_con p.fw_pb{text-align: left; color: #333; line-height: 30px;  padding: 0 5%;}
+.share_radioa{width:25px; height:25px;  float:left;  border:1px solid #e5e5e5; background: #f6f6f6; text-align:center;  margin:10px 10px 0 4%;}
+.fw_next{width:90%; height: 70px; line-height: 70px; margin: 0 auto; text-align: center; margin-bottom: 80px;}
+.fw_next a{ font-size: 1.2rem; color: #d1b473;}
+.fw_a{ color: #333; margin: 15px auto;}
+/*完善资料*/
+.gr_con{width:100%; min-height: 200px; height: auto; overflow: hidden;}
+.gr_con ul{width:100%;height:40px; background:#fff; margin:0px auto 0; padding-top: 30px; border-bottom: 1px solid #e5e5e5;}
+.gr_con ul li{float:left;font-size:1.1rem;height:39px;line-height:40px;width:50%;text-align:center;cursor:pointer;background:#fff; color: #999;}
+.gr_con .hit{	border-bottom:1px solid #d1b473;cursor:pointer;color:#d1b473;}
+.pane{border-top:0;min-height:100px;display:none;}
+.pane p{padding:15px 15px 0 10px;}
+.pane h4{padding:15px 15px 0 10px;font-size:14px;font-weight:bold;}
+.zl_sc{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; border-bottom: 1px solid #e5e5e5;}
+.zl_sca{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5; margin-top: 15px;}
+p.zl_p{width:95%; height: 40px; line-height: 40px; margin: 0 auto; padding: 0;}
+p.zl_p span{ color: #eb0000;}
+.zl_pc{width:95%; min-height: 80px; height: auto; overflow: hidden; margin: 0 auto; text-align: center; padding-bottom: 15px;}
+.zl_pc img{width: 30%; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}
+.zl_pc p{ text-align: center; line-height: 35px; color: #d1b473; margin: 0; padding: 0;}
+.zl_name{width:95%; height: 50px; line-height: 50px; margin: 0 auto; border-bottom: 1px solid #e5e5e5;}
+.zl_name .zl_namel{width:40%; height: 50px; line-height: 50px; float: left;}
+.zl_name .zl_namel p{ color: #333;line-height: 50px;margin: 0; padding: 0;}
+.zl_name .zl_namel p span{color: #eb0000;}
+.zl_name .zl_namer{width:60%; height: 50px; line-height: 50px; float: left;}
+.zl_name .zl_namer input{width:100%; text-align: right; line-height: 50px; background: none; border: none; font-size: 1.0rem;}
+.zl_pca{width:95%; min-height: 80px; height: auto; overflow: hidden; margin: 0 auto; text-align: center; padding-bottom: 15px;}
+.zl_pca img{width: 60%; border-radius: 15px; -moz-border-radius: 15px; -webkit-border-radius: 15px;}
+.zl_pca p{ text-align: center; line-height: 35px; color: #d1b473; margin: 0; padding: 0;}
+
+
+
+.login-header{width:100%;text-align:center;height:30px;font-size:24px;line-height:30px;}
+.login{width:90%;position:fixed;border:#ebebeb solid 1px;height:300px;top:100px;left:5%;display:none;background:#ffffff;z-index:9999;margin-left:0;margin-top:0px; text-align: center; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
+.login img{width: 30%; margin-top: 50px;}
+.login p.p_shib{ line-height: 60px; text-align: center; color: #d1b473; font-size: 1.2rem;}
+.login p.p_shiba{ color: #333; font-size: 1.5rem;}
+.p_close{position:absolute; text-align: center; top: 300px; width: 100%;}
+.p_close img{ width:15%;}
+.login-bg{width:100%;height:100%;position:fixed;top:0px;left:0px;background:#000;filter:alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity:0.6;opacity:0.6;display:none;}
+
+/*商户中心*/
+.sh_con{width:100%; min-height: 120px; height: auto; overflow: hidden;}
+.sh_con ul li{width:46%; height: 120px; background: #fff; float: left; margin: 10px 2% 5px; text-align: center; padding: 20px 0;}
+.sh_con ul li a{display: block;}
+.sh_con ul li p{ color: #333; margin-top: 25px;}
+.sh_con ul li img{width:40px;}
+/*二维码*/
+.ewm{width:100%; min-height: 50px; height: auto;overflow: hidden; text-align: center;}
+.ewm img{width:50%; margin-top: 100px;}
+.ewm p{ line-height: 40px; color: #d1b473;}
+.ewm_foot{width:100%; height: 60px; line-height: 60px; text-align: center; position: fixed; bottom: 50px;}
+.ewm_foot p{ color: #d1b473; font-size: 0.9rem;}

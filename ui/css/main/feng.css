@@ -1,0 +1,11 @@
+.moreJotting {
+    text-align: center;
+    border: solid 1px #73AD21;
+    width: 8%; height: 25px;
+    border-radius: 8px;
+    padding-top: 2px;
+    background-color: rgb(169,196,218);
+    opacity: 0.9;
+    margin-left: 47%;
+    cursor: zoom-in;
+}

@@ -1,0 +1,192 @@
+/* CSS Document */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.index_banner{width:100%; min-width:1200px;}
+
+.index_about{width:100%; height:616px; background:url(../../img/main/bg2.jpg) center 0 no-repeat; min-width:1200px;}
+.index_about .index_aboutc{width:1200px; height:616px; margin:0 auto; text-align: center;}
+.index_about .index_aboutc img.a_img{ margin:50px auto 30px;}
+.index_about .index_aboutc p{ line-height:30px; text-align:left; text-indent:2em; color:#010101;}
+.index_about .index_aboutc img.a_imga{ margin:27px auto 0px;}
+.index_pin{width:1200px; height:956px; margin:0 auto; text-align:center;}
+.index_pin img.p_img{ margin:50px auto 10px;}
+.pin_img{width:1200px; height:621px; margin-top:50px;}
+
+
+.pin_img ul{height:30px; background:#fff; margin:2px auto;}
+.pin_img ul li{	float:left;height:150px;width:224px;text-align:center;cursor:pointer;background:#fff; margin-right:16px;}
+.pin_img ul li  img{height:150px;width:224px;}
+.pin_img ul li.hit img{ opacity:0.3;height:150px;width:224px;}
+.pin_img ul li.hit{height:150px;width:224px; background:rgba(5,177,187,1);cursor:pointer;}
+.pin_img ul li.hits{ margin-right:0;}
+.panes{width:1200px; height:440px; margin-bottom:40px;}
+.pane{border-top:0;min-height:100px;background-color:#fff;display:none;}
+.pane .p_img{width:835px; height:440px; float:left;}
+.pane .p_img img{width:835px; height:440px;}
+.pane_right{width:365px; float:left;}
+
+
+.index_le{width:100%; min-height:1010px; height:auto; overflow:hidden; margin:0 auto; background:#f8f8f8; min-width:1200px;}
+.index_le .index_lecon{width:1200px; min-height:1010px; height:auto; overflow:hidden; margin:0 auto; text-align:center;}
+.index_le .index_lecon img.le_img{ margin:40px auto;}
+.le_dimg{width:1200px; height:600px; margin:0 auto;}
+.le_li{width:400px; height:300px; float:left;position:relative;}
+.le_dimga a{ display:block;}
+.le_dimga{width:400px; height:300px; background:rgba(0,0,0,0.6); position:absolute; text-align:center; top:0; left:0;cursor:pointer; }
+p.le_dt{ color:#fff; font-size:20px; line-height:55px; margin-top:40px; }
+p.le_dta{ color:#fff; font-size:14px; line-height:25px; padding:0 55px; text-align:left; }
+.le_btn{width:130px; height:35px; line-height:35px; margin:30px auto 0; border:1px solid #fff; border-radius:20px; -moz-border-radius:20px; -webkit-border-radius:20px;}
+.le_btn a{ display:block; color:#fff;}
+.le_btn:hover{ background:#05b1bb;border:1px solid #05b1bb;}
+.ple_btn{width:155px; height:45px; line-height:45px; text-align:center; margin:50px auto; background:#05b1bb;}
+.ple_btn a{ display:block; color:#fff;}
+.index_you{width:100%; min-height:437px; height:auto; overflow:hidden; /*background:url(../images/index_you.jpg) center 0 no-repeat;*/ min-width:1200px;}
+.index_zx{width:1200px; min-height:600px; height:auto; overflow:hidden; margin:0 auto; text-align:center; }
+.index_zx .index_zxa{ margin:40px auto;}
+.inzx_li{width:1200px; min-height:460px; height:auto; overflow:hidden; clear:both;}
+.inzx_li li{width:386px; height:460px; float:left; background:#f8f8f8; margin-right:20px; margin-bottom:20px;}
+.inzx_li li p.l_p{ font-size:18px; color:#000; line-height:30px; height:60px; padding:10px 0; text-align:left; font-weight:bold; padding-left:15px; padding-right:15px;}
+.inzx_li li p.l_p a{color: #000;}
+.inzx_li li p.l_p a:hover{color: #05b1bb;}
+.inzx_li li .li_z{width:386px; height:85px; margin-top:30px;}
+.inzx_li li.li_li{ margin-right:0;}
+.inzx_li li .li_z .li_zl{width:193px; float:left;}
+.inzx_li li .li_z .li_zl p.l_pp{ color:#333; line-height:25px; text-align:left; padding-left:10px;}
+.inzx_li li .li_z .li_zl p.l_pp img{ float:left; margin:5px 10px 0 0;}
+.inzx_li li .li_z .li_zl a{ line-height:60px; color:#05b1bb; font-size:16px; text-decoration:underline;}
+
+/*景点介绍*/
+.jd_banner{width:100%; height:500px; background:url(../../img/main/jd_banner.jpg) center 0 no-repeat; min-width:1200px; margin-top:80px;}
+.jd_mbx{width:100%; height:60px; line-height:60px; background:#f8f8f8; min-width:1200px;}
+.jd_mbx .jd_mbxcon{width:1200px; margin:0 auto; font-size:18px; color:#05b1bb;}
+.jd_mbx .jd_mbxcon a{ font-size:16px; color:#333;}
+.jd_con{width:1200px; min-height:600px; height:auto; overflow:hidden; margin:0 auto;}
+.jd_cont{width:1200px; height:80px; line-height:80px; background: url(../../img/main/jd_x.png) center bottom no-repeat; font-size:20px; color:#333; text-align:center; margin-top:40px; margin:0 auto;}
+
+.jd_jd{width:1200px; height:680px; border-bottom:1px solid #e5e5e5;}
+p.jd_p{ font-size:24px; color:#333; line-height:70px;}
+p.jd_pa{ font-size:16px; color:#333; line-height:30px;}
+
+/*畅游瑶琳*/
+.cy_banner{width:100%; height:501px; background:url(../../img/main/cy_banner.jpg) center 0 no-repeat; min-width:1200px; margin-top:80px;}
+/*.m1{width: 100%;min-height: 2190px; height:auto;overflow: hidden;position: relative;}
+.m1 img{width:1920px; position: absolute;left: 50%; margin-left: -960px;}*/
+.cy_img{width:100%; height:596px; background:url(../../img/main/cy_1.jpg) center 0 no-repeat; min-width:1200px; margin-top:40px;}
+.cy_imgcon{width:1200px; height:596px; margin:0 auto; position:relative;}
+.cy_d{width:310px; height:340px; text-align:center; margin:0px auto 0; padding-top:140px;}
+.cy_d p.cy_dp{width:180px; height:90px; background:url(../../img/main/cy_x.png) center bottom no-repeat; text-align:center; font-size:40px; color:#fff; margin:0 auto;}
+.cy_d p.cy_dpa{ color:#fff; font-size:18px; margin-top:36px;}
+.cy_btn{width:130px; height:33px; border:2px solid #fff; border-radius:20px; -moz-border-radius:20px; -webkit-border-radius:20px; margin:140px auto 0; line-height:33px;}
+.cy_btn a{ color:#fff; font-size:14px; display:block; font-weight:bold;}
+
+.cy_imga{width:100%; height:596px; background:url(../../img/main/cy_2.jpg) center 0 no-repeat; min-width:1200px; margin-top:40px;}
+.cy_imgb{width:100%; height:596px; background:url(../../img/main/cy_3.jpg) center 0 no-repeat; min-width:1200px; margin-top:40px;}
+.cy_imgc{width:100%; height:596px; background:url(../../img/main/cy_4.jpg) center 0 no-repeat; min-width:1200px; margin-top:40px;}
+.cy_imgd{width:100%; height:596px; background:url(../../img/main/cy_5.jpg) center 0 no-repeat; min-width:1200px; margin-top:40px;}
+.cy_imge{width:100%; height:596px; background:url(../../img/main/cy_6.jpg) center 0 no-repeat; min-width:1200px; margin-top:40px; margin-bottom:120px;}
+
+
+/*吃在瑶琳*/
+.eat_banner{width:100%; height:500px; background:url(../../img/main/chi_1.jpg) center 0 no-repeat; min-width:1200px; margin-top:80px;}
+.eat_ms{width:1200px; min-height:600px; height:auto; overflow:hidden; margin:0 auto;}
+.eat_ms p.ms_p{ line-height:80px; text-align:center; font-size:20px; color:#333; font-weight: bold; margin-top:30px;}
+.eat_ms p.ms_pa{ text-align:left; color:#333; line-height:25px;}
+.eat_ms img{ margin:55px auto;}
+.ms_list{width:1200px; min-height:500px; height:auto; overflow:hidden; margin:0 auto; }
+.ms_list p.list_p{ text-align:center; line-height:80px; font-size:20px; color:#333; font-weight:bold;}
+.ms_lista{width:1200px; min-height:500px; height:auto;overflow:hidden;  background:#f8f8f8; position: relative; margin-top:20px; padding-top:50px; border-bottom:80px;}
+.list_d{width:1081px; min-height:500px; height:auto; overflow:hidden; margin:0 auto; clear:both;}
+.list_dc{ top:-80px; position:absolute; left:60px; }
+.list_da{ margin-top:500px; }
+.list_d .list_dl{width:511px; height:500px; float:left;}
+p.p_d{ font-size:20px; line-height:60px; color:#333; font-weight:bold; margin-top:20px;}
+p.p_da{ font-size:16px; line-height:40px; color:#333; font-weight:bold;}
+p.p_db{ font-size:14px; line-height:20px; color:#333; }
+.list_d .list_dla{ float:right;}
+p.p_d a{ color:#333;}
+.fy{width:700px; height:40px; margin:20px auto 40px; clear:both; padding-left:300px;}
+.fy ul li{ background:#cccccc; line-height:40px; padding:0 15px; float:left; margin-right:1px;}
+.fy ul li a{ display:block; color:#fff;}
+.fy ul li.ul_la{ background:#05b1bb;}
+
+
+.eat_i{width:1200px; height:500px; margin:60px auto; position:relative;}
+.eat_dc{width:655px; height:400px; position:absolute; background:#f8f8f8; right:0; top:50px;}
+.eat_dc p.eat_dca{font-size:20px; color:#000; text-align:center; font-weight:bold; line-height:60px; margin-top:40px;}
+.eat_dc p.eat_dcb{font-size:16px; color:#000; text-align:center; line-height:40px; }
+.eat_dc p.eat_dcc{ line-height:25px; padding:10px 60px;}
+
+/*行在瑶琳*/
+.xing_banner{width:100%; height:500px; background:url(../../img/main/xing_1.jpg) center 0 no-repeat; min-width:1200px;}
+.xing_con{width:1200px; min-height:500px; height:auto; overflow:hidden; margin:0 auto; text-align:center; padding-top:50px;}
+.xing_con p{ line-height:30px; text-align:left; color:#333; margin-bottom:50px;}
+.xing_con img{ margin-bottom:20px;}
+
+.yu_banner{width:100%; height:500px; background:url(../../img/main/yu_banner.jpg) center 0 no-repeat; min-width:1200px;}
+.yu_con{width:1200px; min-height:500px; height:auto; overflow:hidden; margin:0 auto; padding-top:50px; padding-bottom:80px;}
+.yu_top{width:1200px; min-height:200px; height:auto; overflow:hidden; padding-bottom:50px; border-bottom:1px solid #e5e5e5;}
+.yut_p{width:1200px; height:400px; position:relative;}
+.yut_p img{ float:right;}
+.yut_pa{width:270px; height:320px; background:#f8f8f8; position:absolute; left:0;top:40px; text-align:center;}
+p.yu_p{ color:#000; font-size:18px; font-weight:bold;text-align:center; margin-top:30px; line-height:30px;}
+p.yu_pa{ line-height:45px; text-align:center;}
+.yu_left{width:600px; height:400px; float:left;}
+.yu_right{width:600px; height:400px; background:#f8f8f8; float:left; text-align:center;}
+.yu_right p.yr_p{ padding:120px 0 0 0; line-height:25px;}
+.yu_bot{width:1200px; min-height:500px; height:auto; overflow:hidden; padding-top:50px;}
+img.y_img{ float:left;}
+.yut_paa{width:270px; height:320px; background:#f8f8f8; position:absolute; top:40px; text-align:center; right:0;}
+p.yu_pab{ line-height:25px; padding:5px 20px; text-align:left;}
+p.yu_rp{ font-size:18px; color:#000; line-height:80px; font-weight:bold; margin-top:90px;}
+
+/*景区资讯*/
+.zx_banner{width:100%; height:500px; background:url(../../img/main/zx_banner.jpg) center 0 no-repeat; min-width:1200px;}
+.zx_con{width:1200px; min-height:500px; height:auto; overflow:hidden; margin:0 auto; padding-top:50px; padding-bottom:80px;}
+.ym_ul{width:600px; height:80px; clear:both; margin:0 auto; margin-top:50px;}
+.li_zr{ text-align:center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+/* CSS Document */
+body{ font-family:"微软雅黑"; font-size:14px;}
+*{padding:0px; margin:0px;}
+li{ list-style:none;}
+input, button, select, textarea { outline: none;}
+textarea {resize: none;}
+table { border-collapse: collapse;border-spacing: 0;}
+a{ text-decoration:none;}
+
+
+.index_top{ position:fixed; width:100%; height:80px; background:#fff; min-width:1200px; top:0; border-bottom:1px solid #e5e5e5; z-index:9;}
+.index_top .index_topa{width:100%; height:80px; background:#fff; position:relative;min-width:1200px;}
+.index_top .index_topa .index_topr{ position:absolute; right:0; top:0;}
+.index_top .index_topa img.logo_img{margin-left:17%;}
+.index_topl{width:210px; height:80px; line-height:80px; float:left;}
+.index_topl img{ float:left; margin-right:10px; margin-top:25px;}
+.index_topl p{ color:#666;}
+.index_topl p span{ font-size:20px; color:#05b1bb;}
+.index_topm{width:190px; height:80px; line-height:80px; float: left; text-align:center; color:#000;}
+.index_topmr{width:100px; height:80px; float:left; line-height:80px; font-size:16px;}
+.index_topmr img{ float:left; margin-top:28px; margin-right:6px;}
+.index_topmr a{ color:#000;}
+.index_topmr img.r_i{ margin-top:32px;}
+.index_topmr a.r_a{ color:#05b1bb;}
+.index_bg{width:100%; height:411px; background:url(../../img/main/d_bg.png) center 0 no-repeat; min-width:1200px; margin-top:-40px;}
+footer{width:100%; height:500px; min-width:1200px; background:#424242;}
+.foot{width:1200px; height:495px; margin:0 auto;background:#424242; text-align:center;}
+.foot img.f_i{ margin-top:30px;}
+.foot p.foot_p{ color:#fff; line-height:30px; text-align:left; margin-top:15px;}
+.foot_con{width:1200px; height:190px; margin-top:15px; border-bottom:1px solid #fff;}
+p.fo_p{ color:#fff; text-align:left; line-height:30px;}
+p.fo_p a{ color:#fffc00;}
+.fo_top{width:780px; float:left; margin-top:20px;}
+.fo_topr{width:308px; float:right;}
+.fo_topr ul li{width:135px; height:172px; float:left; line-height:30px; text-align:center; color:#fff; }
+.fo_b{width:1200px; height:84px;}
+.fo_b .fo_bleft{width:730px; height:84px; float:left;}
+.fo_b .fo_bleft ul li{ float:left; margin-top:10px; color:#d0d0d0;}
+.fo_b .fo_bleft ul li a{ color:#d0d0d0; padding:0 15px;}
+.fo_b .fo_bleft p{ clear:both; color:#999999; text-align:left; line-height:50px;}
+.fo_b .fo_bright{width:470px; float:right; text-align:right; color:#999999; line-height:40px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

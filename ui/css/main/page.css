@@ -1,0 +1,30 @@
+.page{ font-size:12px; font-family:"微软雅黑";
+    list-style: none;
+	clear:both;
+	margin:0 auto;
+}
+.page>li{
+    float: left;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.page .pageItem{
+    border: solid thin #05b1bb;
+    margin: 5px;
+}
+.page .pageItemActive{
+    border: solid thin #05b1bb;
+    margin: 5px;
+    background-color: #05b1bb;
+    color:white;
+}
+.page .pageItem:hover{
+    border: solid thin #05b1bb;
+    background-color: #05b1bb;
+    color:white;
+}
+.page .pageItemDisable{
+    border: solid thin #05b1bb;
+    margin: 5px;
+    background-color: #fff;
+}

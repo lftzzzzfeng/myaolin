@@ -1,0 +1,23 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# for main domain
+RewriteCond %{HTTP_HOST} ^(www\.)?clubjoin\.cn$ [NC]
+RewriteRule ^$ /index.php [L]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?clubjoin\.cn$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(index\.php|robots\.txt|favicon\.ico)
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+# for subdomain
+RewriteCond %{HTTP_HOST} ^m\.clubjoin\.cn$ [NC]
+RewriteRule ^$ /test/yaolin/index.php [L]
+
+RewriteCond %{HTTP_HOST} ^m\.clubjoin\.cn[NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(index\.php|robots\.txt|favicon\.ico)
+RewriteRule ^(?:test/yaolin/|)(.*)$ /test/yaolin/index.php?/$1 [L]
