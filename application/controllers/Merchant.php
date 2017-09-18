@@ -79,7 +79,15 @@ class Merchant extends MainController
 
     public function login()
     {
+        $result = ['code' => 0, 'message' => '', 'content' => []];
+
         $this->content['pageTitle'] = '商户登陆';
+        $result['content']['username'] = '';
+
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $result['content']['username'] = $this->input->post('username');
+            $result['content']['password'] = $this->input->post('password');
+        }
 
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method());
     }

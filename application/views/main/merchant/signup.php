@@ -142,7 +142,7 @@
         });
 
         $('#btnCancel').click(function() {
-
+            window.location = '<?php echo base_url() ?>merchant/login';
         });
     });
 </script>

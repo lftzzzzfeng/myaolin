@@ -11,7 +11,8 @@ class AccommodationCategoryImageModel extends CI_Model
 
     public function __construct()
     {
-        parent::__construct();
+
+            parent::__construct();
         $this->load->database();
     }
 
@@ -26,7 +27,6 @@ class AccommodationCategoryImageModel extends CI_Model
      */
     public function saveAccommodationCategoryImages($accommodationCategoryId, $text, $images)
     {
-        
         if (count($text) > 0) {
             $ids = [];
 
