@@ -26,6 +26,7 @@ class AccommodationCategoryImageModel extends CI_Model
      */
     public function saveAccommodationCategoryImages($accommodationCategoryId, $text, $images)
     {
+        
         if (count($text) > 0) {
             $ids = [];
 
