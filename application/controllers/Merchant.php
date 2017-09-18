@@ -87,6 +87,7 @@ class Merchant extends MainController
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $result['content']['username'] = $this->input->post('username');
             $result['content']['password'] = $this->input->post('password');
+
         }
 
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method());
