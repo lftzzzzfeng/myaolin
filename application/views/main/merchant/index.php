@@ -12,10 +12,18 @@
 <div class="sh_con">
     <ul>
         <li>
-            <a href="#">
+<?php if ($merchantType == MerchantModel::TYPE_INDIVIDUAL): ?>
+            <a href="<?php echo base_url() ?>merchant/individualDetail">
                 <img src="<?php echo base_url() ?>ui/img/mobile/sh_1.png" />
                 <p>商户资料</p>
             </a>
+<?php elseif ($merchantType == MerchantModel::TYPE_COMPANY): ?>
+            <a href="<?php echo base_url() ?>merchant/companyDetail">
+                <img src="<?php echo base_url() ?>ui/img/mobile/sh_1.png" />
+                <p>商户资料</p>
+            </a>
+<?php endif; ?>
+
         </li>
         <li>
             <a href="#">
