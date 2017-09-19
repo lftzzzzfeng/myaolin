@@ -6,6 +6,7 @@
  * Time: 10:18
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once dirname(__FILE__) . '/../util/QRCodeTool.php';
 
 class Merchant extends MainController
 {
@@ -67,6 +68,7 @@ class Merchant extends MainController
             $result['merchant']['contactNumber'] = '';
             $result['merchant']['bankCardNumber'] = '';
             $result['merchant']['image'] = '';
+            $result['merchant']['logo'] = '';
         }
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
@@ -75,10 +77,11 @@ class Merchant extends MainController
             $result['merchant']['contactNumber'] = $this->input->post('contactNumber');
             $result['merchant']['bankCardNumber'] = $this->input->post('bankCardNumber');
             $result['merchant']['image'] = !empty($_FILES['image']['name']) ? $_FILES['image']['name'] : '';
+            $result['merchant']['logo'] = !empty($_FILES['logo']['name']) ? $_FILES['logo']['name'] : '';
 
             $result['merchantDetail']['id'] = $this->merchantDetailModel->saveMerchantDetail($result['merchant']['id'],
                 MerchantModel::TYPE_INDIVIDUAL, MerchantDetailModel::TYPE_OTHERS, $result['merchant']['username'], $result['merchant']['bankCardNumber'],
-                $result['merchant']['contactNumber'], $result['merchant']['image'], null, $result['merchant']['ic']);
+                $result['merchant']['contactNumber'], $result['merchant']['image'], null, $result['merchant']['ic'], $result['merchant']['logo']);
 
             if (!empty($_FILES['image']['name'])) {
                 $info = pathinfo($_FILES['image']['name']);
@@ -88,6 +91,24 @@ class Merchant extends MainController
                 $target = $imagePublicPath . $newName;
                 move_uploaded_file($_FILES['image']['tmp_name'], $target);
             }
+
+            // base_url() . 'merchant/shop/' . $result['merchantDetail']['id']
+            if (!empty($_FILES['logo']['name'])) {
+                $info = pathinfo($_FILES['logo']['name']);
+                $ext = $info['extension'];
+                $logoPublicPath = dirname(__FILE__) . '/../../ui/img/merchant/logo/';
+                $logoName = $result['merchantDetail']['id'] . '.' . $ext;
+                $target = $logoPublicPath . $logoName;
+                move_uploaded_file($_FILES['logo']['tmp_name'], $target);
+                \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+            } else {
+                $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+                if (!$merchantDetail->logo) {
+                    $logoName = 'logo.png';
+                    \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+                }
+            }
+
 
             $this->session->set_flashdata('savedResult', -1);
         }
@@ -103,6 +124,12 @@ class Merchant extends MainController
             } else {
                 $result['merchant']['image'] = '';
             }
+            if ($merchantDetail->logo) {
+                $result['merchant']['logo'] = base_url() . 'ui/img/merchant/logo/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->logo)[1] . '?' . time();
+            } else {
+                $result['merchant']['logo'] = '';
+            }
+            $result['merchant']['qrcode'] = base_url() . 'ui/img/merchant/qrcode/' . $result['merchantDetail']['id'] . '.png?' . time();
         }
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $result);
@@ -133,6 +160,7 @@ class Merchant extends MainController
             $result['merchant']['contactNumber'] = '';
             $result['merchant']['bankCardNumber'] = '';
             $result['merchant']['image'] = '';
+            $result['merchant']['logo'] = '';
         }
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
@@ -141,10 +169,11 @@ class Merchant extends MainController
             $result['merchant']['contactNumber'] = $this->input->post('contactNumber');
             $result['merchant']['bankCardNumber'] = $this->input->post('bankCardNumber');
             $result['merchant']['image'] = !empty($_FILES['image']['name']) ? $_FILES['image']['name'] : '';
+            $result['merchant']['logo'] = !empty($_FILES['logo']['name']) ? $_FILES['logo']['name'] : '';
 
             $result['merchantDetail']['id'] = $this->merchantDetailModel->saveMerchantDetail($result['merchant']['id'],
                 MerchantModel::TYPE_COMPANY, MerchantDetailModel::TYPE_OTHERS, $result['merchant']['username'], $result['merchant']['bankCardNumber'],
-                $result['merchant']['contactNumber'], $result['merchant']['image'], $result['merchant']['companyContactName']);
+                $result['merchant']['contactNumber'], $result['merchant']['image'], $result['merchant']['companyContactName'], null, $result['merchant']['logo']);
 
             if (!empty($_FILES['image']['name'])) {
                 $info = pathinfo($_FILES['image']['name']);
@@ -153,6 +182,23 @@ class Merchant extends MainController
                 $newName = $result['merchantDetail']['id'] . '.' . $ext;
                 $target = $imagePublicPath . $newName;
                 move_uploaded_file($_FILES['image']['tmp_name'], $target);
+            }
+
+            // base_url() . 'merchant/shop/' . $result['merchantDetail']['id']
+            if (!empty($_FILES['logo']['name'])) {
+                $info = pathinfo($_FILES['logo']['name']);
+                $ext = $info['extension'];
+                $logoPublicPath = dirname(__FILE__) . '/../../ui/img/merchant/logo/';
+                $logoName = $result['merchantDetail']['id'] . '.' . $ext;
+                $target = $logoPublicPath . $logoName;
+                move_uploaded_file($_FILES['logo']['tmp_name'], $target);
+                \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+            } else {
+                $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+                if (!$merchantDetail->logo) {
+                    $logoName = 'logo.png';
+                    \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+                }
             }
 
             $this->session->set_flashdata('savedResult', -1);
@@ -169,6 +215,12 @@ class Merchant extends MainController
             } else {
                 $result['merchant']['image'] = '';
             }
+            if ($merchantDetail->logo) {
+                $result['merchant']['logo'] = base_url() . 'ui/img/merchant/logo/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->logo)[1] . '?' . time();
+            } else {
+                $result['merchant']['logo'] = '';
+            }
+            $result['merchant']['qrcode'] = base_url() . 'ui/img/merchant/qrcode/' . $result['merchantDetail']['id'] . '.png?' . time();
         }
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $result);

@@ -44,7 +44,8 @@ a{ text-decoration:none;}
 p.zl_p{width:95%; height: 40px; line-height: 40px; margin: 0 auto; padding: 0;}
 p.zl_p span{ color: #eb0000;}
 .zl_pc{width:95%; min-height: 80px; height: auto; overflow: hidden; margin: 0 auto; text-align: center; padding-bottom: 15px;}
-.zl_pc img{width: 30%; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}
+/*.zl_pc img{width: 30%; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}*/
+.zl_pc img{width: 30%;}
 .zl_pc p{ text-align: center; line-height: 35px; color: #d1b473; margin: 0; padding: 0;}
 .zl_name{width:95%; height: 50px; line-height: 50px; margin: 0 auto; border-bottom: 1px solid #e5e5e5;}
 .zl_name .zl_namel{width:40%; height: 50px; line-height: 50px; float: left;}

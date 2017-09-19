@@ -33,6 +33,32 @@
                             <p>点击头像进行上传</p>
                         </div>
                     </div>
+                    <div class="zl_sc">
+                        <p class="zl_p"><span>*</span>商标</p>
+                        <div class="zl_pc">
+                            <input type="file" name="logo" class="upload" data-preview-element-id="imgLogo" style="display: none" id="fileLogo" />
+                            <a href="javascript:void(0);">
+<?php if ($merchant['logo']): ?>
+                                <img src="<?php echo $merchant['logo'] ?>" id="imgLogo" />
+<?php else: ?>
+                                <img src="<?php echo base_url() ?>ui/img/mobile/tx.png" id="imgLogo" />
+<?php endif; ?>
+                            </a>
+                            <p>点击进行上传</p>
+                        </div>
+                    </div>
+                    <div class="zl_sc">
+                        <p class="zl_p">专属二维码</p>
+                        <div class="zl_pc qrCode">
+                            <a href="javascript:void(0);">
+<?php if ($merchantDetail['id']): ?>
+                                <img src="<?php echo $merchant['qrcode'] ?>" id="imgQrCode" />
+<?php else: ?>
+                                <img src="<?php echo base_url() ?>ui/img/mobile/tx.png" id="imgQrCode" />
+<?php endif; ?>
+                            </a>
+                        </div>
+                    </div>
                     <div class="zl_sca">
                         <div class="zl_name">
                             <div class="zl_namel"><p><span>*</span>姓名</p></div>
@@ -103,6 +129,10 @@
 
             $('#imgImage').click(function() {
                 $('#fileImage').click();
+            });
+
+            $('#imgLogo').click(function() {
+                $('#fileLogo').click();
             });
 
             $('#btnConfirm').click(function() {

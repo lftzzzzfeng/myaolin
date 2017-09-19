@@ -85,7 +85,7 @@ class MerchantModel extends CI_Model
     {
         $condition = '`status` = ' . \util\Constant::STATUS_ACTIVE;
         $condition .= ' AND `isDeleted` = ' . \util\Constant::IS_DELETED_NO;
-        $condition .= ' AND `username` LIKE "%' . $username . '%"';
+        $condition .= ' AND `username` = "' . $username . '"';
 
         if ($this->db->select('id')->where($condition)->get(self::TABLE_MERCHANT)->row()) {
             return true;
