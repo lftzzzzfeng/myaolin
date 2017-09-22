@@ -64,10 +64,21 @@ class MainController extends MY_Controller
 
     public function renderView($viewPath, $data = null)
     {
-        $this->content['pageTitle'] = @$this->content['pageTitle'].' - 瑶琳国家森林公园';
+        $this->content['pageTitle'] =  $this->content['pageTitle'] . ' - 瑶琳国家森林公园';
 
         $this->load->view($this->mainTemplateHeaderPath, $this->content);
         $this->load->view($viewPath, $data);
         $this->load->view($this->mainTemplateFooterPath);
+    }
+
+    public function checkMerchantLogin()
+    {
+        $this->load->model('merchantModel');
+        if (isset($_SESSION['merchant']) && (!empty($_SESSION['merchant']))
+            && $this->merchantModel->existUsername($_SESSION['merchant']['username'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
