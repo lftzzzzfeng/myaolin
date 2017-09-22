@@ -49,6 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+$route['merchants/shop/initJSAPI/'] = 'merchants/shop/initJSAPI';
+
+$route['merchants/shop/(:num)'] = 'merchants/shop/index/$1';
+$route['merchants/products/(:num)'] = 'merchants/shop/products/$1';
+
 $route['forum/showJotting/(:num)'] = 'forum/showJotting/$1';
 
 $route['aboutUs'] = 'welcome/aboutUs';

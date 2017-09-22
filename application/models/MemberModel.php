@@ -117,4 +117,27 @@ class MemberModel extends CI_Model
 
         return $this->db->select('id, sourceType, uid, username, email, mobile')->where($condition)->get(self::TABLE_MEMBER)->row_array();
     }
+
+    /**
+     * 判断用户是否存在
+     *
+     * @param $souceType
+     * @param $uid
+     *
+     * @return boolean
+     */
+    public function isExistMember($sourceType, $uid)
+    {
+        $condition = [
+            'sourceType' => $sourceType,
+            'uid' => $uid,
+            'status' => \util\Constant::STATUS_ACTIVE
+        ];
+
+        if ($this->db->select('id')->where($condition)->get(self::TABLE_MEMBER)->row()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

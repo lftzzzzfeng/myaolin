@@ -19,7 +19,8 @@ class WeChatJsApiPay extends MainController
 
     public function index()
     {
-        \util\WeChatJsApiPay::getJsApiParameters('o5p6C1a5mmG6VZRJIzA-dbuUfsME', '商品', 20170827140857, 1, base_url() . 'weChatJsApiPay/notify', 110011);
+//        o5p6C1a5mmG6VZRJIzA-dbuUfsME
+        \util\WeChatJsApiPay::getJsApiP-arameters('o5p6C1a5mmG6VZRJIzA-dbuUfsME', '哈哈哈', 20170830140665, 1, base_url() . 'weChatJsApiPay/notify', 660011);
 //        \util\WeChatNativePay::getCodeUrl('商品', 20170827140815, 1, base_url() . 'weChatNativePay/notify', 110011);
     }
 

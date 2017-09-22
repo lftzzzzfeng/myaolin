@@ -12,11 +12,11 @@ require_once 'RandomTool.php';
 class WeChatJsApiPay
 {
     const APP_ID = 'wx7c0adb91597ff4e8';
-    const APP_SECRET = '1a8361f95c1547d5adb211cdc9aa6f43';
+    const APP_SECRET = '1a8361f95c1547d5adb211cdc9aa6f43'; //1a8361f95c1547d5adb211cdc9aa6f43
     const MERCHANT_ID  = '1486544382';
-    const API_KEY = 'biEFhE1rdxZK1ZqivWb8go2J1D0CxDyH';
+    const API_KEY = 'e4f6328a76004ee7cd102436bb9dc05e'; //biEFhE1rdxZK1ZqivWb8go2J1D0CxDyH
 
-    const PUBLIC_REDIRECT_URI = 'http://m.clubjoin.cn/';
+    const PUBLIC_REDIRECT_URI = 'http://clubjoin.cn/';
     const TRADE_TYPE_JS_API = 'JSAPI';
     const URL_UNIFIED_ORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";
     const URL_ORDER_QUERY = "https://api.mch.weixin.qq.com/pay/orderquery";
@@ -35,7 +35,7 @@ class WeChatJsApiPay
 //        $data["attach"] = isset($params['attach']) ? $params['attach'] : null;//optional
         $data["body"] = $params['body'];
 //        $data["detail"] = isset($params['detail']) ? $params['detail'] : null;//optional
-        $data["device_info"] = 'WeChat';
+        $data["device_info"] = 'WEB';
         $data["fee_type"] = 'CNY';
 //        $data["goods_tag"] = isset($params['goods_tag']) ? $params['goods_tag'] : null;
         $data["mch_id"] = self::MERCHANT_ID;
@@ -80,13 +80,23 @@ class WeChatJsApiPay
         $result = self::unifiedOrder($data);
 
         if ($result["return_code"] == "SUCCESS" && $result["result_code"] == "SUCCESS") {
-            var_dump($result);
-            exit;
+//            $data = [];
+            $_data['appId'] = $result['appid'];
+            $_data['timeStamp'] = "" . time();
+            $_data['nonceStr'] = RandomTool::generateString(32);
+            $_data['package'] = 'prepay_id=' . $result['prepay_id'];
+            $_data['signType'] = 'MD5';
+            $_data['paySign'] = self::sign($_data);
+//            $data['device_info'] = $result['device_info'];
+
+//            $data['sign'] = $result['sign'];
+//            $data['result_code'] = $result['result_code'];
+//            $data['prepay_id'] = $result['prepay_id'];
+//            $data['trade_type'] = $result['trade_type'];
+            return $_data;
         } else {
-            var_dump($result);
-            exit;
             $error = $result["return_code"] == "SUCCESS" ? $result["err_code_des"] : $result["return_msg"];
-            return null;
+            return $error;
         }
     }
 

@@ -55,7 +55,23 @@ class MerchantModel extends CI_Model
      */
     public function login($username, $password)
     {
+        $condition = [
+            'username' => $username,
+            'password' => md5($password)
+        ];
 
+        $merchant = $this->db->select('id, username, type')->where($condition)->get(self::TABLE_MERCHANT)->result_array();
+
+        if ($merchant) {
+            $_SESSION['merchant'] = [
+                'id' => $merchant[0]['id'],
+                'username' => $merchant[0]['username'],
+                'type' => $merchant[0]['type']
+            ];
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -69,7 +85,7 @@ class MerchantModel extends CI_Model
     {
         $condition = '`status` = ' . \util\Constant::STATUS_ACTIVE;
         $condition .= ' AND `isDeleted` = ' . \util\Constant::IS_DELETED_NO;
-        $condition .= ' AND `username` LIKE "%' . $username . '%"';
+        $condition .= ' AND `username` = "' . $username . '"';
 
         if ($this->db->select('id')->where($condition)->get(self::TABLE_MERCHANT)->row()) {
             return true;

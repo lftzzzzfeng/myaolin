@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/myaolin/';
-//$config['base_url'] = 'http://clubjoin.cn/';
+//$config['base_url'] = 'http://m.clubjoin.cn/';
 
 /*
 |--------------------------------------------------------------------------

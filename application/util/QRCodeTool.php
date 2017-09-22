@@ -21,8 +21,11 @@ class QRCodeTool
     {
         require_once(dirname(__FILE__) .  "/../libraries/qrcode/qrlib.php");
 
-        $distributorQRCodePublicPath = dirname(__FILE__) . '/../../ui/img/distributorqrcode/';
-        $distributorLogoPublicPath = dirname(__FILE__) . '/../../ui/img/distributorlogo/';
+//        $distributorQRCodePublicPath = dirname(__FILE__) . '/../../ui/img/distributorqrcode/';
+//        $distributorLogoPublicPath = dirname(__FILE__) . '/../../ui/img/distributorlogo/';
+
+        $distributorQRCodePublicPath = dirname(__FILE__) . '/../../ui/img/merchant/qrcode/';
+        $distributorLogoPublicPath = dirname(__FILE__) . '/../../ui/img/merchant/logo/';
 
         // Path where the images will be saved
 //        $filepath = dirname(__FILE__) . '/../../ui/img/qrcode/abc.png';
@@ -31,6 +34,7 @@ class QRCodeTool
         // Image (logo) to be drawn
 //        $logopath = dirname(__FILE__) . '/../../ui/img/tiger.jpg';
         $logoPath = $distributorLogoPublicPath . $logoName;
+
         // qr code content
 //        $codeContents = 'http://www.qq.com';
         // Create the file in the providen path

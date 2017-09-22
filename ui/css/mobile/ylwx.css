@@ -34,7 +34,7 @@ a{ text-decoration:none;}
 /*完善资料*/
 .gr_con{width:100%; min-height: 200px; height: auto; overflow: hidden;}
 .gr_con ul{width:100%;height:40px; background:#fff; margin:0px auto 0; padding-top: 30px; border-bottom: 1px solid #e5e5e5;}
-.gr_con ul li{float:left;font-size:1.1rem;height:39px;line-height:40px;width:50%;text-align:center;cursor:pointer;background:#fff; color: #999;}
+.gr_con ul li{float:left;font-size:1.1rem;height:39px;line-height:40px;width:100%;text-align:center;cursor:pointer;background:#fff; color: #999;}
 .gr_con .hit{	border-bottom:1px solid #d1b473;cursor:pointer;color:#d1b473;}
 .pane{border-top:0;min-height:100px;display:none;}
 .pane p{padding:15px 15px 0 10px;}
@@ -44,7 +44,8 @@ a{ text-decoration:none;}
 p.zl_p{width:95%; height: 40px; line-height: 40px; margin: 0 auto; padding: 0;}
 p.zl_p span{ color: #eb0000;}
 .zl_pc{width:95%; min-height: 80px; height: auto; overflow: hidden; margin: 0 auto; text-align: center; padding-bottom: 15px;}
-.zl_pc img{width: 30%; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}
+/*.zl_pc img{width: 30%; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}*/
+.zl_pc img{width: 30%;}
 .zl_pc p{ text-align: center; line-height: 35px; color: #d1b473; margin: 0; padding: 0;}
 .zl_name{width:95%; height: 50px; line-height: 50px; margin: 0 auto; border-bottom: 1px solid #e5e5e5;}
 .zl_name .zl_namel{width:40%; height: 50px; line-height: 50px; float: left;}
