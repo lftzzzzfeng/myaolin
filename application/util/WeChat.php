@@ -19,15 +19,16 @@ class WeChat
     /**
      * 请求用户授权Token
      *
+     * @param int $merchantId
      * @param string $state 返回参数
      *
      * @return string
      */
-    public static function authorize($state = null)
+    public static function authorize($merchantId, $state = null)
     {
         $url = 'https://open.weixin.qq.com/connect/oauth2/authorize';
         $url .= '?appid=' . self::APP_ID;
-        $url .= '&redirect_uri=' . self::PUBLIC_REDIRECT_URI . 'test/yaolin/weChat/login';
+        $url .= '&redirect_uri=' . self::PUBLIC_REDIRECT_URI . 'merchants/shop/products/' . $merchantId;
         $url .= '&response_type=code';
         $url .= '&scope=snsapi_userinfo';
         if ($state) {

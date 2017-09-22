@@ -61,6 +61,18 @@
                     </div>
                     <div class="zl_sca">
                         <div class="zl_name">
+                            <div class="zl_namel"><p><span>*</span>类别</p></div>
+                            <div class="zl_namer">
+                                <select name="type" id="ddlType" style="width: 100%; height: 30px">
+                                    <option value="">请选择</option>
+                                    <option value="1" <?php echo ($merchant['type'] == 1 ? "selected" : "") ?>>饭店</option>
+                                    <option value="2" <?php echo ($merchant['type'] == 2 ? "selected" : "") ?>>旅行社</option>
+                                    <option value="3" <?php echo ($merchant['type'] == 3 ? "selected" : "") ?>>互联网</option>
+                                    <option value="4" <?php echo ($merchant['type'] == 4 ? "selected" : "") ?>>其它</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="zl_name">
                             <div class="zl_namel"><p><span>*</span>姓名</p></div>
                             <div class="zl_namer">
                                 <input type="text" name="username" id="txtUsername" placeholder="姓名" value="<?php echo $merchant['name'] ?>" />
@@ -136,6 +148,7 @@
             });
 
             $('#btnConfirm').click(function() {
+                var type = $('#ddlType').val();
                 var username = $('#txtUsername').val();
                 var ic = $('#txtIC').val();
                 var contactNumber = $('#txtContactNumber').val();
@@ -145,7 +158,12 @@
 
                 var isPassed = true;
 
-                if (!username) {
+                if (!type) {
+                    isPassed = false;
+                    message = '类别不能为空';
+                }
+
+                if (isPassed && !username) {
                     isPassed = false;
                     message = '姓名不能为空';
                 }

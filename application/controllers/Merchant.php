@@ -63,6 +63,7 @@ class Merchant extends MainController
         if ($merchantDetail) {
             $result['merchantDetail']['id'] = $merchantDetail->merchantId;
         } else {
+            $result['merchant']['type'] = '';
             $result['merchant']['name'] = '';
             $result['merchant']['ic'] = '';
             $result['merchant']['contactNumber'] = '';
@@ -72,6 +73,7 @@ class Merchant extends MainController
         }
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $result['merchant']['type'] = $this->input->post('type');
             $result['merchant']['username'] = $this->input->post('username');
             $result['merchant']['ic'] = $this->input->post('ic');
             $result['merchant']['contactNumber'] = $this->input->post('contactNumber');
@@ -80,7 +82,7 @@ class Merchant extends MainController
             $result['merchant']['logo'] = !empty($_FILES['logo']['name']) ? $_FILES['logo']['name'] : '';
 
             $result['merchantDetail']['id'] = $this->merchantDetailModel->saveMerchantDetail($result['merchant']['id'],
-                MerchantModel::TYPE_INDIVIDUAL, MerchantDetailModel::TYPE_OTHERS, $result['merchant']['username'], $result['merchant']['bankCardNumber'],
+                MerchantModel::TYPE_INDIVIDUAL, $result['merchant']['type'], $result['merchant']['username'], $result['merchant']['bankCardNumber'],
                 $result['merchant']['contactNumber'], $result['merchant']['image'], null, $result['merchant']['ic'], $result['merchant']['logo']);
 
             if (!empty($_FILES['image']['name'])) {
@@ -100,12 +102,12 @@ class Merchant extends MainController
                 $logoName = $result['merchantDetail']['id'] . '.' . $ext;
                 $target = $logoPublicPath . $logoName;
                 move_uploaded_file($_FILES['logo']['tmp_name'], $target);
-                \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+                \util\QRCodeTool::generateQRCode(base_url() . 'merchants/shop/' . $result['merchant']['id'], $result['merchantDetail']['id'] . '.png', $logoName);
             } else {
                 $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
                 if (!$merchantDetail->logo) {
                     $logoName = 'logo.png';
-                    \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+                    \util\QRCodeTool::generateQRCode(base_url() . 'merchants/shop/' . $result['merchant']['id'], $result['merchantDetail']['id'] . '.png', $logoName);
                 }
             }
 
@@ -115,6 +117,7 @@ class Merchant extends MainController
 
         if ($result['merchantDetail']['id']) {
             $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+            $result['merchant']['type'] = $merchantDetail->type;
             $result['merchant']['name'] = $merchantDetail->name;
             $result['merchant']['ic'] = $merchantDetail->ic;
             $result['merchant']['contactNumber'] = $merchantDetail->contactNumber;
@@ -155,6 +158,7 @@ class Merchant extends MainController
         if ($merchantDetail) {
             $result['merchantDetail']['id'] = $merchantDetail->merchantId;
         } else {
+            $result['merchant']['type'] = '';
             $result['merchant']['name'] = '';
             $result['merchant']['companyContactName'] = '';
             $result['merchant']['contactNumber'] = '';
@@ -164,6 +168,7 @@ class Merchant extends MainController
         }
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $result['merchant']['type'] = $this->input->post('type');
             $result['merchant']['username'] = $this->input->post('username');
             $result['merchant']['companyContactName'] = $this->input->post('companyContactName');
             $result['merchant']['contactNumber'] = $this->input->post('contactNumber');
@@ -172,7 +177,7 @@ class Merchant extends MainController
             $result['merchant']['logo'] = !empty($_FILES['logo']['name']) ? $_FILES['logo']['name'] : '';
 
             $result['merchantDetail']['id'] = $this->merchantDetailModel->saveMerchantDetail($result['merchant']['id'],
-                MerchantModel::TYPE_COMPANY, MerchantDetailModel::TYPE_OTHERS, $result['merchant']['username'], $result['merchant']['bankCardNumber'],
+                MerchantModel::TYPE_COMPANY, $result['merchant']['type'], $result['merchant']['username'], $result['merchant']['bankCardNumber'],
                 $result['merchant']['contactNumber'], $result['merchant']['image'], $result['merchant']['companyContactName'], null, $result['merchant']['logo']);
 
             if (!empty($_FILES['image']['name'])) {
@@ -192,12 +197,12 @@ class Merchant extends MainController
                 $logoName = $result['merchantDetail']['id'] . '.' . $ext;
                 $target = $logoPublicPath . $logoName;
                 move_uploaded_file($_FILES['logo']['tmp_name'], $target);
-                \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+                \util\QRCodeTool::generateQRCode(base_url() . 'merchants/shop/' . $result['merchant']['id'], $result['merchantDetail']['id'] . '.png', $logoName);
             } else {
                 $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
                 if (!$merchantDetail->logo) {
                     $logoName = 'logo.png';
-                    \util\QRCodeTool::generateQRCode('http://www.baidu.com', $result['merchantDetail']['id'] . '.png', $logoName);
+                    \util\QRCodeTool::generateQRCode(base_url() . 'merchants/shop/' . $result['merchant']['id'], $result['merchantDetail']['id'] . '.png', $logoName);
                 }
             }
 
@@ -206,6 +211,7 @@ class Merchant extends MainController
 
         if ($result['merchantDetail']['id']) {
             $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+            $result['merchant']['type'] = $merchantDetail->type;
             $result['merchant']['name'] = $merchantDetail->name;
             $result['merchant']['companyContactName'] = $merchantDetail->companyContactName;
             $result['merchant']['contactNumber'] = $merchantDetail->contactNumber;

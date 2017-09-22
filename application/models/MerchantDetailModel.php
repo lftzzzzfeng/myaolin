@@ -92,6 +92,6 @@ class MerchantDetailModel extends CI_Model
         $condition .= ' AND `isDeleted` = ' . \util\Constant::IS_DELETED_NO;
         $condition .= ' AND `merchantId` = ' . intval($merchantId);
 
-        return $this->db->select('merchantId, name, companyContactName, ic, contactNumber, bankCardNumber, image, logo')->where($condition)->get(self::TABLE_MERCHANT_DETAIL)->row();
+        return $this->db->select('merchantId, type, name, companyContactName, ic, contactNumber, bankCardNumber, image, logo')->where($condition)->get(self::TABLE_MERCHANT_DETAIL)->row();
     }
 }

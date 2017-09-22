@@ -13,7 +13,6 @@ class Accommodation extends MainController
 
     public function __construct()
     {
-
         parent::__construct();
         $this->load->model('accommodationCategoryModel');
         $this->load->model('accommodationCategoryImageModel');
