@@ -65,4 +65,27 @@ class ScenicAreaImageModel extends CI_Model
 
         return $images;
     }
+    
+     /**
+     * 移动端
+     * 获取景区介绍照片通过景区id
+     *
+     * @param int $scenicAreaId
+     *
+     * @return array
+     */
+    public function getScenicAreaImagesM($scenicAreaId)
+    {
+        $condition = [];
+        $condition['scenicAreaId'] = $scenicAreaId;
+        $images['area'] = $this->db->where($condition)->get(self::TABLE_SCENIC_AREA_IMAGE)->result_array();
+        foreach ($images['area'] as $k => &$item) {
+            $item['image'] = base_url() . 'ui/img/scenicArea/images/'.$scenicAreaId.'_'.$item['id']
+                . '.' . explode('.', $item['image'])[1] .'?' . time();
+        }
+        $area = $this->db->where("id=$scenicAreaId")->get('scenicarea')->row_array();
+        $images['name'] = $area['title'];
+        $images['coverimage'] = base_url() . 'ui/img/scenicarea/coverimage/' . $area['id'] . '.' . explode('.', $area['coverImage'])[1] .'?' . time();
+        return $images;
+    }
 }

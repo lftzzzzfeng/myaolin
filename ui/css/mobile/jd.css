@@ -1,0 +1,401 @@
+body{
+    background-color: #f0f0f0;
+}
+.color_blue{
+    color:#05b1bb !important;
+}
+.color_000{
+    color:#000 !important;
+}
+.color_333{
+    color:#333 !important;
+}
+.color_666{
+    color:#666 !important;
+}
+.color_blue{
+    color:#006174 !important;
+}
+.padding-1{
+    padding:1px;
+}
+.margin-bottom-5{
+    margin-bottom:5px !important;
+}
+.margin-bottom-15{
+    margin-bottom:15px !important;
+}
+.margin-0-auto{
+    margin:0 auto;
+}
+
+.text-999{
+    color: #999;
+}
+.bg_05b1ba{
+    background-color: #000000 !important;
+}
+.bg_05b1bb{
+    background-color: #05b1bb !important;
+}
+a{
+    text-decoration: none !important;
+}
+.active_share{
+    color:#006174 !important;
+}
+
+
+#header img{
+    width: 60%;
+    /*height: 80%*/
+}
+.logo_img img{
+    width: 80% !important;
+}
+
+.banner_txt {
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    border: 3px solid #05b1bb;
+}
+.banner_txta {
+    height: 50%;
+    position: absolute;
+    top: 15%;
+    border: 3px solid #05b1bb;
+}
+.team_name .flex_box span{
+    width: 40%;
+    display: inline-block;
+    border-top: 1px solid #05b1bb;
+}
+
+.flex_box{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_box_num{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap:wrap;
+}
+.flex_box_between{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+.yuan_blue{
+    width: 10px !important;
+    height: 10px !important;
+    margin:0 10px;
+    border: 1px solid #05b1bb;
+    border-radius: 50%;
+}
+.img_box{
+    height: 240px;
+}
+.img_box figure{
+    display: block;
+    padding: 0;
+}
+.img_box img{
+    width: 100%;
+    height: 100%;
+}
+
+.img-1{
+    height:100%;
+}
+.img-2,.img-3{
+    height:40%;
+}
+.img-4{
+    height:60%;
+}
+
+.look_more button{
+    width: 35%;
+    height: 35px;
+    line-height: 35px;
+    color:#fff;
+    background-color: #05b1bb;
+}
+
+
+/*ͼƬ�Ŵ��л����*/
+.pnav {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 16px
+}
+
+.pnav a {
+    padding: 4px
+}
+
+.pnav a.cur {
+    background: #007bc4;
+    color: #fff;
+}
+
+.demo {
+    width: 80%;
+    margin: 10px auto
+}
+
+/*��Ҫ��ʽ*/
+#photos {
+    width: 150px;
+    border: 1px solid #d3d3d3;
+    margin: 20px auto;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+    position: relative
+}
+
+#photos p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 4px;
+    background: #000;
+    color: #fff
+}
+
+.my-gallery {
+    width: 100%;
+    float: left;
+}
+
+.my-gallery img {
+    width: 100%;
+    height: auto;
+}
+
+.my-gallery figure {
+    display: block;
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 150px;
+}
+
+.my-gallery figcaption {
+    display: none;
+}
+
+.footer_info{
+    background-color: #424242;
+}
+.footer_box p{
+    margin:0 !important;
+}
+.btn.focus, .btn:focus, .btn:hover {
+     color: #fff;
+    text-decoration: none;
+}
+.nav_top{width:100%; min-height: 70px; background: #fff; text-align: center; position: relative; padding-bottom: 5px;}
+.nav_top img.mav_a{width:100px; margin-top: 4px;}
+.nav_top img.mav_b{width:25px; margin-top: 4px;}
+.nav_top .nav_topleft{width:30%; position: absolute; left: 10px; top:20px; text-align: left;}
+.nav_top .nav_topright{width:30%; position: absolute; right: 10px; top:20px; text-align: right;}
+footer{width:100%; min-height: 200px; height: auto;overflow: hidden; background: #424242; margin: 0 auto 50px; padding: 20px 0;  margin-top: -5px; text-align: center;}
+footer img.foot_logo{width:20%; margin: 10px auto;}
+.foot_con{width:95%; min-height: 100px; height: auto ; overflow: hidden; margin: 0 auto;}
+.foot_con .foot_conl{width:65%; float: left;}
+.foot_con .foot_conl p{ color: #fff; font-size: 1.3rem; text-align: left; margin: 0; line-height: 20px;}
+.foot_con .foot_conl p a{ color: #fff;}
+.foot_con .foot_conr{width:35%; float: left;}
+.foot_con .foot_conr img{width: 100%;}
+.foot_p{ text-align: center; line-height: 20px; font-size: 1.3rem; margin: 20px auto; color: #999;}
+.foot_nav{width:100%; height: 50px; line-height: 50px; position: fixed; bottom: 0;}
+.foot_navl{width:50%; height: 50px; line-height: 50px; background: #0d0d0d; float: left;}
+.foot_navr{ background: #0d5b6a;}
+.foot_navl img{width:25px; float: left; margin: 12px 10px 0 22%;}
+.foot_navl a{ color: #fff; display: block; font-size: 1.8rem;}
+.index_ftop{width:35px; height: 35px; position: fixed; right: 10px; bottom: 100px;}
+.index_ftop img{width:100%;}
+
+
+/*写游记赢奖励*/
+.write_something{
+    height: 50px !important;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color:#333 !important;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+.write_something .write_img{
+    width: 7%;
+}
+.write_something .gift_img{
+    width: 10%;
+}
+
+/*消息动态*/
+.news {
+    /*position: relative;*/
+    background-color: #fff;
+}
+.news .header_img img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    padding:0 !important;
+}
+.my-simple-gallery figure{
+    padding:0 !important;
+}
+
+.share_look_box{
+    position: relative;
+
+    width: 100%;
+    border-top:1px solid #eee;
+}
+.share_look_box a{
+    color:#666;
+    height: 50px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.share_look_box div a img{
+
+}
+.share_look_box .share a{
+    color:#666;
+}
+
+.share_hid_box{
+    position: absolute;
+    right: -15px;
+    bottom: -51px;
+    z-index: 100;
+    height: 50px;
+    border:1px solid #eee;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.share_hid_box div a{
+    height: 100%;
+    padding:0 5px;
+    text-align: center;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+.more{
+    color: #50a1ff;
+}
+
+@media only screen and (min-width: 768px ){
+    .team_name p{
+        font-size: 18px !important;
+    }
+    .nature_box{
+        font-size: 18px !important;
+    }
+    .banner_txt p{
+        margin:20px 0 !important;
+    }
+    .banner_txt .p1 , .banner_txt .p3 {
+        font-size: 16px !important;
+    }
+    .ipad_size{
+        font-size: 24px !important;
+    }
+    .img_box{
+        height: 450px;
+    }
+    .look_more button{
+       height: 45px;
+    }
+    .look_more button img{
+        width: 8% !important;
+    }
+    .footer_info p{
+        line-height: 30px !important;
+        font-size: 16px !important;
+    }
+    .footer_logo img{
+        width: 20% !important;
+    }
+    .er_wei_ma img{
+        width: 40% !important;
+    }
+    .btn_bottom_box button{
+        height: 60px !important;
+        line-height: 60px !important;
+        font-size: 20px !important;
+    }
+    .btn_bottom_box button img{
+        width: 5% !important;
+    }
+}
+@media only screen and (max-width: 414px ) and (min-width: 400px){
+    .banner_txt .p1{
+        margin-top: 8px;
+    }
+}
+@media only screen and (max-width: 375px ){
+    .img_box{
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 360px ) {
+    .banner_txt {
+        height: 65%;
+        position: absolute;
+        top: 17.5%;
+        border: 3px solid #05b1bb;
+    }
+    .banner_txta {
+        height: 65%;
+        position: absolute;
+        top: 17.5%;
+        border: 3px solid #05b1bb;
+    }
+}
+@media only screen and (max-width: 320px ) {
+    .img_box{
+        height: 180px;
+    }
+    .banner_txt {
+        height: 70%;
+        position: absolute;
+        top: 15%;
+        border: 3px solid #05b1bb;
+    }
+    .banner_txta {
+        height: 60%;
+        position: absolute;
+        top: 7%;
+        border: 3px solid #05b1bb;
+    }
+    .team_name p{
+        font-size: 12px !important;
+    }
+}

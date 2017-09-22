@@ -64,7 +64,7 @@ class MainController extends MY_Controller
 
     public function renderView($viewPath, $data = null)
     {
-        $this->content['pageTitle'] =  $this->content['pageTitle'] . ' - 瑶琳国家森林公园';
+        $this->content['pageTitle'] = @$this->content['pageTitle'].' - 瑶琳国家森林公园';
 
         $this->load->view($this->mainTemplateHeaderPath, $this->content);
         $this->load->view($viewPath, $data);

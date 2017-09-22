@@ -4,6 +4,7 @@
  * User: LiuFeng
  * Date: 2017/8/31
  * Time: 9:17
+ * 景区相册
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -22,19 +23,33 @@ class ScenicArea extends MainController
     public function index()
     {
         $this->content['pageTitle'] = '景区相册';
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content = $this->scenicAreaModel->getScenicAreasM('','',8);
+//        var_dump($content);
+//        die;
+        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
-
-    public function loadScenicAreas()
+    
+    //景区相册加载更多
+    public function ajaxScenic()
     {
-        $result = [];
-
-        $currentPageNumber = $this->input->post('currentPageNumber');
-        $scenicAreas = $this->scenicAreaModel->getScenicAreas($currentPageNumber, null, 1);
-        foreach ($scenicAreas['scenicAreas'] as $scenicArea) {
-            $result[] = $this->scenicAreaModel->getDetailScenicAreaById($scenicArea['id']);
-        }
-        echo json_encode($result);
+        $p = $this->input->get('p');
+        $scenicviews = $this->scenicAreaModel->getScenicAreasM($p,'',4);
+        $html = '';
+        foreach ($scenicviews['scenicAreas'] as $k => $v){
+            $html .= '<li class="li_i"><a href="#"><img src="'.$v['coverImage'].'" style="height:200px;" /></a><div class="li_bt"><p><a href="#">'.$v['title'].'<br /><span>'.$v['description'].'</span><br />('.$v['num'].'张)</a></p></div></li>';
+         } 
+         echo $html;
+    }
+    
+    //景区相册列表
+    public function areaList()
+    {
+        $id = $this->input->get('id');
+        $content = $this->scenicAreaImageModel->getScenicAreaImagesM($id);
+        $content['pageTitle'] = '景区相册 - 瑶琳国家森林公园';
+//        var_dump($content);
+//        die;
+        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
+        $this->load->view('main/template/footer');
     }
 }

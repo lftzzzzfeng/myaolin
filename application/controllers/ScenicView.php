@@ -4,6 +4,7 @@
  * User: LiuFeng
  * Date: 2017/8/30
  * Time: 15:03
+ * 景点介绍
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -22,8 +23,10 @@ class ScenicView extends MainController
     public function index()
     {
         $this->content['pageTitle'] = '景点介绍';
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content = $this->scenicViewModel->getScenicViewsM('','',4);
+//        var_dump($content);
+//        die;
+        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
 
     public function loadScenicViews()
@@ -31,10 +34,32 @@ class ScenicView extends MainController
         $result = [];
 
         $currentPageNumber = $this->input->post('currentPageNumber');
-        $scenicViews = $this->scenicViewModel->getScenicViews($currentPageNumber, null, 1);
+        $scenicViews = $this->scenicViewModel->getScenicViewsM($currentPageNumber, null, 1);
         foreach ($scenicViews['scenicViews'] as $scenicView) {
             $result[] = $this->scenicViewModel->getDetailScenicViewById($scenicView['id']);
         }
         echo json_encode($result);
+    }
+    
+     //景点介绍加载更多
+    public function ajaxScenic()
+    {
+        $p = $this->input->get('p');
+        $scenicviews = $this->scenicViewModel->getScenicViewsM($p,'',2);
+        $html = '';
+        foreach ($scenicviews['scenicViews'] as $k => $v){
+            $html .= '<div class="nature_box bg-white margin-top-20 padding-15 clearfix"><h4>'.$v['title'].'</h4><p class="margin-bottom-15" style="color: #333;">'.$v['description'].'</p><div class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery"><figure class="img-1  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg " itemprop="contentUrl" data-size="1024x1024"><img src="'.$v['coverImage'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+            foreach ($v['img'] as $k1 => $v1){ 
+                if($k1 == 0){
+                    $html .= '<figure class="img-2  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="964x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+                }else if($k1 == 1){ 
+                    $html .= '<figure class="img-3  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x683"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+                }else{
+                    $html .= '<figure class="img-4  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x768"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+                } 
+            }
+            $html .= '</div></div>';
+         } 
+         echo $html;
     }
 }

@@ -158,4 +158,82 @@ class NewsModel extends CI_Model
 
         return $result;
     }
+    
+     /**
+     * 移动端
+     * 获取最近的瑶琳资讯
+     *
+     * @param int $number
+     *
+     * @return array
+     */
+    public function getLatestNewsM($number)
+    {
+        $items = $this->db->where('isRecommended=1')->order_by('id DESC')->get(self::TABLE_NEWS)->result_array();
+        foreach ($items as &$item) {
+            $item['publishedTimestamp'] = date('Y-m-d', $item['publishedTimestamp']);
+            $item['coverImage'] = base_url() . 'ui/img/news/' . $item['id']
+                . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
+        }
+        
+        return $items;
+    }
+    
+    /**
+     * 移动端
+     * 获取瑶琳资讯列表
+     *
+     * @param int $currentPageNumber
+     * @param string $keyword
+     * @param int $pageNumber
+     *
+     * @return array
+     */
+    public function getNewsM($currentPageNumber = 0, $keyword = null, $pageNumber = 10)
+    {
+        $result['totalPageNumber'] = 0;
+        if ($currentPageNumber > 1) {
+            $start = $currentPageNumber * $pageNumber;
+        } else {
+            $start = 0;
+        }
+
+        $condition = '`isDeleted` = ' . \util\Constant::IS_DELETED_NO;
+        $condition .= ' AND `status` = ' . \util\Constant::STATUS_ACTIVE;
+        if ($keyword) {
+            $keyword = urldecode($keyword);
+            $condition .= ' AND (`title` LIKE "%' . $keyword . '%")';
+        }
+
+        $result['count'] = count($this->db->where($condition)->get(self::TABLE_NEWS)->result_array());
+        $result['news'] = $this->db->where($condition)->order_by('orderNumber DESC')
+            ->limit($pageNumber, $start)->get(self::TABLE_NEWS)->result_array();
+        foreach ($result['news'] as $k => &$item) {
+            $item['coverImage'] = base_url() . 'ui/img/news/' . $item['id']
+                . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
+        }
+        if ($result['count'] > 0) {
+            if ($result['count'] % $pageNumber == 0) {
+                $result['totalPageNumber'] = $result['count'] / $pageNumber;
+            } else {
+                $result['totalPageNumber'] = intval($result['count'] / $pageNumber) + 1;
+            }
+        }
+        return $result;
+    }
+    
+     /**
+     * 移动端
+     * 获取瑶琳资讯上一篇下一篇咨询通过id
+     *
+     * @param int $id
+     *
+     * @return array
+     */
+    public function getNewsUpM($num)
+    {
+        $result['upper'] = $this->db->where("orderNumber>$num")->order_by('orderNumber ASC')->get(self::TABLE_NEWS)->row_array();
+        $result['lower'] = $this->db->where("orderNumber<$num")->order_by('orderNumber DESC')->get(self::TABLE_NEWS)->row_array();
+        return $result;
+    }
 }

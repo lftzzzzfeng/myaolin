@@ -20,6 +20,8 @@ class Routes extends MainController
 
     public function index()
     {
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content['pageTitle'] = '行在瑶琳 - 瑶琳国家森林公园';
+        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
+        $this->load->view('main/template/footer');
     }
 }

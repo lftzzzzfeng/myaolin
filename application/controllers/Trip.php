@@ -4,6 +4,7 @@
  * User: LiuFeng
  * Date: 2017/8/30
  * Time: 9:01
+ * 畅游瑶琳
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -21,21 +22,13 @@ class Trip extends MainController
     public function index()
     {
         $this->content['pageTitle'] = '畅游瑶琳';
-
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
     }
 
     public function travel()
     {
-        $this->content['pageTitle'] = '游在瑶琳';
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
-    }
-
-    public function routes()
-    {
-        $this->content['pageTitle'] = '行在瑶琳';
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content['pageTitle'] = '游在瑶琳 - 瑶琳国家森林公园';
+        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
+        $this->load->view('main/template/footer');
     }
 }

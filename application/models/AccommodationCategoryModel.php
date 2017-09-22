@@ -10,7 +10,8 @@ require_once dirname(__FILE__) . '/../util/Constant.php';
 class AccommodationCategoryModel extends CI_Model
 {
     const TABLE_ACCOMMODATION_CATEGORY = 'accommodationcategory';
-
+    const TABLE_ACCOMMODATION_IMAGE = 'accommodationimage';
+    const TABLE_ACCOMMODATION = 'accommodation';
     public function __construct()
     {
         parent::__construct();
@@ -159,5 +160,22 @@ class AccommodationCategoryModel extends CI_Model
         }
 
         return $accommodationCategories;
+    }
+    
+    /**
+     * 获取住在瑶琳详细信息
+     *
+     * @return array
+     */
+    public function getAccommodationInfo($id) {
+        $condition = [];
+        $condition['id'] = $id;
+        $condition1['accommodationId'] = $id;
+        $accommodation = $this->db->where($condition)->get(self::TABLE_ACCOMMODATION)->row_array();
+        $accommodationimg = $this->db->where($condition1)->get(self::TABLE_ACCOMMODATION_IMAGE)->result_array();
+        foreach ($accommodationimg as $k => $v){
+            $accommodation['img'][] = base_url() . 'ui/img/accommodation/' . $id . '_' .$v['id'] . '.' . explode('.', $v['image'])[1] . '?' . time();
+        }
+        return $accommodation;
     }
 }

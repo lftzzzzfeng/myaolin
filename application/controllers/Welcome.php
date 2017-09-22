@@ -4,6 +4,7 @@
  * User: LiuFeng
  * Date: 2017/8/29
  * Time: 10:05
+ * 首页
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once dirname(__FILE__) . '/../util/Constant.php';
@@ -28,13 +29,11 @@ class Welcome extends MainController
     public function index()
     {
         $this->content['pageTitle'] = '首页';
-
         $content['website'] = $this->websiteModel->getWebsiteById();
-        $content['website']['backgroundImage'] = base_url() . 'ui/img/website/' . $content['website']['id'] . '.' . explode('.', $content['website']['backgroundImage'])[1] .'?' . time();
+        $content['website']['backgroundImage'] = base_url() . 'ui/img/website/' . $content['website']['id'] . '.' . explode('.', $content['website']['backgroundImage'])[1] .'?' . time(); 
         $content['scenicAreaResult'] = $this->scenicAreaModel->getDetailScenicAreaById(null, \util\Constant::IS_RECOMMENDED_YES);
-        $content['scenicViews'] = $this->scenicViewModel->getCertainNumberScenicViews(6);
-        $content['news'] = $this->newsModel->getLatestNews(3);
-
+        $content['scenicViews'] = $this->scenicViewModel->getCertainNumberScenicViews(4);
+        $content['news'] = $this->newsModel->getLatestNewsM(4);
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(), $content);
     }
 

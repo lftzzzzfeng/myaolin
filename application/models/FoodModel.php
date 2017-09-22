@@ -132,4 +132,48 @@ class FoodModel extends CI_Model
 
         return $result;
     }
+    
+     /**
+     * 移动端
+     * 获取吃在瑶琳列表
+     *
+     * @param int $currentPageNumber
+     * @param string $keyword
+     * @param int $pageNumber
+     *
+     * @return array
+     */
+    public function getFoodM($currentPageNumber = 0, $keyword = null, $pageNumber = 10)
+    {
+        $result['totalPageNumber'] = 0;
+        if ($currentPageNumber > 1) {
+            $start = ($currentPageNumber) * $pageNumber;
+        } else {
+            $start = 0;
+        }
+
+        $condition = '`isDeleted` = ' . \util\Constant::IS_DELETED_NO;
+        $condition .= ' AND `status` = ' . \util\Constant::STATUS_ACTIVE;
+        if ($keyword) {
+            $keyword = urldecode($keyword);
+            $condition .= ' AND (`title` LIKE "%' . $keyword . '%")';
+        }
+
+        $result['count'] = count($this->db->where($condition)->get(self::TABLE_FOOD)->result_array());
+        $result['food'] = $this->db->where($condition)->order_by('orderNumber DESC')
+            ->limit($pageNumber, $start)->get(self::TABLE_FOOD)->result_array();
+        foreach($result['food'] as $k => &$v){
+            $v['coverImage'] = base_url() . 'ui/img/food/' . $v['id']
+                . '.' . explode('.', $v['coverImage'])[1] .'?' . time();
+        }
+        if ($result['count'] > 0) {
+            if ($result['count'] % $pageNumber == 0) {
+                $result['totalPageNumber'] = $result['count'] / $pageNumber;
+            } else {
+                $result['totalPageNumber'] = intval($result['count'] / $pageNumber) + 1;
+            }
+        }
+
+        return $result;
+    }
 }

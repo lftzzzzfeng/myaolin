@@ -177,4 +177,54 @@ class ScenicViewModel extends CI_Model
 
         return $result;
     }
+    
+    /**
+     * 移动端
+     * 获取景点介绍列表
+     *
+     * @param int $currentPageNumber
+     * @param string $keyword
+     * @param int $pageNumber
+     *
+     * @return array
+     */
+    public function getScenicViewsM($currentPageNumber = 0, $keyword = null, $pageNumber = 10) {
+        $result['totalPageNumber'] = 0;
+        if ($currentPageNumber > 1) {
+            $start = ($currentPageNumber) * $pageNumber;
+        } else {
+            $start = 0;
+        }
+
+        $condition = '`isDeleted` = ' . \util\Constant::IS_DELETED_NO;
+        $condition .= ' AND `status` = ' . \util\Constant::STATUS_ACTIVE;
+        if ($keyword) {
+            $keyword = urldecode($keyword);
+            $condition .= ' AND (`title` LIKE "%' . $keyword . '%")';
+        }
+
+        $result['count'] = count($this->db->where($condition)->get(self::TABLE_SCENIC_VIEW)->result_array());
+        $result['scenicViews'] = $this->db->where($condition)->order_by('orderNumber DESC')
+            ->limit($pageNumber, $start)->get(self::TABLE_SCENIC_VIEW)->result_array();
+        foreach ($result['scenicViews'] as $k => &$item) {
+            $img = $this->db->where('scenicViewId='.$item['id'])->order_by('id DESC')->limit(3)->get('scenicviewimage')->result_array();
+            foreach ($img as $k1 => $v1){
+                $img[$k1]['image'] = base_url() . 'ui/img/scenicview/images/' . $item['id'].'_'.$v1['id']
+                . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
+            }
+            $result['scenicViews'][$k]['img'] = $img;
+            $item['coverImage'] = base_url() . 'ui/img/scenicview/coverimage/' . $item['id']
+                . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
+        }
+        
+        if ($result['count'] > 0) {
+            if ($result['count'] % $pageNumber == 0) {
+                $result['totalPageNumber'] = $result['count'] / $pageNumber;
+            } else {
+                $result['totalPageNumber'] = intval($result['count'] / $pageNumber) + 1;
+            }
+        }
+
+        return $result;
+    }
 }

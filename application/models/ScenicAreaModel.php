@@ -10,6 +10,7 @@ require_once dirname(__FILE__) . '/../util/Constant.php';
 class ScenicAreaModel extends CI_Model
 {
     const TABLE_SCENIC_AREA = 'scenicarea';
+    const TABLE_SCENIC_AREA_IMG = 'scenicareaimage';
 
     public function __construct()
     {
@@ -159,6 +160,49 @@ class ScenicAreaModel extends CI_Model
             }
         }
 
+        return $result;
+    }
+    
+     /**
+     * 移动端
+     * 获取景区介绍列表
+     *
+     * @param int $currentPageNumber
+     * @param string $keyword
+     * @param int $pageNumber
+     * const TABLE_SCENIC_AREA_IMG = 'scenicareaimage';
+     * @return array
+     */
+    public function getScenicAreasM($currentPageNumber = 0, $keyword = null, $pageNumber = 10) {
+        $result['totalPageNumber'] = 0;
+        if ($currentPageNumber > 1) {
+            $start = $currentPageNumber * $pageNumber;
+        } else {
+            $start = 0;
+        }
+
+        $condition = '`isDeleted` = ' . \util\Constant::IS_DELETED_NO;
+        $condition .= ' AND `status` = ' . \util\Constant::STATUS_ACTIVE;
+        if ($keyword) {
+            $keyword = urldecode($keyword);
+            $condition .= ' AND (`title` LIKE "%' . $keyword . '%")';
+        }
+
+        $result['count'] = count($this->db->where($condition)->get(self::TABLE_SCENIC_AREA)->result_array());
+        $result['scenicAreas'] = $this->db->where($condition)->order_by('orderNumber DESC')
+            ->limit($pageNumber, $start)->get(self::TABLE_SCENIC_AREA)->result_array();
+        foreach ($result['scenicAreas'] as $k => &$item) {
+            $item['num'] = count($this->db->where('scenicAreaId='.$item['id'])->get(self::TABLE_SCENIC_AREA_IMG)->result_array());
+            $item['coverImage'] = base_url() . 'ui/img/scenicArea/coverimage/' . $item['id']
+                . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
+        }
+        if ($result['count'] > 0) {
+            if ($result['count'] % $pageNumber == 0) {
+                $result['totalPageNumber'] = $result['count'] / $pageNumber;
+            } else {
+                $result['totalPageNumber'] = intval($result['count'] / $pageNumber) + 1;
+            }
+        }
         return $result;
     }
 }

@@ -4,6 +4,7 @@
  * User: LiuFeng
  * Date: 2017/9/6
  * Time: 17:16
+ * 游记随笔
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once dirname(__FILE__) . '/../util/TimeTool.php';

@@ -1,0 +1,111 @@
+
+
+.colorchange {
+  color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+}
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+nav {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 20px;
+  font-size: 1.4rem;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+}
+.nav_logo{width:40%; margin: 10px auto;}
+#userPLink {
+  position: relative;
+}
+nav a, #sideMenu {
+  margin: 0 10px 0 0;
+
+} 
+#userMenuToggle {
+  position: absolute;
+  right: 0;
+}
+ul#userMenu {
+  background: #202020;
+  list-style: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  padding: 0;
+}
+#userMenu li {
+  display: block;
+  padding: 5px 10px;
+  text-align: left;
+  width: 150px;
+}
+ul#userMenu li a::after {
+  content: attr(title);
+}
+#userMenu li a:hover, #sideMenuContainer > a:hover {
+  padding-left: 3px
+}
+
+#scrollingNews {
+  color: #fcfcfc;
+}
+
+#sideMenu {
+  color: #000;
+  float: right;
+  z-index: 5;
+}
+#sideMenuContainer {
+  background: rgba(0,0,0,0.9);
+  height: 100%;
+  padding: 10px 0;
+  position: fixed;
+  top: 70px;
+  left: -200px;
+  width: 200px;
+  z-index: 99;
+}
+#sideMenuContainer ul li{width:100%; height: 70px; line-height: 70px; text-align: center; font-size: 1.0rem; border-bottom: 1px solid #aaaaaa;}
+#sideMenuContainer ul li a{ color: #fff;}
+#sideMenuContainer ul li img{width:25px;}
+#logo {
+  display: block;
+  font: 700 48px Helvetica, Arial, sans-serif;
+  letter-spacing: 10px;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  top: 100px;
+  left: 0;
+}
+#logo span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 7.5px;
+}
+
+#sourceCode {
+  position: absolute;
+  top: 50%;
+  margin: 0 auto;
+}
+.nav_ss{width:25px; height: 25px; position: absolute; right: 15px; top: 16px;}
+.nav_ss img{width:100%;}

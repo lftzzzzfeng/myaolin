@@ -1,195 +1,210 @@
-<div class="index_banner">
-    <section class="cd-hero">
-        <ul class="cd-hero-slider"><!-- autoplay -->
-            <li class="selected"><!-- cd-bg-video -->
-                <div class="cd-full-width">
-                    <h2>瑶琳国家森林公园</h2>
-                    <p></p>
-                </div>
-                <div class="cd-bg-video-wrapper" data-video="ui/assets/video/video"></div>
-            </li>
-            <li style="background-image: url(<?php echo base_url() . 'ui/img/main/bg1.jpg' ?>);">
-                <div class="cd-full-width">
-                    <h2>瑶琳国家森林公园</h2>
-                    <p>住过瑶琳的青春才完整，在爱的驿站等待属于你的未来。</p>
-                    <!--<a  class="cd-btn">查看更多</a>-->
-                </div>
-            </li>
-        </ul>
-        <div class="cd-slider-nav">
-<!--            <nav>-->
-<!--                <span class="cd-marker item-1"></span>-->
-<!--                <ul>-->
-<!--                    <li class="selected"><a href="#0">介绍</a></li>-->
-<!--                    <li><a href="#0">生活</a></li>-->
-<!--                </ul>-->
-<!--            </nav>-->
-        </div>
-    </section>
-</div>
-<div class="index_about">
-    <div class="index_aboutc">
-        <img class="a_img" src="<?php echo base_url() ?>ui/img/main/index_about.png" />
-        <p><?php echo $website['content'] ?></p>
-        <img src="<?php echo $website['backgroundImage'] ?>" class="a_imga" />
-    </div>
-</div>
-<div class="index_pin">
-    <img class="p_img" src="<?php echo base_url() ?>ui/img/main/index_pin.png" />
-<?php if ($scenicAreaResult): ?>
-    <div class="pin_img">
-        <div class="panes">
-    <?php if (isset($scenicAreaResult['scenicAreaImages'])): ?>
-        <?php foreach ($scenicAreaResult['scenicAreaImages'] as $key => $scenicAreaImage) :?>
-            <?php if ($key == 0): ?>
-            <div class="pane" style="display:block;">
-                <div class="p_img">
-                    <img src="<?php echo $scenicAreaImage['image'] ?>" style="width:835px;height: 440px" />
-                </div>
-                <img src="<?php echo $scenicAreaResult['scenicArea']['coverImage'] ?>" style="width: 364px; height: 440px" />
-            </div>
-            <?php else: ?>
-            <div class="pane">
-                <div class="p_img">
-                    <img src="<?php echo $scenicAreaImage['image'] ?>" style="width: 224px; height: 150px" />
-                </div>
-                <img src="<?php echo $scenicAreaResult['scenicArea']['coverImage'] ?>" style="width: 364px; height: 440px" />
-            </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    <?php endif; ?>
-        </div>
-        <ul>
-    <?php if (isset($scenicAreaResult['scenicAreaImages'])): ?>
-        <?php foreach ($scenicAreaResult['scenicAreaImages'] as $key => $scenicAreaImage) :?>
-            <?php if ($key == 0) :?>
-            <li class="hit"><img src="<?php echo $scenicAreaImage['image'] ?>"></li>
-            <?php elseif ($key > 0 && $key < count($scenicAreaResult['scenicAreaImages'])): ?>
-            <li><img src="<?php echo $scenicAreaImage['image'] ?>"></li>
-            <?php else: ?>
-            <li class="hits"><img src="<?php echo $scenicAreaImage['image'] ?>"></li>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    <?php endif; ?>
-        </ul>
-    </div>
-<?php endif; ?>
-</div>
-<div class="index_le">
-    <div class="index_lecon">
-        <img class="le_img" src="<?php echo base_url() ?>ui/img/main/index_le.png" />
-        <div class="le_dimg">
-<?php if (count($scenicViews) > 0) :?>
-    <?php foreach ($scenicViews as $scenicView): ?>
-            <div class="le_li">
-                <img src="<?php echo $scenicView['coverImage'] ?>" style="width: 400px; height: 300px;" />
-                <div class="le_dimga" style="top: 0; opacity: 0;">
-                    <p class="le_dt"><?php echo $scenicView['title'] ?></p>
-                    <p class="le_dta"><?php echo $scenicView['description'] ?></p>
-                    <div class="le_btn">
-                        <a href="<?php echo base_url() . 'scenicView' ?>">查看更多<img src="<?php echo base_url() ?>ui/img/main/le_btn.png" /></a>
-                    </div>
-                </div>
-            </div>
-    <?php endforeach; ?>
-<?php endif; ?>
-        </div>
-        <div class="ple_btn"><a href="<?php echo base_url() . 'scenicView' ?>">查看更多<img src="<?php echo base_url() ?>ui/img/main/jiantou.png" /></a></div>
-    </div>
-</div>
-<div class="index_you">
-    <div class="callbacks_container">
-        <ul class="rslides" id="slider">
-            <li>
-                <a href="<?php echo base_url() . 'trip/travel' ?>">
-                    <img src="<?php echo base_url() ?>ui/img/main/index_you.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo base_url() . 'food' ?>">
-                    <img src="<?php echo base_url() ?>ui/img/main/index_you1.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo base_url() . 'accommodation' ?>">
-                    <img src="<?php echo base_url() ?>ui/img/main/index_you2.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo base_url() . 'trip/routes' ?>">
-                    <img src="<?php echo base_url() ?>ui/img/main/index_you3.jpg" alt="">
-                </a>
-            </li>
-<!--            <li>-->
-<!--                <a href="--><?php //echo base_url() . 'shopping' ?><!--">-->
-<!--                    <img src="--><?php //echo base_url() ?><!--ui/img/main/index_you4.jpg" alt="">-->
-<!--                </a>-->
-<!--            </li>-->
-            <li>
-                <a href="<?php echo base_url() . 'entertainment' ?>">
-                    <img src="<?php echo base_url() ?>ui/img/main/index_you5.jpg" alt="">
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-<?php if (count($news) > 0): ?>
-<div class="index_zx">
-    <img class="index_zxa" src="<?php echo base_url() ?>ui/img/main/index_zz.png" />
-    <ul class="inzx_li">
-    <?php foreach ($news as $key => $new): ?>
-        <li class="<?php echo ($key == 2 ? 'li_li' : '' ) ?>">
-            <img src="<?php echo $new['coverImage'] ?>" style="width: 384px; height: 258px;" />
-            <p class="l_p"><a href="<?php echo (base_url() . 'news/detail/' . $new['id']) ?>"><?php echo $new['title'] ?></a></p>
-            <div class="li_z">
-                <div class="li_zl">
-                    <p class="l_pp"><?php echo $new['publishedTimestamp'] ?></p>
-<!--                    <p class="l_pp"><img src="--><?php //echo base_url() ?><!--ui/img/main/eye.png">78人浏览</p>-->
-                </div>
-                <div class="li_zl"><a href="<?php echo (base_url() . 'news/detail/' . $new['id']) ?>">了解详情</a></div>
-            </div>
-        </li>
-    <?php endforeach; ?>
-    </ul>
-    <div class="ple_btn"><a href="<?php echo (base_url() . 'news') ?>">查看更多<img src="<?php echo base_url() ?>ui/img/main/jiantou.png" /></a></div>
-</div>
-<?php endif; ?>
-<div class="index_bg"></div>
-<script type="text/javascript">
-    $(function () {
-        // Slideshow
-        $("#slider").responsiveSlides({
-            auto: true,
-            pager: false,
-            nav: true,
-            speed: 500,
-            timeout:4000,
-            pager: true,
-            pauseControls: true,
-            namespace: "callbacks"
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(function(){
-        $('.pin_img ul li').click(function(){
-            $(this).addClass('hit').siblings().removeClass('hit');
-            $('.panes>div:eq('+$(this).index()+')').show().siblings().hide();
-        })
-    });
-    $(function(){
-        $('.le_li').hover(function(){
-            $(this).children('.le_dimga').stop(true,true).delay(50).animate({'top':0,opacity:1},300);
-        },function(){
-            $(this).children('.le_dimga').stop(true,true).animate({'top':0,opacity:0},200);
-        })
-    });
-    //$(".playbox a").hover(function(){
-    //	$(this).find(".txt").stop().animate({height:"360px"},200);
-    //	$(this).find(".txt h3").stop().animate({paddingTop:"60px"},200);
-    //},function(){
-    //	$(this).find(".txt").stop().animate({height:"45px"},200);
-    //	$(this).find(".txt h3").stop().animate({paddingTop:"0px"},200);
-    //})
-</script>
+	<!-- banner1-->
+	<div class="index_banner">
+		<div id="myCarousel" class="carousel slide">
+			<!-- 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>   
+			<!-- 轮播（Carousel）项目 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="First slide">
+					<div class="carousel-caption">2017-07-30 | 第十六届（国际）精功模特大赛选手在瑶琳森林</div>
+				</div>
+				<div class="item">
+					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Second slide">
+					<div class="carousel-caption">标题 2</div>
+				</div>
+				<div class="item">
+					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Third slide">
+					<div class="carousel-caption">标题 3</div>
+				</div>
+			</div>
+			
+		</div> 
 
+	</div>
+	<div class="index_about">
+		<img class="ab_img" src="<?php echo base_url() ?>ui/img/mobile/index_a.jpg" />
+		<p><?php echo $website['content']; ?></p>
+		<img class="a_img" src="<?php echo $website['backgroundImage']; ?>" />
+	</div>
+
+	<!-- banner2-->
+	<div class="index_pin">
+		<img class="pin_i" src="<?php echo base_url() ?>ui/img/mobile/index_f.jpg"/>
+
+		<div class="pin_ba">
+			<div id="myCarouse2" class="carousel slide">
+                                <!-- 轮播（Carousel）指标 -->
+                                <ol class="carousel-indicators ca_li">
+                                    <?php foreach ($scenicAreaResult['scenicAreaImages'] as $k => $v){ ?>
+                                           <?php if($k == 0){ ?>
+                                                <li data-target="#myCarouse2" data-slide-to="<?php echo $k; ?>" class="active2"></li>
+                                            <?php }else{ ?>
+                                                <li data-target="#myCarouse2" data-slide-to="<?php echo $k; ?>"></li>
+                                            <?php } ?>
+                                    <?php } ?>
+				</ol>
+				<!-- 轮播（Carousel）项目 -->
+				<div class="carousel-inner">
+                                        <?php foreach ($scenicAreaResult['scenicAreaImages'] as $k => $v){ ?>
+                                            <?php if($k == 0){ ?>
+                                                <div class="item active">
+                                                    <img src="<?php echo $v['image'] ?>" alt="Third slide" style="height:280px;">
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="item">
+                                                        <img src="<?php echo $v['image'] ?>" alt="Third slide" style="height:280px;">
+                                                </div>
+                                            <?php } ?>
+                                        <?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="index_le">
+		<img class="le_a" src="<?php echo base_url() ?>ui/img/mobile/index_h.jpg" />
+		<div class="le_con">
+                    <?php foreach ($scenicViews as $k => $v){ ?>
+                        <div class="le_left le_right" style="padding-right:10px;padding-bottom:5px;">
+                            <img src="<?php echo $v['coverImage'] ?>" style="height: 160px;" />
+                            <div class="le_pa"><?php echo $v['title'] ?></div>
+                            <p class="le_p"><a href="#"><?php echo $v['description'] ?></a></p>
+			</div>
+                    <?php } ?>
+		</div>
+                <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看更多<img src="<?php echo base_url() ?>ui/img/mobile/more.png" /></a></div>
+	</div>
+
+	<!-- banner3-->
+	<div class="index_you">
+		<div class="pin_ba">
+			<div id="myCarouse3" class="carousel slide">
+				<!-- 轮播（Carousel）指标 -->
+                                <ol class="carousel-indicators ca_li" style="margin-bottom: -6px;">
+					<li data-target="#myCarouse3" data-slide-to="0" class="active2"></li>
+					<li data-target="#myCarouse3" data-slide-to="1"></li>
+					<li data-target="#myCarouse3" data-slide-to="2"></li>
+                                        <li data-target="#myCarouse3" data-slide-to="3"></li>
+					<li data-target="#myCarouse3" data-slide-to="4"></li>
+                                        <li data-target="#myCarouse3" data-slide-to="5"></li>
+				</ol>
+				<!-- 轮播（Carousel）项目 -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="<?php echo base_url() ?>ui/img/mobile/cy_1.jpg" />
+						<!-- txt-->
+						<div class="item_txt">
+							<p class="item_txt_p1">游在瑶琳</p>
+
+							<p class="item_txt_p2"></p>
+
+							<p class="item_txt_p3">尝试一下景区的不同旅行方式吧</p>
+
+							<a href="<?php echo base_url() ?>trip/travel" class="item_txt_btn">查看详情 &nbsp;<img style="width:20px;" src="<?php echo base_url() ?>ui/img/mobile/index_xx.png"></a>
+						</div>
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url() ?>ui/img/mobile/cy_2.jpg" />
+                                                <div class="item_txt">
+							<p class="item_txt_p1">吃在瑶琳</p>
+
+							<p class="item_txt_p2"></p>
+
+							<p class="item_txt_p3">快来瞧瞧景区的风味美食</p>
+
+							<a href="<?php echo base_url() ?>food" class="item_txt_btn">查看详情 &nbsp;<img style="width:20px;" src="<?php echo base_url() ?>ui/img/mobile/index_xx.png"></a>
+						</div>
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url() ?>ui/img/mobile/cy_3.jpg" />
+                                                <div class="item_txt">
+							<p class="item_txt_p1">住在瑶琳</p>
+
+							<p class="item_txt_p2"></p>
+
+							<p class="item_txt_p3">暂不开放</p>
+
+							<a href="<?php echo base_url() ?>accommodation" class="item_txt_btn">查看详情 &nbsp;<img style="width:20px;" src="<?php echo base_url() ?>ui/img/mobile/index_xx.png"></a>
+						</div>
+					</div>
+                                        <div class="item">
+						<img src="<?php echo base_url() ?>ui/img/mobile/cy_4.jpg" />
+                                                <div class="item_txt">
+							<p class="item_txt_p1">行在瑶琳</p>
+
+							<p class="item_txt_p2"></p>
+
+							<p class="item_txt_p3">去景区的几种路线方式</p>
+
+							<a href="<?php echo base_url() ?>routes" class="item_txt_btn">查看详情 &nbsp;<img style="width:20px;" src="<?php echo base_url() ?>ui/img/mobile/index_xx.png"></a>
+						</div>
+					</div>
+                                        <div class="item">
+						<img src="<?php echo base_url() ?>ui/img/mobile/cy_5.jpg" />
+                                                <div class="item_txt">
+							<p class="item_txt_p1">购在瑶琳</p>
+
+							<p class="item_txt_p2"></p>
+
+							<p class="item_txt_p3">暂不开放</p>
+
+							<a href="<?php echo base_url() ?>shopping" class="item_txt_btn">查看详情 &nbsp;<img style="width:20px;" src="<?php echo base_url() ?>ui/img/mobile/index_xx.png"></a>
+						</div>
+					</div>
+                                        <div class="item">
+						<img src="<?php echo base_url() ?>ui/img/mobile/cy_6.jpg" />
+                                                <div class="item_txt">
+							<p class="item_txt_p1">娱在瑶琳</p>
+
+							<p class="item_txt_p2"></p>
+
+							<p class="item_txt_p3">快来享受吧</p>
+
+							<a href="<?php echo base_url() ?>entertainment" class="item_txt_btn">查看详情 &nbsp;<img style="width:20px;" src="<?php echo base_url() ?>ui/img/mobile/index_xx.png"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="index_zx">
+		<img class="pin_i" src="<?php echo base_url() ?>ui/img/mobile/index_n.jpg" />
+		<div class="index_zxcon">
+                    <?php foreach ($news as $k => $v){ ?>
+			<div class="zx_left zx_right" style="padding-right:10px;padding-bottom:5px;">
+                            <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage'];?>" style="height:160px;" /></a>
+                            <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><p class="zx_p"><?php echo $v['title']; ?><br/><?php echo $v['description']; ?></p></a>
+                            <div class="zx_bot">
+                                <div class="zx_botleft">
+                                    <p class="l_p"><?php echo $v['publishedTimestamp']; ?></p>
+                                    <p class="l_p"><img src="<?php echo base_url() ?>ui/img/mobile/eye.png" /><?php echo $v['hits']; ?>人浏览</p>
+                                </div>
+                                <div class="zx_botleft zx_botright"><a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>">了解详情</a></div>
+                            </div>
+			</div>
+                    <?php } ?>
+		</div>
+		<div class="le_btn"><a href="<?php echo base_url(); ?>news">查看更多<img src="<?php echo base_url() ?>ui/img/mobile/index_xx.png" /></a></div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		  $('#sideMenu').sideToggle({
+			moving: '#sideMenuContainer',
+			direction: 'left'
+		  });
+	
+		});
+	</script>
+	<script type="text/javascript">
+		$(".ca_li").on("click","li",function(){
+			$(".ca_li li").removeClass("active2");
+			$(this).addClass("active2");
+		});
+	</script>
