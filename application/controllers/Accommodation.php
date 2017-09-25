@@ -24,8 +24,6 @@ class Accommodation extends MainController
 
     public function index()
     {
-        
-        
         $this->content['pageTitle'] = '住在瑶琳';
 
         $content['accommodationCategories'] = $this->accommodationCategoryModel->getAllAccommodationCategoriesDetail();
