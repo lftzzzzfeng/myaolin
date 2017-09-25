@@ -11,6 +11,11 @@ class OrderModel extends CI_Model
 {
     const TABLE_ORDER = 'order';
 
+    const STATUS_SUCCESS = 1;
+    const STATUS_PENDING = 2;
+    const STATUS_CANCEL = 3;
+    const STATUS_FAIL = 4;
+
     public function __construct()
     {
         parent::__construct();
@@ -30,7 +35,7 @@ class OrderModel extends CI_Model
      *
      * @return int
      */
-    public function saveOrder($id, $orderId, $openId, $merchantId, $totalFee, $status)
+    public function saveOrder($id, $orderId, $openId, $merchantId, $totalFee, $status = 2)
     {
         $data = [];
 
@@ -60,6 +65,22 @@ class OrderModel extends CI_Model
     }
 
     /**
+     * 更改订单状态
+     *
+     * @param int $id
+     * @param int $status
+     *
+     * @return boolean
+     */
+    public function updateOrderStatus($id, $status)
+    {
+        $data['status'] = $status;
+
+        $this->db->where('id', intval($id));
+        $this->db->update(self::TABLE_ORDER, $data);
+    }
+
+    /**
      * 获取订单通过id
      *
      * @param int $id
@@ -73,6 +94,22 @@ class OrderModel extends CI_Model
             ->join('merchant', 'merchant.id = order.merchantId', 'LEFT')
             ->join('merchantdetail', 'merchantdetail.merchantId = merchant.id', 'LEFT')
             ->where(['id' => $id])->get(self::TABLE_ORDER)->row_array();
+    }
+
+    /**
+     * 获取订单通过orderId
+     *
+     * @param int $orderId
+     *
+     * @return array
+     */
+    public function getOrderByOrderId($orderId)
+    {
+        return $this->db->select('order.id, order.orderId, member.username, merchantdetail.name, order.totalFee, order.status')
+            ->join('member', 'member.uid = order.openId AND member.sourceType = 2', 'LEFT')
+            ->join('merchant', 'merchant.id = order.merchantId', 'LEFT')
+            ->join('merchantdetail', 'merchantdetail.merchantId = merchant.id', 'LEFT')
+            ->where(['order.orderId' => $orderId])->get(self::TABLE_ORDER)->row_array();
     }
 
     /**
