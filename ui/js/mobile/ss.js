@@ -21,7 +21,7 @@ $(function () {
 });
 
 //写游记页面 文字显示全部/收起功能
-(function($){
+(function ($){
     $.fn.moreText = function(options){
         var defaults = {
             maxLength:50,
@@ -31,7 +31,6 @@ $(function () {
         }
         return this.each(function() {
             var _this = $(this);
-
             var opts = $.extend({},defaults,options);
             var maxLength = opts.maxLength;
             var TextBox = $(opts.mainCell,_this);

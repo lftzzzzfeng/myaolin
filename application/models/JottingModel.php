@@ -180,4 +180,61 @@ class JottingModel extends CI_Model
 
         return $result;
     }
+    
+    
+    /**
+     * 移动端
+     * 获取游记列表
+     *
+     * @param int $currentPageNumber
+     * @param string $keyword
+     * @param int $type 用户类型
+     * @param int $pageNumber
+     * @param int $jottingId
+     *
+     * @return array
+     */
+    public function getJottingsM($currentPageNumber = 0, $keyword = null, $type = 1, $pageNumber = 4, $jottingId = null) {
+        $result['totalPageNumber'] = 0;
+        if ($currentPageNumber > 1) {
+            $start = ($currentPageNumber - 1) * $pageNumber;
+        } else {
+            $start = 0;
+        }
+
+        $condition = '`jotting.isDeleted` = ' . \util\Constant::IS_DELETED_NO;
+
+        if ($type == self::TYPE_MEMBER) {
+            $condition .= ' AND `jotting.status` = ' . \util\Constant::STATUS_ACTIVE;
+        }
+
+        if ($keyword) {
+            $keyword = urldecode($keyword);
+            $condition .= ' AND (`jotting.title` LIKE "%' . $keyword . '%")';
+        }
+
+        if ($jottingId) {
+            $condition .= ' AND `jotting.id` = ' . $jottingId;
+        }
+
+        $result['count'] = count($this->db->where($condition)->get(self::TABLE_JOTTING)->result_array());
+
+        $fields = 'jotting.id AS jottingId, creator.id AS creatorId, creator.username AS creatorName, jotting.createdTimestamp AS jottingTime,';
+        $fields .= 'jotting.title AS jottingTitle, jotting.content AS jottingContent, jotting.hits AS jottingHits, jotting.status AS jottingStatus';
+        $result['jottings'] = $this->db->select($fields)
+            ->join('member creator', 'creator.id = jotting.creatorId', 'LEFT')
+            ->where($condition)
+            ->order_by('jotting.id DESC')
+            ->limit($pageNumber, $start)->get(self::TABLE_JOTTING)->result_array();
+
+        if ($result['count'] > 0) {
+            if ($result['count'] % $pageNumber == 0) {
+                $result['totalPageNumber'] = $result['count'] / $pageNumber;
+            } else {
+                $result['totalPageNumber'] = intval($result['count'] / $pageNumber) + 1;
+            }
+        }
+
+        return $result;
+    }
 }

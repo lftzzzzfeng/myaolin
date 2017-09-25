@@ -17,199 +17,80 @@
 </div>
 
 <!--写游记赢奖励-->
-<a href="#" class="write_something">
+<a href="<?php echo base_url() ?>Forum/writeJotting" class="write_something">
     <img class="write_img" src="<?php echo base_url() ?>ui/img/mobile/xyj.png">&nbsp;写游记赢奖励&nbsp;<img class="gift_img" src="<?php echo base_url() ?>ui/img/mobile/xyj_gift_03.png">
 </a>
 
 <!--动态说说-->
-<div class="news margin-top-6 clearfix">
-    <!-- 作者信息-->
-    <div class="header_img col-xs-12 col-sm-12 col-md-12 margin-top-10">
-        <!-- 头像-->
-        <img class="col-xs-4 col-sm-4 col-md-2 text-center radius-8" src="<?php echo base_url() ?>ui/img/mobile/yj_1.png" alt=""/>
-        <!-- 昵称-->
-        <div class="col-xs-8 col-sm-8 col-md-10 text-left color_000 weight-700">w痴汉w</div>
-        <!--发布时间-->
-        <div class="col-xs-8 col-sm-8 col-md-10 text-left color_666 size-12 margin-top-10">1分钟前</div>
-    </div>
-    <!-- 标题-->
-    <h4 class="col-xs-12 col-sm-12 col-md-12 text-lef margin-top-10 margin-bottom-6 color_000 weight-500">生来就愿意去旅游！！</h4>
-    <!-- 内容-->
-    <p class="branddesc col-xs-12 col-sm-12 col-md-12 color_666 size-14">
-        世界上哪有那么多完美，只是因为不完美才变得独一无二。 ——题记 瑶琳森林公园 于我，是幻想了多年的一场梦： 在这座小岛上——
-        世界上哪有那么多完美，只是因为不完美才变得独一无二。 ——题记 瑶琳森林公园 于我，是幻想了多年的一场梦： 在这座小岛上——
-        世界上哪有那么多完美，只是因为不完美才变得独一无二。 ——题记 瑶琳森林公园 于我，是幻想了多年的一场梦： 在这座小岛上——
-    </p>
-    <div class="clearfix"></div>
-    <!--可预览图片-->
-    <div class="my-simple-gallery flex_box_num clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
+<div id="forums">
+    <?php foreach ($data as $k => $v){ ?>
+        <div class="news margin-top-6 clearfix">
+            <!-- 作者信息-->
+            <div class="header_img col-xs-12 col-sm-12 col-md-12 margin-top-10">
+                <!-- 头像-->
+                <img class="col-xs-4 col-sm-4 col-md-2 text-center radius-8" src="<?php echo base_url() ?>ui/img/mobile/yj_1.png" alt=""/>
+                <!-- 昵称-->
+                <div class="col-xs-8 col-sm-8 col-md-10 text-left color_000 weight-700"><?php echo $v['creatorName']; ?></div>
+                <!--发布时间-->
+                <div class="col-xs-8 col-sm-8 col-md-10 text-left color_666 size-12 margin-top-10"><?php echo $v['jottingTime']; ?></div>
+            </div>
+            <!-- 标题-->
+            <h4 class="col-xs-12 col-sm-12 col-md-12 text-lef margin-top-10 margin-bottom-6 color_000 weight-500"><?php echo $v['jottingTitle']; ?></h4>
+            <!-- 内容-->
+            <p class="branddesc col-xs-12 col-sm-12 col-md-12 color_666 size-14">
+                <?php echo $v['jottingContent']; ?>
+            </p>
+            <div class="clearfix"></div>
+            <!--可预览图片-->
+            <div class="my-simple-gallery flex_box_num clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
+                <?php foreach ($v['jottingImages'] as $k1 => $v1){ ?>
+                <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
+                        <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
+                            <img src="<?php echo $v1; ?>" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
+                        </a>
+                    </figure>
+                <?php } ?>
+            </div>
+            <!-- 分享、评论次数、查看次数-->
+            <div class="share_look col-xs-12 col-sm-12 col-md-12 margin-top-10">
+                <div class="share_look_box  clearfix ">
+                    <!--查看次数-->
+                    <div class="look_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
+                        <a href="#">
+                            <img src="<?php echo base_url() ?>ui/img/mobile/yj_2.png" width="20%" alt=""/> &nbsp;<?php echo $v['jottingHits']; ?>
+                        </a>
+                    </div>
+                    <!--评论次数-->
+                    <div class="pingLun_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
+                        <a href="#">
+                            <img src="<?php echo base_url() ?>ui/img/mobile/yj_3.png" width="15%" alt=""/> &nbsp;<?php echo $v['jottingCommentsCount']; ?>
+                        </a>
+                    </div>
+                    <!--分享-->
+                    <div class="share col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
+                        <a href="javascript:;">
+                            <img src="<?php echo base_url() ?>ui/img/mobile/icon_share_2_03.png" width="12%" alt=""/> &nbsp;分享
+                        </a>
+                    </div>
 
-    </div>
-    <!-- 分享、评论次数、查看次数-->
-    <div class="share_look col-xs-12 col-sm-12 col-md-12 margin-top-10">
-        <div class="share_look_box  clearfix ">
-            <!--查看次数-->
-            <div class="look_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                <a href="#">
-                    <img src="<?php echo base_url() ?>ui/img/mobile/yj_2.png" width="20%" alt=""/> &nbsp;1000
-                </a>
-            </div>
-            <!--评论次数-->
-            <div class="pingLun_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                <a href="#">
-                    <img src="<?php echo base_url() ?>ui/img/mobile/yj_3.png" width="15%" alt=""/> &nbsp;1000
-                </a>
-            </div>
-            <!--分享-->
-            <div class="share col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                <a href="javascript:;">
-                    <img src="<?php echo base_url() ?>ui/img/mobile/icon_share_2_03.png" width="12%" alt=""/> &nbsp;分享
-                </a>
-            </div>
-
-            <!-- 分享隐藏弹框-->
-            <div class="share_hid_box hidden">
-                <div class="flex_box_between height-50">
-                    <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_weibo.png" alt=""/></a>
-                    <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_weixin.png" alt=""/></a>
-                    <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_kongjian.png" alt=""/></a>
+                    <!-- 分享隐藏弹框-->
+                    <div class="share_hid_box hidden">
+                        <div class="flex_box_between height-50">
+                            <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_weibo.png" alt=""/></a>
+                            <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_weixin.png" alt=""/></a>
+                            <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_kongjian.png" alt=""/></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
+    <?php } ?>
 </div>
-
-<div class="news margin-top-6 clearfix">
-    <!-- 作者信息-->
-    <div class="header_img col-xs-12 col-sm-12 col-md-12 margin-top-10">
-        <!-- 头像-->
-        <img class="col-xs-4 col-sm-4 col-md-2 text-center radius-8" src="<?php echo base_url() ?>ui/img/mobile/yj_1.png" alt=""/>
-        <!-- 昵称-->
-        <div class="col-xs-8 col-sm-8 col-md-10 text-left color_000 weight-700">w痴汉w</div>
-        <!--发布时间-->
-        <div class="col-xs-8 col-sm-8 col-md-10 text-left color_666 size-12 margin-top-10">1分钟前</div>
-    </div>
-    <!-- 标题-->
-    <h4 class="col-xs-12 col-sm-12 col-md-12 text-lef margin-top-10 margin-bottom-6 color_000 weight-500">生来就愿意去旅游！！</h4>
-    <!-- 内容-->
-    <p class="branddesc col-xs-12 col-sm-12 col-md-12 color_666 size-14">
-        世界上哪有那么多完美，只是因为不完美才变得独一无二。 ——题记 瑶琳森林公园 于我，是幻想了多年的一场梦： 在这座小岛上——
-        世界上哪有那么多完美，只是因为不完美才变得独一无二。 ——题记 瑶琳森林公园 于我，是幻想了多年的一场梦： 在这座小岛上——
-        世界上哪有那么多完美，只是因为不完美才变得独一无二。 ——题记 瑶琳森林公园 于我，是幻想了多年的一场梦： 在这座小岛上——
-    </p>
-    <div class="clearfix"></div>
-    <!--可预览图片-->
-    <div class="my-simple-gallery flex_box_num clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-        <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
-            </a>
-        </figure>
-
-
-    </div>
-    <!-- 分享、评论次数、查看次数-->
-    <div class="share_look col-xs-12 col-sm-12 col-md-12 margin-top-10">
-        <div class="share_look_box  clearfix ">
-            <!--查看次数-->
-            <div class="look_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                <a href="#">
-                    <img src="<?php echo base_url() ?>ui/img/mobile/yj_2.png" width="20%" alt=""/> &nbsp;1000
-                </a>
-            </div>
-            <!--评论次数-->
-            <div class="pingLun_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                <a href="#">
-                    <img src="<?php echo base_url() ?>ui/img/mobile/yj_3.png" width="15%" alt=""/> &nbsp;1000
-                </a>
-            </div>
-            <!--分享-->
-            <div class="share col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                <a href="javascript:;">
-                    <img src="<?php echo base_url() ?>ui/img/mobile/icon_share_2_03.png" width="12%" alt=""/> &nbsp;分享
-                </a>
-            </div>
-
-            <!-- 分享隐藏弹框-->
-            <div class="share_hid_box hidden">
-                <div class="flex_box_between height-50">
-                    <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_weibo.png" alt=""/></a>
-                    <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_weixin.png" alt=""/></a>
-                    <a href="#"><img width="60%" src="<?php echo base_url() ?>ui/img/mobile/icon_kongjian.png" alt=""/></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
+<div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
+    <input id="forum" value="1" type="hidden">
+    <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="forum()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
 </div>
-
 <!--底部banner-->
-<div class="index_bg margin-top-6"><img src="<?php echo base_url() ?>ui/img/mobile/dbg_02.png"/></div>
-
-<!--底部-->
-<div class="foot_nav">
-    <div class="foot_navl">
-        <a href="#" style="font-size: 1rem;">
-            <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_13.png"/>预定
-        </a>
-    </div>
-    <div class="foot_navl foot_navr">
-        <a href="#" style="font-size: 1rem;">
-            <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_15.png"/>热线
-        </a>
-    </div>
-</div>
-<div class="index_ftop"><a href="#a"><img src="<?php echo base_url() ?>ui/img/mobile/index_top.jpg"/></a></div>
 
 <!--图片预览插件按钮-->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -277,6 +158,35 @@
 
 </div>
 <script type="text/javascript">
+    var url = "<?php echo base_url(); ?>";
+    function forum() {
+        var p = $('#forum').val();
+        var ps = parseInt(p)+1
+        $('#forum').val(ps);
+        $.post(url+'forum/ajaxForum?p='+ps,function(data){
+            if(data){
+                $('#forums').append(data);
+            }else{ 
+                $('#jzgd').html('没有更多了');
+                $('#jzgds').css('background-color','#808080');
+                $("#jzgds").attr("onclick","");
+            } 
+        });
+    }
+    
+    function quanwen() {
+        var stutas = $('#quanwen').html();
+        if(stutas == '全文'){
+            $('#shouqi').css('display','none');
+            $('#quanbu').css('display','');
+            $('#quanwen').html('收起');
+        }else{
+            $('#shouqi').css('display','');
+            $('#quanbu').css('display','none');
+            $('#quanwen').html('全文');
+        }
+    }
+    
     $(document).ready(function () {
         $('#sideMenu').sideToggle({
             moving: '#sideMenuContainer',
