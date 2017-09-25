@@ -24,24 +24,12 @@ class Accommodation extends MainController
 
     public function index()
     {
+        
+        
         $this->content['pageTitle'] = '住在瑶琳';
 
         $content['accommodationCategories'] = $this->accommodationCategoryModel->getAllAccommodationCategoriesDetail();
 
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(), $content);
-        $content['pageTitle'] = '住在瑶琳 - 瑶琳国家森林公园';
-        $content['accommodation'] = $this->accommodationCategoryModel->getAllAccommodationCategoriesDetail();
-        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
-        $this->load->view('main/template/footer');
-    }
-
-    //住在瑶琳详情
-    public function accommodationinfo()
-    {
-        $id = $this->input->get('id');
-        $content['pageTitle'] = '住在瑶琳详情 - 瑶琳国家森林公园';
-        $content['accommodationinfo'] = $this->accommodationCategoryModel->getAccommodationInfo($id);
-        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
-        $this->load->view('main/template/footer');
     }
 }
