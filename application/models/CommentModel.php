@@ -122,13 +122,15 @@ class CommentModel extends CI_Model
      * @return int
      *
      */
-    public function getCountOfJottingComment($jottingId)
+    public function getCountOfJottingComment($jottingId,$commentid=null)
     {
         $condition = [];
         $condition['status'] = \util\Constant::STATUS_ACTIVE;
         $condition['isDeleted'] = \util\Constant::IS_DELETED_NO;
         $condition['jottingId'] = $jottingId;
-
+        if($commentid){
+            $condition['commentid'] = null;
+        }
         $this->db->where($condition);
         $this->db->from(self::TABLE_COMMENT);
         return $this->db->count_all_results();

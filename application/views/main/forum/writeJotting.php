@@ -63,6 +63,29 @@
 				document.getElementById(checkbox).checked = true;
 			}
 		}
+                
+                 function submits(){
+                    $('#forms').submit();
+                }
+                
+                //上传图片预览效果
+                function showPicture(sourceId, targetId) { 
+                    var url = getFileUrl(sourceId); 
+                    var imgPre = document.getElementById(targetId);
+                    imgPre.style.backgroundImage= "url("+url+")"; 
+                } 
+                //从 file 域获取 本地图片 url
+                function getFileUrl(sourceId) {
+                    var url='';
+                    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
+                        url = document.getElementById(sourceId).value;
+                    } else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
+                        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+                    } else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
+                        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+                    }
+                    return url;
+                }
     </script>
 </head>
 <body style="background: #fff;">
@@ -70,15 +93,18 @@
 <div class="yj_top" style="background: #f8f8f8;">
 	<p>写游记</p>
 	<div class="yj_left" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/yj_fh.png" style="height:80%;width: 70%"/></a></div>
-	<div class="yj_righta"><a class="yj_f" href="#">发送</a></div>
+	<div class="yj_righta" onclick="submits()"><a class="yj_f">发送</a></div>
 </div>
 <div class="yjx_con">
-    <form>
-	<input type="text" name="textfield" id="textfield" placeholder="标题" />
+    <form action="<?php echo base_url(); ?>forum/addJotting" method="post" name="comment" id="forms" enctype="multipart/form-data">
+	<input type="text" name="title" id="textfield" placeholder="标题" />
 	<div class="yjx_cona">
-		<textarea name="textarea" id="textarea" cols="45" rows="5" placeholder="说点什么吧......"></textarea>
-		<div class="yj_sc"><a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/pic.png" /></a></div>
+		<textarea name="content" id="textarea" cols="45" rows="5" placeholder="说点什么吧......"></textarea>
+                <div class="yj_sc" id="imgPre" style="width:60px; background:url('<?php echo base_url();?>ui/img/mobile/pic.png') no-repeat;background-size:58% 48%;margin-left:2%;">
+                    <input type="file" name="images[]" size="20" id="upload" onchange="showPicture('upload','imgPre')" style="height: 48px;left: 0;opacity: 0;top: 0;width: 58%;z-index: 2;"/>
+                </div>
 	</div>
+    </form>
 	<div class="yjx_conb">
 		<p>同步到：</p>
 		<ul>

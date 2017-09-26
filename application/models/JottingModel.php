@@ -110,7 +110,7 @@ class JottingModel extends CI_Model
      *
      * @return array
      */
-    public function getDetailJottingById(&$jotting) {
+    public function getDetailJottingById(&$jotting,$commentid=null) {
         $jotting['jottingTime'] = \util\TimeTool::convertUnixTimestampToChineseBlogTime($jotting['jottingTime']);
         $jotting['jottingImages'] = [];
 
@@ -121,7 +121,7 @@ class JottingModel extends CI_Model
             }
         }
 
-        $jotting['jottingCommentsCount'] = $this->commentModel->getCountOfJottingComment($jotting['jottingId']);
+        $jotting['jottingCommentsCount'] = $this->commentModel->getCountOfJottingComment($jotting['jottingId'],$commentid);
 
         return $jotting;
     }

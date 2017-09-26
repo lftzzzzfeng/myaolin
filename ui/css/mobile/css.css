@@ -99,10 +99,10 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
 .login-bg{width:100%;height:100%;position:fixed;top:0px;left:0px;background:#ebebeb;filter:alpha(opacity=30);-moz-opacity:0.3;-khtml-opacity:0.3;opacity:0.3;display:none;}
 .ss_top{width:100%; height: 90px; background: #f8f8f8;}
 .ss_topa{width:95%; height: 90px; margin: 0 auto;}
-.ss_topa .ss_topal{width:85%; height: 50px; margin-top: 20px; float: left; background: #e5e5e5; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
+.ss_topa .ss_topal{width:85%; height: 50px; margin-top: 20px; float: left; background: #e5e5e5; border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;}
 .ss_topa a{ padding-top: 30px; display: block; padding-left:15px ; float: left; color: #333;}
 .ss_topala{width:88%; height: 50px; float: left; line-height: 50px;}
-.ss_topa .ss_topala input{width:100%; height: 50px; line-height: 50px; background: none; border: none; color: #333; padding-left: 2%;}
+.ss_topa .ss_topala input{width:100%; height: 50px; line-height: 50px; background: none; border: none; color: #333; padding-left: 5%;}
 .ss_topalb{width:12%; float: left; text-align: center;}
 .ss_topalb img{width:20px; }
 .ss_topalb a{ padding: 0; padding-top: 10px;}
@@ -331,7 +331,21 @@ ul.sj_ul{width:100%; min-height: 50px; height: auto; overflow: hidden; margin: 1
 ul.sj_ul li{width:32%; float: left; margin-right: 1%;}
 ul.sj_ul li img{ width:100%;}
 
-
+/*搜索样式*/
+.sslist_con{width:100%; min-height: 500px; height: auto; overflow: hidden; margin: 0 auto; background: #fff;}
+.ss_a{width:95%; min-height: 10px; height: auto; overflow: hidden;  margin: 0px auto 0;}
+.ss_a img{width:100%;}
+.ss_a h2{ font-size: 1.0rem; font-weight: normal; line-height: 30px; color: #05b1bb;border-bottom: 1px dashed #e5e5e5;}
+.ss_a h2 a{color: #05b1bb;}
+.ss_a p.aa_p{ color: #333; font-size: 0.9rem; line-height: 30px;overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+word-wrap: break-word;}
+.p_ly{ color: #999;line-height: 30px;font-size: 0.9rem;}
+.ss_btn{width:150px; height: 40px; line-height: 40px; text-align: center; background: #05b1bb; margin: 20px auto;}
+.ss_btn a{ display: block; color: #fff;}
 
 
 
