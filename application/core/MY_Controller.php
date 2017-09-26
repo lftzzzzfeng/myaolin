@@ -21,8 +21,8 @@ class AdminController extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        redirect(\util\Constant::PC_DOMAIN);
         $this->load->helper('url');
+        redirect(\util\Constant::PC_DOMAIN . 'admin/login');
         $this->checkLogin();
     }
 
