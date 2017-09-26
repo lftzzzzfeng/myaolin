@@ -86,6 +86,7 @@ exit;
 
     public function index($merchantId)
     {
+        echo '跳转中...';
         $url = \util\WeChat::authorize($merchantId);
         header("Location: $url");
     }
@@ -93,7 +94,8 @@ exit;
     public function products($merchantId)
     {
         $code = $this->input->get('code');
-        $memberInfo = json_decode(\util\WeChat::getWeChatMemberInfo($code), true);
+
+        $memberInfo = json_decode(\util\WeChat::getWeChatMemberInfo($code, $merchantId), true);
 
         $_SESSION['member']['openid'] = $memberInfo['openid'];
         $_SESSION['merchant']['id'] = $content['merchant']['id'] = $merchantId;
@@ -102,6 +104,7 @@ exit;
             $this->memberModel->saveMember(MemberModel::SOURCE_TYPE_WECHAT, $memberInfo['openid'], $memberInfo['nickname']);
         }
 
+        $content['merchant']['id'] = $merchantId;
         $content['products'] = $this->productModel->getProducts()['products'];
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $content);
