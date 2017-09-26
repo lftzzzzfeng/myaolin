@@ -69,7 +69,7 @@
 <a id="a"><div class="top"></div></a>
 <div class="yj_top" style="background: #f8f8f8;">
 	<p>写游记</p>
-	<div class="yj_left" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/yj_fh.png" style="height:60%;width: 50%"/></a></div>
+	<div class="yj_left" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/yj_fh.png" style="height:80%;width: 70%"/></a></div>
 	<div class="yj_righta"><a class="yj_f" href="#">发送</a></div>
 </div>
 <div class="yjx_con">
