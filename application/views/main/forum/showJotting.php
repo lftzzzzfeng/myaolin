@@ -23,11 +23,6 @@
     <script src="<?php echo base_url() ?>ui/js/mobile/ss.js"></script>
     <script src="<?php echo base_url() ?>ui/js/mobile/photoswipe.min.js"></script>
     <script src="<?php echo base_url() ?>ui/js/mobile/photoswipe-ui-default.min.js"></script>
-    <style>
-        #myCarousel ol{ margin-bottom: 0;}
-	.carousel-indicators li{width:13px; height: 13px; border-radius: 50%;}
-	.carousel-indicators .active{width:13px; height: 13px; border-radius: 50%; margin-top: 1px;}
-    </style>
     <script type="text/javascript">
     	
    		document.addEventListener('plusready', function(){
@@ -41,46 +36,85 @@
         .pswp__zoom-wrap img{height: 100%;width: 100%;}
     </style>
 </head>
-<body style="background: #e5e5e5;">
+<body style="background: #f0f0f0;">
 <a id="a"><div class="top"></div></a>
-<!--banner-->
-<div class="relative">
-    <img src="<?php echo $coverimage; ?>" width="100%" alt="" style="height:225px;" />
-    <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center" style="height:50%;border: 0px;">
-<!--        <p class="p1 size-12 margin-bottom-5">
-            <span class="block margin-bottom-6"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
-            <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
-        </p>-->
-        <p class="size-18 weight-800 margin-bottom-5 ipad_size" style="margin-top:40px;"><?php echo $name; ?></p>
-        <!--<p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>-->
-    </div>
-    <div class="you_fh" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png" style="height:80%;width: 70%" /></a></div>
-<!--    <div class="team_name text-center vertical-align-middle">
-	        <p class="margin-bottom-5 margin-top-20 size-14" style="color: #333;"><?php echo $area['description']; ?></p>
-	        <p class="flex_box margin-bottom-5"><span></span><span class="yuan_blue"></span><span></span></p>
-    </div>-->
-<div class="jq_weather">
-    <img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
+<div class="yj_top">
+	<p>游记正文</p>
+	<div class="yj_left" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/yj_fh.png"  style="height:80%;width: 70%"/></a></div>
+	<div class="yj_right"><a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/yj_share.png" /></a></div>
 </div>
+<div class="yj_con">
+	<div class="yj_cona">
+		<div class="yj_conat">
+			<img src="<?php echo base_url() ?>ui/img/mobile/yj_1.png"  />
+			<div class="yj_cr">
+				<p class="cr_p"><?php echo $data['creatorName']; ?></p>
+				<p class="cr_pa"><?php echo $data['jottingTime']; ?></p>
+			</div>
+		</div>
+		<div class="yj_crcon">
+			<p class="crp_p"><?php echo $data['jottingTitle']; ?></p>
+			<p class="crp_pa"><?php echo $data['jottingContent']; ?></p>
+			
+                        <div class="my-simple-gallery flex_box_num clearfix" itemscope itemtype="http://schema.org/ImageGallery">
+                            <?php foreach($data['jottingImages'] as $k => $v){ ?>
+                                <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
+                                    <a href="<?php echo $v; ?>" itemprop="contentUrl" data-size="960x1024">
+                                        <img src="<?php echo $v; ?>" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
+                                    </a>
+                                </figure>
+                            <?php } ?>
+                            
+                        </div>
+                </div>
+	</div>
+	
 </div>
-	<div class="jq_con">
-		
-	    <div class="jq_cona">
-	    	<ul  class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery">
-                        <li>
-                            <?php foreach ($area as $k => $v){ ?>
-	    			<figure class="img_a" itemscope itemtype="http://schema.org/ImageObject">
-			            <a href="<?php echo $v['image']; ?>" itemprop="contentUrl" data-size="964x1024">
-                                        <img src="<?php echo $v['image']; ?>" class=" padding-1" itemprop="thumbnail" alt="Image description" style="height:200px;"/>
-			            </a>
-			        </figure>
-                            <?php } ?>	    			
-	    		</li>
-	    	</ul>
-	    	
-	    </div>
-	</div>	
-	<!--插件按钮-->
+
+<div class="yj_conb">
+	<div class="yjc_p">
+		<p class="yjcp_p">浏览 <?php echo $data['jottingHits']; ?></p>
+		<p class="yjcp_pa">评论 <?php echo $data['jottingCommentsCount']; ?></p>
+	</div>
+        <?php foreach ($comment['comments'] as $k => $v){ ?>
+            <div class="yj_pz">
+                    <div class="yj_pzleft">
+                            <img src="<?php echo base_url() ?>ui/img/mobile/mr_tx.png"  />
+                    </div>
+                    <div class="yj_pzright">
+                            <div class="yj_rl">
+                                    <p class="pz_p"><?php echo $v['sender']; ?></p>
+                                    <p class="pz_pa"><span><?php echo $v['createdTimestamp']; ?></span></p>
+                                    <!--&nbsp;&nbsp;来自&nbsp;&nbsp;<img src="<?php echo base_url() ?>ui/img/mobile/dz_logo.png" />-->
+                            </div>
+                            <div class="yj_rr">
+                                    <a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/yj_pl.png" /></a>
+                            </div>
+                            <p class="yr_p"><?php echo $v['content']; ?></p>
+                            <div class="yj_plm">
+                                <?php foreach ($v['subComments']['comments'] as $k1 => $v1){ ?>
+                                <p><span><?php echo $v1['sender'] ?></span>回复<span style="color:#ea0202"><?php echo $v1['recipient'] ?>：</span><?php echo $v1['content'] ?></p>
+                                <?php } ?>
+<!--                                    <p><span>喵喵有点小任性：</span><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /></p>
+                                    <p><span style="color: #ea0202;">行走在路上：</span>回复<span>青柠迷蒙：</span>我也买票了，哈哈！</p>
+                                    <p><span>喵喵有点小任性：</span><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /></p>
+                                    <p><span>青柠迷蒙：</span>我也买票了，哈哈！</p>
+                                    <div class="yj_phide">
+                                            <p><span>喵喵有点小任性：</span><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /></p>
+                                            <p><span>青柠迷蒙：</span>我也买票了，哈哈！</p>
+                                    </div>-->
+                                    <div class="p_show"></div>
+                            </div>
+                    </div>
+            </div>
+         <?php } ?>
+</div>
+
+<div class="yj_ping">
+	<input class="input_a" type="text" name="textfield" id="textfield" placeholder="评论" />
+	<input class="input_b" type="submit" name="button" id="button" value="评论" />
+</div>
+<!--插件按钮-->
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -131,9 +165,11 @@
                 <div class="pswp__share-tooltip"></div>
             </div>
 
-            <!--<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>-->
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
 
-            <!--<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>-->
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
 
             <div class="pswp__caption">
                 <div class="pswp__caption__center"></div>
@@ -144,7 +180,70 @@
     </div>
 
 </div>
-    
+	<script>
+		//    图片自适应排列
+		$(document).ready(function () {
+        var data = $(".my-simple-gallery");
+        for(var i=0;i<data.length;i++){
+            var num = $(data[i]).children().length;
+            if(num == 1){
+                $(data[i]).children().addClass("col-xs-12 col-sm-12");
+            }
+            if(num == 2){
+                $(data[i]).children().addClass("col-xs-6 col-sm-6");
+            }
+            if(num == 3){
+                $(data[i]).children().addClass("col-xs-4 col-sm-4");
+            }
+            if(num == 4){
+                $(data[i]).children().addClass("col-xs-6 col-sm-6");
+            }
+            if(num > 4){
+                $(data[i]).children().addClass("col-xs-4 col-sm-4");
+            }
+        }
+       });
+       $(document).ready(function(){
+        var box = $(".yj_plm");
+        for(var q=0;q<box.length;q++) {
+            var line = $(box[q]).find("p");
+            console.log(line.length)
+
+                if (line.length <= 2) {
+                    line.show();
+                    $(box[q]).find(".p_show").text("共" + line.length + "条回复");
+                } else if (line.length > 2) {
+                    line.hide();
+                    $(line[0]).show();
+                    $(line[1]).show();
+                    $(box[q]).find(".p_show").html("共" + line.length + "条回复," + "<a>" + "点击展开" + "</a>" + "<img" + " src=" + "<?php echo base_url() ?>ui/img/mobile/mor.png" + ">");
+					
+                    $(box[q]).find(".p_show").on("click", "a", function () {
+                        if ($(this).html() == "点击展开") {
+                            $(this).parent().parent().find("p").show();
+                            //$(this).html("点击收起");
+                            $(this).parent().html("共" + line.length + "条回复," + "<a>" + "点击收起" + "</a>" + "<img" + " src=" + "<?php echo base_url() ?>ui/img/mobile/mora.png" + ">");
+                        
+                        } else if ($(this).html() == "点击收起") {
+                            $(this).parent().parent().find("p").hide();
+                            $($(this).parent().parent().find("p")[0]).show();
+                            $($(this).parent().parent().find("p")[1]).show();
+//                          $(this).html("点击展开");
+                            $(this).parent().html("共" + line.length + "条回复," + "<a>" + "点击展开" + "</a>" + "<img" + " src=" + "<?php echo base_url() ?>ui/img/mobile/mor.png" + ">");
+                            
+                            
+                        }
+
+
+                    });
+
+                }
+
+
+        }
+
+    });
+	</script>
 <script type="text/javascript">
     var initPhotoSwipeFromDOM = function(gallerySelector) {
 
@@ -338,16 +437,5 @@
     // execute above function
     initPhotoSwipeFromDOM('.my-simple-gallery');
 </script>
-
-	<script src='js/sideToggleExtended.js'></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-		  $('#sideMenu').sideToggle({
-			moving: '#sideMenuContainer',
-			direction: 'left'
-		  });
-	
-		});
-	</script>
 </body>
 </html>

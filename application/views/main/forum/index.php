@@ -45,7 +45,7 @@
             <div class="my-simple-gallery flex_box_num clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
                 <?php foreach ($v['jottingImages'] as $k1 => $v1){ ?>
                 <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
-                        <a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x1024">
+                        <a href="<?php echo $v1; ?>" itemprop="contentUrl" data-size="964x1024">
                             <img src="<?php echo $v1; ?>" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
                         </a>
                     </figure>
@@ -56,13 +56,13 @@
                 <div class="share_look_box  clearfix ">
                     <!--查看次数-->
                     <div class="look_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                        <a href="#">
+                        <a>
                             <img src="<?php echo base_url() ?>ui/img/mobile/yj_2.png" width="20%" alt=""/> &nbsp;<?php echo $v['jottingHits']; ?>
                         </a>
                     </div>
                     <!--评论次数-->
                     <div class="pingLun_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center">
-                        <a href="#">
+                        <a href="<?php echo base_url() ?>forum/showJotting?id=<?php echo $v['jottingId'];?>">
                             <img src="<?php echo base_url() ?>ui/img/mobile/yj_3.png" width="15%" alt=""/> &nbsp;<?php echo $v['jottingCommentsCount']; ?>
                         </a>
                     </div>
@@ -119,13 +119,13 @@
 
                 <div class="pswp__counter"></div>
 
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <!--<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>-->
 
                 <!--  <button class="pswp__button pswp__button--share" title="Share"></button> -->
 
                 <!--<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> -->
 
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!--<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>-->
 
                 <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
@@ -142,11 +142,9 @@
                 <div class="pswp__share-tooltip"></div>
             </div>
 
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
+<!--            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
 
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>-->
 
             <div class="pswp__caption">
                 <div class="pswp__caption__center"></div>
@@ -157,6 +155,10 @@
     </div>
 
 </div>
+<style>
+    .pswp__zoom-wrap {height: 1024px;width: 1024px;}
+    .pswp__zoom-wrap img{height: 100%;width: 100%;}
+</style>
 <script type="text/javascript">
     var url = "<?php echo base_url(); ?>";
     function forum() {

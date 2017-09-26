@@ -36,7 +36,7 @@
         <a id="a"><div class="top"></div></a>
 	<div class="jq_banner">
 		<img src="<?php echo$accommodationinfo['img'][0] ?>"  />
-		<div class="you_fh" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png" style="height:60%;width: 50%"/></a></div>
+		<div class="you_fh" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png" style="height:80%;width: 70%"/></a></div>
 		
 	</div>
 	<div class="zhu_con">

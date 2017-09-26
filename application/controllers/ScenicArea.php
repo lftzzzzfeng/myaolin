@@ -36,7 +36,7 @@ class ScenicArea extends MainController
         $scenicviews = $this->scenicAreaModel->getScenicAreasM($p,'',4);
         $html = '';
         foreach ($scenicviews['scenicAreas'] as $k => $v){
-            $html .= '<li class="li_i"><a href="#"><img src="'.$v['coverImage'].'" style="height:200px;" /></a><div class="li_bt"><p><a href="#">'.$v['title'].'<br /><span>'.$v['description'].'</span><br />('.$v['num'].'张)</a></p></div></li>';
+            $html .= '<li class="li_i"><a href="'.base_url().'scenicarea/areaList?id='.$v['id'].'"><img src="'.$v['coverImage'].'" style="height:200px;" /></a><div class="li_bt"><p><a href="'.base_url().'scenicarea/areaList?id='.$v['id'].'">'.$v['title'].'<br /><span>'.$v['description'].'</span><br />('.$v['num'].'张)</a></p></div></li>';
          } 
          echo $html;
     }
