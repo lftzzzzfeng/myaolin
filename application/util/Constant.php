@@ -17,4 +17,10 @@ class Constant
 
     const IS_RECOMMENDED_YES = 1;
     const IS_RECOMMENDED_NO = 0;
+
+    const PC_DOMAIN = 'http://clubjoin.cn/';
+    const MOBILE_DOMAIN = 'http://m.clubjoin.cn/';
+
+    const TYPE_PC = 'pc';
+    const TYPE_MOBILE = 'mobile';
 }
