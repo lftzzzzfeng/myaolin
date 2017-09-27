@@ -52,4 +52,15 @@ class Welcome extends MainController
 
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
     }
+
+    //搜索
+    public function search()
+    {
+        $this->content['pageTitle'] = '搜索列表';
+        $search = $this->input->post('search');
+        $content['search'] = $this->websiteModel->search($search);
+//        var_dump($content);
+//        die;
+        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
+    }
 }

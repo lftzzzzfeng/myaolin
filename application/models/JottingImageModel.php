@@ -34,6 +34,7 @@ class JottingImageModel extends CI_Model
             for ($m = 0; $m < $count; $m++) {
                 $data['jottingId'] = $jottingId;
                 $data['image'] = $images['name'][$m];
+                $data['sourceType'] = \util\Constant::TYPE_MOBILE;
 
                 $this->db->insert(self::TABLE_JOTTING_IMAGE, $data);
                 $savedId = $this->db->insert_id();
