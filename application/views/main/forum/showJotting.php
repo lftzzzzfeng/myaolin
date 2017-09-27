@@ -40,7 +40,7 @@
 <a id="a"><div class="top"></div></a>
 <div class="yj_top">
 	<p>游记正文</p>
-	<div class="yj_left" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/yj_fh.png"  style="height:80%;width: 70%"/></a></div>
+	<div class="yj_left" onclick="window.location.href='<?php echo base_url() ?>forum'"><a><img src="<?php echo base_url() ?>ui/img/mobile/yj_fh.png"  style="height:80%;width: 70%"/></a></div>
 	<div class="yj_right"><a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/yj_share.png" /></a></div>
 </div>
 <div class="yj_con">
@@ -77,7 +77,7 @@
 		<p class="yjcp_pa">评论 <?php echo $data['jottingCommentsCount']; ?></p>
 	</div>
         <?php foreach ($comment['comments'] as $k => $v){ ?>
-            <div class="yj_pz">
+            <div class="yj_pz" style="min-height: 100px;">
                     <div class="yj_pzleft">
                             <img src="<?php echo base_url() ?>ui/img/mobile/mr_tx.png"  />
                     </div>
@@ -85,35 +85,19 @@
                             <div class="yj_rl">
                                     <p class="pz_p"><?php echo $v['sender']; ?></p>
                                     <p class="pz_pa"><span><?php echo $v['createdTimestamp']; ?></span></p>
-                                    <!--&nbsp;&nbsp;来自&nbsp;&nbsp;<img src="<?php echo base_url() ?>ui/img/mobile/dz_logo.png" />-->
-                            </div>
-                            <div class="yj_rr">
-                                    <a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/yj_pl.png" /></a>
                             </div>
                             <p class="yr_p"><?php echo $v['content']; ?></p>
-                            <div class="yj_plm">
-                                <?php foreach ($v['subComments']['comments'] as $k1 => $v1){ ?>
-                                <p><span><?php echo $v1['sender'] ?></span>回复<span style="color:#ea0202"><?php echo $v1['recipient'] ?>：</span><?php echo $v1['content'] ?></p>
-                                <?php } ?>
-<!--                                    <p><span>喵喵有点小任性：</span><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /></p>
-                                    <p><span style="color: #ea0202;">行走在路上：</span>回复<span>青柠迷蒙：</span>我也买票了，哈哈！</p>
-                                    <p><span>喵喵有点小任性：</span><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /></p>
-                                    <p><span>青柠迷蒙：</span>我也买票了，哈哈！</p>
-                                    <div class="yj_phide">
-                                            <p><span>喵喵有点小任性：</span><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /><img src="<?php echo base_url() ?>ui/img/mobile/pl_bq.png" /></p>
-                                            <p><span>青柠迷蒙：</span>我也买票了，哈哈！</p>
-                                    </div>-->
-                                    <div class="p_show"></div>
-                            </div>
                     </div>
             </div>
          <?php } ?>
 </div>
-
-<div class="yj_ping">
-	<input class="input_a" type="text" name="textfield" id="textfield" placeholder="评论" />
-	<input class="input_b" type="submit" name="button" id="button" value="评论" />
-</div>
+<form action="<?php echo base_url(); ?>forum/loadAddJottingComment" method="post" name="comment">
+    <div class="yj_ping">
+        <input type="hidden" name="jottingId" value="<?php echo $jottingId; ?>">
+        <input class="input_a" type="text" value="" name="textfield" id="textfield" placeholder="评论" />
+        <input class="input_b" type="submit" name="button" id="button" value="评论" />
+    </div>
+</form>
 <!--插件按钮-->
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -180,9 +164,9 @@
     </div>
 
 </div>
-	<script>
-		//    图片自适应排列
-		$(document).ready(function () {
+<script>
+    // 图片自适应排列
+    $(document).ready(function () {
         var data = $(".my-simple-gallery");
         for(var i=0;i<data.length;i++){
             var num = $(data[i]).children().length;
