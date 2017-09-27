@@ -34,7 +34,7 @@ class News extends MainController
         $content['pageTitle'] = '资讯详情 - 瑶琳国家森林公园';
         $content['item'] = $this->newsModel->getNewsById($id);
         $content['item']['UpDown'] = $this->newsModel->getNewsUpM($content['item']['orderNumber']);
-        $content['item']['coverImage'] = base_url() . 'ui/img/news/' .  $content['item']['id'] . '.' . explode('.', $content['item']['coverImage'])[1] .'?' . time();
+        $content['item']['coverImage'] = $this->baseUrl . 'ui/img/news/' .  $content['item']['id'] . '.' . explode('.', $content['item']['coverImage'])[1] .'?' . time();
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
         $this->load->view('main/template/footer');
     }
