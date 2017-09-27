@@ -45,10 +45,11 @@ class WeChat
      * 获取access_token
      *
      * @param string $code
+     * @param string $merchantId
      *
      * @return string
      */
-    public static function getWeChatMemberInfo($code)
+    public static function getWeChatMemberInfo($code, $merchantId)
     {
         $url = 'https://api.weixin.qq.com/sns/oauth2/access_token';
         $url .= '?appid=' . self::APP_ID;
@@ -58,6 +59,9 @@ class WeChat
 
         $result = CurlTool::get($url);
         $accessTokenResponse = json_decode($result, true);
+        if (array_key_exists('errcode', $accessTokenResponse) && $accessTokenResponse['errcode'] > 0) {
+            redirect(base_url() . 'merchants/shop/index/' . $merchantId);
+        }
         $accessToken = $accessTokenResponse['access_token'];
         $refreshToken = $accessTokenResponse['refresh_token'];
         $openId = $accessTokenResponse['openid'];

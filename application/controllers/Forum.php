@@ -69,40 +69,6 @@ class Forum extends MainController
         echo $html;
     }
     
-//    public function loadJottings()
-//    {
-//        $result = [];
-//
-//        $currentPageNumber = $this->input->post('currentPageNumber');
-//        $jottings = $this->jottingModel->getJottings($currentPageNumber, null);
-//
-//        if ($jottings['count'] > 0) {
-//            foreach ($jottings['jottings'] as $jotting) {
-//                $result[] = $this->jottingModel->getDetailJottingById($jotting);
-//            }
-//        }
-//
-//        echo json_encode($result);
-//    }
-
-//    public function loadJottingComments()
-//    {
-//        $jottingId = $this->input->post('jottingId');
-//        $comments = $this->commentModel->getFirstLevelComment($jottingId);
-//        $comments['jottingId'] = $jottingId;
-//
-//        foreach ($comments['comments'] as &$comment) {
-//            $comment['createdTimestamp'] = \util\TimeTool::convertUnixTimestampToChineseBlogTime($comment['createdTimestamp']);
-//            $comment['subComments'] = $this->commentModel->getSecondLevelJottingComments($comment['id']);
-//            if ($comment['subComments']['count'] > 0) {
-//                foreach ($comment['subComments']['comments'] as &$subComment) {
-//                    $subComment['createdTimestamp'] = \util\TimeTool::convertUnixTimestampToChineseBlogTime($subComment['createdTimestamp']);
-//                }
-//            }
-//        }
-//        echo json_encode($comments);
-//    }
-    
     //写游记
     public function writeJotting()
     {
@@ -116,6 +82,7 @@ class Forum extends MainController
         $title = $this->input->post('title');
         $content = $this->input->post('content');
         $images = $_FILES['images'];
+        $images['name'] = array_unique($images['name']); 
         $jottingId = $this->jottingModel->saveJotting(null, $title, $content);
         $this->jottingImageModel->saveJottingImages($jottingId, $images);
         echo "<script type='text/javascript'>location.href='".base_url()."forum'</script>"; 
@@ -143,43 +110,8 @@ class Forum extends MainController
                 }
             }
         }
-//        var_dump($content);
-//        die;
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
-
-//    public function loadJottingById()
-//    {
-//        $result = [];
-//
-//        $jottingId = $this->input->post('jottingId');
-//        $jottings = $this->jottingModel->getJottings(0, null, 1, 1, $jottingId);
-//
-//        if ($jottings['count'] > 0) {
-//            foreach ($jottings['jottings'] as $jotting) {
-//                $result[] = $this->jottingModel->getDetailJottingById($jotting);
-//            }
-//        }
-//        echo json_encode($result);
-//    }
-//
-//    public function loadShowJottingComments()
-//    {
-//        $jottingId = $this->input->get('jottingId');
-//        $comments = $this->commentModel->getFirstLevelComment($jottingId, 0, 30);
-//        $comments['jottingId'] = $jottingId;
-//
-//        foreach ($comments['comments'] as &$comment) {
-//            $comment['createdTimestamp'] = \util\TimeTool::convertUnixTimestampToChineseBlogTime($comment['createdTimestamp']);
-//            $comment['subComments'] = $this->commentModel->getSecondLevelJottingComments($comment['id'], 0, 30);
-//            if ($comment['subComments']['count'] > 0) {
-//                foreach ($comment['subComments']['comments'] as &$subComment) {
-//                    $subComment['createdTimestamp'] = \util\TimeTool::convertUnixTimestampToChineseBlogTime($subComment['createdTimestamp']);
-//                }
-//            }
-//        }
-//        echo json_encode($comments);
-//    }
     
     //添加评论
     public function loadAddJottingComment()

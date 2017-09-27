@@ -69,9 +69,18 @@
                 }
                 
                 //上传图片预览效果
-                function showPicture(sourceId, targetId) { 
-                    var url = getFileUrl(sourceId); 
-                    var imgPre = document.getElementById(targetId);
+                function showPicture(sourceId) {
+                    var id = $(sourceId).attr('id');
+                    var ids = $(sourceId).parent('div').attr('id');
+                    $(sourceId).attr('id',parseInt(id)+1);
+                    $(sourceId).parent('div').attr('id',parseInt(ids)+1+'s');
+                    var div = $(sourceId).parent();
+                    var newdiv = div.clone();
+                    $(sourceId).attr('id',id);
+                    $(sourceId).parent('div').attr('id',ids);
+                    div.after(newdiv);	
+                    var url = getFileUrl(id); 
+                    var imgPre = document.getElementById(ids);
                     imgPre.style.backgroundImage= "url("+url+")"; 
                 } 
                 //从 file 域获取 本地图片 url
@@ -100,9 +109,9 @@
 	<input type="text" name="title" id="textfield" placeholder="标题" />
 	<div class="yjx_cona">
 		<textarea name="content" id="textarea" cols="45" rows="5" placeholder="说点什么吧......"></textarea>
-                <div class="yj_sc" id="imgPre" style="width:60px; background:url('<?php echo base_url();?>ui/img/mobile/pic.png') no-repeat;background-size:58% 48%;margin-left:2%;">
-                    <input type="file" name="images[]" size="20" id="upload" onchange="showPicture('upload','imgPre')" style="height: 48px;left: 0;opacity: 0;top: 0;width: 58%;z-index: 2;"/>
-                </div>
+                    <div class="yj_sc" id="1s" style="background:url('<?php echo base_url();?>ui/img/mobile/pic.png') no-repeat;background-size:58% 48%;margin-left:2%; float:left;">
+                        <input type="file" name="images[]" size="20" id="1" onchange="showPicture(this)" style="height: 48px;left: 0;opacity: 0;top: 0;width: 58%;z-index: 2; margin: 0px 0px;"/>
+                    </div>
 	</div>
     </form>
 	<div class="yjx_conb">
