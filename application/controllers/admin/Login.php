@@ -7,6 +7,7 @@
  */
 include dirname(__FILE__) . '/../../util/Encryption.php';
 include dirname(__FILE__) . '/../../util/Constant.php';
+
 class Login extends CI_Controller
 {
     public $publicViewPath = 'admin/login/';
@@ -25,7 +26,7 @@ class Login extends CI_Controller
     public function index()
     {
         redirect(\util\Constant::PC_DOMAIN);
-        
+
         $data = [];
         $data['username'] = '';
         $data['responseCode'] = 1;
