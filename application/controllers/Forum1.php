@@ -31,7 +31,7 @@ class Forum1 extends MainController
 
         if (count($images) > 0) {
             foreach ($images as $image) {
-                $content['showJottingImages'][] = base_url() . 'ui/img/jotting/images/' . $content['id'] . '_' . $image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
+                $content['showJottingImages'][] = $this->baseUrl . 'ui/img/jotting/images/' . $content['id'] . '_' . $image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
             }
         } else {
             $content['showJottingImages'] = [];

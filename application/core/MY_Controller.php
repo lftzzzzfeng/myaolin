@@ -21,8 +21,8 @@ class AdminController extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        redirect(\util\Constant::PC_DOMAIN);
         $this->load->helper('url');
+        redirect(\util\Constant::PC_DOMAIN . 'admin/login');
         $this->checkLogin();
     }
 
@@ -42,6 +42,7 @@ class MainController extends MY_Controller
     public $mainTemplateHeaderPath = 'main/template/header';
     public $mainTemplateFooterPath = 'main/template/footer';
     public $content = [];
+    public $baseUrl;
 
     public function __construct()
     {
@@ -51,6 +52,11 @@ class MainController extends MY_Controller
         $weather = json_decode($weatherForecast, true)['result'];
         $this->content['weather']['temperature'] = $weather['today']['temperature'];
         $this->content['weather']['status'] = $weather['today']['weather'];
+        if (ENVIRONMENT == 'development') {
+            $this->baseUrl = base_url();
+        } else {
+            $this->baseUrl = \util\Constant::PC_DOMAIN;
+        }
     }
 
     public function checkLogin()

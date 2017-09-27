@@ -163,7 +163,7 @@ class FoodModel extends CI_Model
         $result['food'] = $this->db->where($condition)->order_by('orderNumber DESC')
             ->limit($pageNumber, $start)->get(self::TABLE_FOOD)->result_array();
         foreach($result['food'] as $k => &$v){
-            $v['coverImage'] = base_url() . 'ui/img/food/' . $v['id']
+            $v['coverImage'] = $this->baseUrl . 'ui/img/food/' . $v['id']
                 . '.' . explode('.', $v['coverImage'])[1] .'?' . time();
         }
         if ($result['count'] > 0) {

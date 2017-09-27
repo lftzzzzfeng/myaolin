@@ -143,7 +143,7 @@ class AccommodationModel extends CI_Model
                 if (count($images) > 0) {
                     foreach ($images as $image) {
                         $element = [];
-                        $element['image'] = base_url() . 'ui/img/accommodation/' . $accommodation['id'] . '_' .$image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
+                        $element['image'] = $this->baseUrl . 'ui/img/accommodation/' . $accommodation['id'] . '_' .$image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
 
                         array_push($accommodation['images'], $element);
                     }

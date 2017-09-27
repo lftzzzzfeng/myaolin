@@ -5,7 +5,7 @@
  * Date: 2017/8/10
  * Time: 16:27
  */
-include dirname(__FILE__) . '/../util/Constant.php';
+require_once dirname(__FILE__) . '/../util/Constant.php';
 
 class AdministratorModel extends CI_Model
 {

@@ -6,7 +6,7 @@
  * Time: 16:57
  */
 include dirname(__FILE__) . '/../../util/Encryption.php';
-include dirname(__FILE__) . '/../../util/Constant.php';
+require_once dirname(__FILE__) . '/../../util/Constant.php';
 
 class Login extends CI_Controller
 {
@@ -25,8 +25,7 @@ class Login extends CI_Controller
 
     public function index()
     {
-        redirect(\util\Constant::PC_DOMAIN);
-
+        redirect(\util\Constant::PC_DOMAIN . 'admin/login');
         $data = [];
         $data['username'] = '';
         $data['responseCode'] = 1;

@@ -112,7 +112,7 @@ class NewsModel extends CI_Model
 
         foreach ($items as &$item) {
             $item['publishedTimestamp'] = date('Y年m月d日 H:i', $item['publishedTimestamp']);
-            $item['coverImage'] = base_url() . 'ui/img/news/' . $item['id']
+            $item['coverImage'] = $this->baseUrl . 'ui/img/news/' . $item['id']
                 . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
         }
         
@@ -172,7 +172,7 @@ class NewsModel extends CI_Model
         $items = $this->db->where('isRecommended=1')->order_by('id DESC')->get(self::TABLE_NEWS)->result_array();
         foreach ($items as &$item) {
             $item['publishedTimestamp'] = date('Y-m-d', $item['publishedTimestamp']);
-            $item['coverImage'] = base_url() . 'ui/img/news/' . $item['id']
+            $item['coverImage'] = $this->baseUrl . 'ui/img/news/' . $item['id']
                 . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
         }
         
@@ -209,7 +209,7 @@ class NewsModel extends CI_Model
         $result['news'] = $this->db->where($condition)->order_by('orderNumber DESC')
             ->limit($pageNumber, $start)->get(self::TABLE_NEWS)->result_array();
         foreach ($result['news'] as $k => &$item) {
-            $item['coverImage'] = base_url() . 'ui/img/news/' . $item['id']
+            $item['coverImage'] = $this->baseUrl . 'ui/img/news/' . $item['id']
                 . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
         }
         if ($result['count'] > 0) {

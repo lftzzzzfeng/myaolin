@@ -149,7 +149,7 @@ class AccommodationCategoryModel extends CI_Model
                         $element = [];
                         $element['id'] = $image['id'];
                         $element['title'] = $image['text'];
-                        $element['image'] = base_url() . 'ui/img/accommodation/category/' . $accommodationCategory['id'] . '_' .$image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
+                        $element['image'] = $this->baseUrl . 'ui/img/accommodation/category/' . $accommodationCategory['id'] . '_' .$image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
 
                         array_push($accommodationCategory['images'], $element);
                     }
@@ -174,7 +174,7 @@ class AccommodationCategoryModel extends CI_Model
         $accommodation = $this->db->where($condition)->get(self::TABLE_ACCOMMODATION)->row_array();
         $accommodationimg = $this->db->where($condition1)->get(self::TABLE_ACCOMMODATION_IMAGE)->result_array();
         foreach ($accommodationimg as $k => $v){
-            $accommodation['img'][] = base_url() . 'ui/img/accommodation/' . $id . '_' .$v['id'] . '.' . explode('.', $v['image'])[1] . '?' . time();
+            $accommodation['img'][] = $this->baseUrl . 'ui/img/accommodation/' . $id . '_' .$v['id'] . '.' . explode('.', $v['image'])[1] . '?' . time();
         }
         return $accommodation;
     }

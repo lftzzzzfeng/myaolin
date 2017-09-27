@@ -98,13 +98,13 @@ class ScenicAreaModel extends CI_Model
 
         $result['scenicArea'] = $this->db->select('id, title, description, coverImage')->where($condition)->order_by('id DESC')->get(self::TABLE_SCENIC_AREA)->row_array();
         if ($result['scenicArea']) {
-            $result['scenicArea']['coverImage'] = base_url() . 'ui/img/scenicarea/coverimage/' . $result['scenicArea']['id']
+            $result['scenicArea']['coverImage'] = $this->baseUrl . 'ui/img/scenicarea/coverimage/' . $result['scenicArea']['id']
                 . '.' . explode('.', $result['scenicArea']['coverImage'])[1] .'?' . time();
 
             $result['scenicAreaImages'] = $this->scenicAreaImageModel->getScenicAreaImages($result['scenicArea']['id']);
             if (count($result['scenicAreaImages']) > 0) {
                 foreach ($result['scenicAreaImages'] as &$scenicAreaImage) {
-                    $scenicAreaImage['image'] = base_url() . 'ui/img/scenicarea/images/' . $result['scenicArea']['id']
+                    $scenicAreaImage['image'] = $this->baseUrl . 'ui/img/scenicarea/images/' . $result['scenicArea']['id']
                         . '_' . $scenicAreaImage['id'] . '.' . explode('.', $scenicAreaImage['image'])[1] .'?' . time();
                 }
             }
@@ -193,7 +193,7 @@ class ScenicAreaModel extends CI_Model
             ->limit($pageNumber, $start)->get(self::TABLE_SCENIC_AREA)->result_array();
         foreach ($result['scenicAreas'] as $k => &$item) {
             $item['num'] = count($this->db->where('scenicAreaId='.$item['id'])->get(self::TABLE_SCENIC_AREA_IMG)->result_array());
-            $item['coverImage'] = base_url() . 'ui/img/scenicArea/coverimage/' . $item['id']
+            $item['coverImage'] = $this->baseUrl . 'ui/img/scenicArea/coverimage/' . $item['id']
                 . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
         }
         if ($result['count'] > 0) {

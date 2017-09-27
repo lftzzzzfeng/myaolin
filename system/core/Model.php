@@ -48,6 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Model {
 
+    public $baseUrl;
+
 	/**
 	 * Class constructor
 	 *
@@ -56,6 +58,11 @@ class CI_Model {
 	public function __construct()
 	{
 		log_message('info', 'Model Class Initialized');
+        if (ENVIRONMENT == 'development') {
+            $this->baseUrl = base_url();
+        } else {
+            $this->baseUrl = \util\Constant::PC_DOMAIN;
+        }
 	}
 
 	// --------------------------------------------------------------------

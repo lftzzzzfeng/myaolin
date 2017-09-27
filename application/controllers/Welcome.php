@@ -30,7 +30,7 @@ class Welcome extends MainController
     {
         $this->content['pageTitle'] = '首页';
         $content['website'] = $this->websiteModel->getWebsiteById();
-        $content['website']['backgroundImage'] = base_url() . 'ui/img/website/' . $content['website']['id'] . '.' . explode('.', $content['website']['backgroundImage'])[1] .'?' . time(); 
+        $content['website']['backgroundImage'] = $this->baseUrl . 'ui/img/website/' . $content['website']['id'] . '.' . explode('.', $content['website']['backgroundImage'])[1] .'?' . time();
         $content['scenicAreaResult'] = $this->scenicAreaModel->getDetailScenicAreaById(null, \util\Constant::IS_RECOMMENDED_YES);
         $content['scenicViews'] = $this->scenicViewModel->getCertainNumberScenicViews(4);
         $content['news'] = $this->newsModel->getLatestNewsM(4);

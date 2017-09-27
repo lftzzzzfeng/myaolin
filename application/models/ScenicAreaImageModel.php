@@ -80,7 +80,7 @@ class ScenicAreaImageModel extends CI_Model
         $condition['scenicAreaId'] = $scenicAreaId;
         $images['area'] = $this->db->where($condition)->get(self::TABLE_SCENIC_AREA_IMAGE)->result_array();
         foreach ($images['area'] as $k => &$item) {
-            $item['image'] = base_url() . 'ui/img/scenicArea/images/'.$scenicAreaId.'_'.$item['id']
+            $item['image'] = $this->baseUrl . 'ui/img/scenicArea/images/'.$scenicAreaId.'_'.$item['id']
                 . '.' . explode('.', $item['image'])[1] .'?' . time();
         }
         $area = $this->db->where("id=$scenicAreaId")->get('scenicarea')->row_array();
