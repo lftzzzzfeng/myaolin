@@ -63,7 +63,7 @@ class WebsiteModel extends CI_Model
     }
 
     /**
-     * 获取网站首页配置通过id
+     * 搜索
      *
      * @return array
      */
