@@ -52,11 +52,12 @@ class MainController extends MY_Controller
         $weather = json_decode($weatherForecast, true)['result'];
         $this->content['weather']['temperature'] = $weather['today']['temperature'];
         $this->content['weather']['status'] = $weather['today']['weather'];
-        if (ENVIRONMENT == 'development') {
-            $this->baseUrl = base_url();
-        } else {
-            $this->baseUrl = \util\Constant::PC_DOMAIN;
-        }
+//        if (ENVIRONMENT == 'development') {
+//            $this->baseUrl = base_url();
+//        } else {
+//            $this->baseUrl = \util\Constant::PC_DOMAIN;
+//        }
+        $this->baseUrl = \util\Constant::PC_DOMAIN;
     }
 
     public function checkLogin()
