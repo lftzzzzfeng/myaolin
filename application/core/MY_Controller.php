@@ -6,6 +6,7 @@
  * Time: 16:00
  */
 require_once dirname(__FILE__) . '/../util/WeatherForecast.php';
+require_once dirname(__FILE__) . '/../util/Constant.php';
 
 class MY_Controller extends CI_Controller
 {
@@ -20,6 +21,7 @@ class AdminController extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        redirect(\util\Constant::PC_DOMAIN);
         $this->load->helper('url');
         $this->checkLogin();
     }
