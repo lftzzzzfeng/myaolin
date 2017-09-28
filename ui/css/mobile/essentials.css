@@ -10626,7 +10626,7 @@ html[xmlns] .flexslider .slides {
   max-height: 300px;
 }
 .carousel li {
-  margin-right: 5px;
+  /*margin-right: 5px;*/
 }
 .flex-direction-nav {
   *height: 0;
