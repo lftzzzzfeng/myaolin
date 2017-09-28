@@ -70,7 +70,7 @@
     <img class="le_a" src="<?php echo base_url() ?>ui/img/mobile/index_h.jpg" />
     <div class="le_con">
         <?php foreach ($scenicViews as $k => $v){ ?>
-            <div class="le_left le_right" style="padding-right:10px;padding-bottom:5px;">
+            <div class="le_left">
                 <img src="<?php echo $v['coverImage'] ?>" style="height: 160px;" />
                 <div class="le_pa">景点</div>
                 <p class="le_p"><a><?php echo $v['title'] ?></a></p>

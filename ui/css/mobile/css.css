@@ -39,13 +39,15 @@ img.pin_i{width:95%; margin: 25px auto;}
 .index_le{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; margin-top: 20px; text-align: center;}
 .index_le img.le_a{width:95%; margin: 25px auto;}
 .le_con{width:100%; min-height: 150px; height: auto; overflow: hidden;}
-.le_left{width:49%; float: left; min-height: 100px; height: auto; position: relative;}
+.le_left{width:49%; float: left; min-height: 100px; height: auto; position: relative; margin-bottom: 8px;}
+.le_left:nth-child(2n){width:49%; float: right; min-height: 100px; height: auto; position: relative;margin-bottom: 8px;}
 .le_left img{ width: 100%;}
 .le_left .le_p{width:100%; text-align: center; line-height: 100px; top: 95px; color: #fff; position: absolute;font-size: 1.5rem;}
-.le_left .le_pa{background: rgba(0,0,0,0.4); padding: 5px 5px; position: absolute; left: 0; top: 0; color: #fff; font-size: 0.9rem;}
+.le_left .le_pa{background: rgba(0,0,0,0.4); padding: 5px 5px; position: absolute; left: 0; top: 0; color: #fff; font-size: 0.7rem;}
 .le_right{ float: right;}
 .le_left .le_p a{ color: #fff; display: block; font-size: 1.0rem; margin: 0;}
 .le_btn{width:120px; height: 35px; line-height: 35px; text-align: center; background: #05b1bb; clear: both; margin: 20px auto;}
+.le_btn img{width:15px;}
 .le_btn a{ color: #fff; display: block; font-size: 1.0rem;}
 .index_you{width:100%; min-height: 120px; height: auto; overflow: hidden;  margin: 20px auto;}
 .index_you img{width:100%;}
