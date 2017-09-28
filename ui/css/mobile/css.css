@@ -435,3 +435,34 @@ ul.sj_ul li img{ width:100%;}
 	.zhu_la .zhu_btn{display: flex;	display: -webkit-flex;	justify-content: center;	align-items: center;	width: 40%;	height: 30px;	padding-left: 2%;	color:#fff;	margin:6% auto 0 auto ;	background:rgba(5,177,187,0.4) ;	border-radius: 20px;	font-size: 0.8rem;}
 	.zhu_bb ul li p{width:100%; color: #fff; position: absolute; text-align: center; top: 30px; font-size: 0.9rem;}
 }
+
+.owl-buttons{
+	display: none !important;
+}
+
+.owl-controls{
+	position: absolute;
+	left: 38%;
+	bottom: 10%;
+}
+.owl-controls .owl-page{
+	width: 25px ;
+	height: 5px ;
+	padding: 0 ;
+	margin: 0 5px ;
+	border-radius: 0 ;
+	border:1px solid #fff;
+	background-color: transparent;
+}
+.owl-pagination{
+	display: block !important;
+}
+.owl-pagination div{
+	float: left;
+}
+.owl-page span{
+	display: none !important;
+}
+.active{
+	background-color: #fff !important;
+}
