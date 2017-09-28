@@ -11,7 +11,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="First slide">
-                <div class="carousel-caption">2017-07-30 | 第十六届（国际）精功模特大赛选手在瑶琳森林</div>
+                <div class="carousel-caption">第十六届（国际）精功模特大赛选手在瑶琳森林公园举行</div>
             </div>
             <div class="item">
                 <img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Second slide">
@@ -98,7 +98,7 @@
                 <div class="item active">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_1.jpg" />
                     <!-- txt-->
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">游在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_2.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">吃在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_3.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">住在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_4.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">行在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_5.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">购在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_6.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">娱在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
