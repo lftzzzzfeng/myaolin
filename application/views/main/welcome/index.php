@@ -72,12 +72,12 @@
         <?php foreach ($scenicViews as $k => $v){ ?>
             <div class="le_left le_right" style="padding-right:10px;padding-bottom:5px;">
                 <img src="<?php echo $v['coverImage'] ?>" style="height: 160px;" />
-                <div class="le_pa"><?php echo $v['title'] ?></div>
-                <p class="le_p"><a href="#"><?php echo $v['description'] ?></a></p>
+                <div class="le_pa">景点</div>
+                <p class="le_p"><a><?php echo $v['title'] ?></a></p>
             </div>
         <?php } ?>
     </div>
-    <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看更多<img src="<?php echo base_url() ?>ui/img/mobile/more.png" /></a></div>
+    <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看详情<img src="<?php echo base_url() ?>ui/img/mobile/more.png" /></a></div>
 </div>
 
 <!-- banner3-->
