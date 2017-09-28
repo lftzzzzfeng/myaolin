@@ -38,8 +38,8 @@
         <nav>
 
           <div id="sideMenu">
-                <span class="fa fa-navicon" id="sideMenuClosed"></span>
-
+<!--                <span class="fa fa-navicon" id="sideMenuClosed"></span>-->
+                <img src="<?php echo base_url() ?>ui/img/mobile/nav.png" style="width:22px;">
           </div>
           <div class="nav_logo">
                 <img style="width:100px;" src="<?php echo base_url() ?>ui/img/mobile/logo.png"  />

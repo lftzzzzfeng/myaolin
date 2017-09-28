@@ -19,13 +19,13 @@
 	<div class="index_zx jing_con">
 		<div class="index_zxcon" id="new">
             <?php foreach ($news['news'] as $k => $v){ ?>
-                <div class="zx_left jing_a" style="padding-right:10px;padding-bottom:5px;">
+                <div class="zx_left jing_a">
                     <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage']; ?>" style="height:160px;" /></a>
                     <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><p class="zx_p"><?php echo $v['title']; ?><br/><?php echo $v['description']; ?></p></a>
                     <div class="zx_bot">
                         <div class="zx_botleft">
                             <p class="l_p"><?php echo date('Y-m-d',$v['publishedTimestamp']); ?></p>
-                            <p class="l_p"><img src="<?php echo base_url() ?>ui/img/mobile/eye.png" /><?php echo $v['hits']; ?>人浏览</p>
+                            <p class="l_p"><img src="<?php echo base_url() ?>ui/img/mobile/eye.png" /><?php echo $v['hits']; ?></p>
                         </div>
                         <div class="zx_botleft zx_botright"><a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>">了解详情</a></div>
                     </div>

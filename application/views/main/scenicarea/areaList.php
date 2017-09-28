@@ -41,7 +41,7 @@
         .pswp__zoom-wrap img{height: 100%;width: 100%;}
     </style>
 </head>
-<body style="background: #e5e5e5;">
+<body style="background: #fff;">
 <a id="a"><div class="top"></div></a>
 <!--banner-->
 <div class="relative">

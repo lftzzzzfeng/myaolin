@@ -52,14 +52,14 @@ class ScenicView extends MainController
             foreach ($v['img'] as $k1 => $v1){ 
                 if($k1 == 0){
                     $html .= '<figure class="img-2  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v1['image'].'" itemprop="contentUrl" data-size="960x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
-                }else if($k1 == 1){ 
+                }else if($k1 == 1){
                     $html .= '<figure class="img-3  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v1['image'].'" itemprop="contentUrl" data-size="960x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
                 }else{
                     $html .= '<figure class="img-4  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v1['image'].'" itemprop="contentUrl" data-size="960x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
                 } 
             }
             $html .= '</div></div>';
-         } 
+         }
          echo $html;
     }
 }

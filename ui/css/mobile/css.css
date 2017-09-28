@@ -42,12 +42,12 @@ img.pin_i{width:95%; margin: 25px auto;}
 .le_left{width:49%; float: left; min-height: 100px; height: auto; position: relative; margin-bottom: 8px;}
 .le_left:nth-child(2n){width:49%; float: right; min-height: 100px; height: auto; position: relative;margin-bottom: 8px;}
 .le_left img{ width: 100%;}
-.le_left .le_p{width:100%; text-align: center; line-height: 100px; top: 95px; color: #fff; position: absolute;font-size: 1.5rem;}
-.le_left .le_pa{background: rgba(0,0,0,0.4); padding: 5px 5px; position: absolute; left: 0; top: 0; color: #fff; font-size: 0.7rem;}
+.le_left .le_p{width:100%; text-align: center; line-height: 160px; top: 95px; color: #fff; position: absolute;font-size: 1.5rem; background: rgba(0,0,0,0.2);}
+.le_left .le_pa{background: rgba(0,0,0,0.4); z-index: 9; padding: 5px 5px; position: absolute; left: 0; top: 0; color: #fff; font-size: 0.7rem;}
 .le_right{ float: right;}
 .le_left .le_p a{ color: #fff; display: block; font-size: 1.0rem; margin: 0;}
 .le_btn{width:120px; height: 35px; line-height: 35px; text-align: center; background: #05b1bb; clear: both; margin: 20px auto;}
-.le_btn img{width:15px;}
+.le_btn img{width:15px;margin: 15px 15px 0 0; float: right;}
 .le_btn a{ color: #fff; display: block; font-size: 1.0rem;}
 .index_you{width:100%; min-height: 120px; height: auto; overflow: hidden;  margin: 20px auto;}
 .index_you img{width:100%;}
@@ -58,11 +58,11 @@ img.pin_i{width:95%; margin: 25px auto;}
 .index_zxcon .zx_left img{width:100%;}
 .index_zxcon .zx_left p.zx_p{ height: 50px; line-height: 25px; color: #333; padding: 0 3%; font-size:0.9rem;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; text-align: left;}
 .index_zxcon .zx_left .zx_bot{width:100%; min-height: 30px; height: auto; overflow: hidden; padding: 5px 3%;}
-.zx_bot .zx_botleft{width:50%; float: left;}
-.zx_bot .zx_botleft p.l_p{height: 30px; line-height: 30px; text-align: left; padding-left: 5px; color: #333; font-size: 0.9rem; margin: 0;}
-.zx_bot .zx_botleft p.l_p img{width:15px; float: left;  margin-top: 10px;}
+.zx_bot .zx_botleft{width:50%; float: left; }
+.zx_bot .zx_botleft p.l_p{height: 20px; line-height: 20px; text-align: left; padding-left: 5px; color: #333; font-size: 0.8rem; margin: 0;}
+.zx_bot .zx_botleft p.l_p img{width:15px; float: left;  margin-top: 5px; margin-right: 3px;}
 .zx_bot .zx_botleft a{ color: #006174; font-size: 0.9rem;}
-.zx_botright{padding-top: 32px; }
+.zx_botright{padding-top: 17px; text-align: right; }
 .index_zxcon .zx_right{ float: right;}
 .index_bg{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; }
 .index_bg img{width:100%;}
@@ -85,7 +85,7 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
 .jq_banner img{width: 100%;}
 .jq_weather{width:70px; min-height: 50px; position: absolute; top: 0; right: 5px;}
 .jq_weather img{width:100%;}
-.jq_con{width: 100%; min-height: 100px; height: auto; background: #f0f0f0; }
+.jq_con{width: 100%; min-height: 100px; height: auto; background: #fff; }
 .jq_con .jq_cona{width:100%; min-height: 100px; height: auto;overflow: hidden; margin: 20px auto;}
 .jq_con .jq_cona ul li .img_a{width: 48%; float: left; position: relative; margin: 0px 1% 10px;}
 .jq_con .jq_cona ul li.li_i {width: 48%; float: left; position: relative; margin: 0px 1% 10px;}
@@ -149,6 +149,7 @@ p.meau_p{ line-height: 80px; color: #333; text-align: center; font-weight: bold;
 .meau_con{width:95%; min-height: 150px; height: auto; overflow: hidden;  background: #f8f8f8; margin: 0 auto;margin-top: 0px; padding: 15px 3%;}
 .meau_con ul.meau_ul{ background: #f8f8f8;}
 .meau_con ul.meau_ul li{width:49%; min-height: 100px; height: auto; float: left; margin-bottom: 15px; background: #f8f8f8; border: none; text-align: left;}
+.meau_con ul.meau_ul li:nth-child(2n){width:49%; min-height: 100px; height: auto; float: right; margin-bottom: 15px; background: #f8f8f8; border: none; text-align: left;}
 .meau_con ul.meau_ul li.mli_top{ float: right;}
 .meau_con ul.meau_ul li img{width:100%;}
 .meau_con ul.meau_ul li p.mli_p{ font-size: 1.0rem; line-height: 40px; margin: 0; font-weight: bold;text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
@@ -208,6 +209,7 @@ p.xing_p{ color: #333; line-height: 30px; font-size: 1.0rem; padding: 20px 10px;
 p.ya_p{ font-weight: bold; margin-top: 15px;}
 .jing_con{ background: #edefef; margin-top: 15px;}
 .index_zxcon .jing_a{ background: #fff;}
+.index_zxcon .jing_a:nth-child(2n){ background: #fff;}
 .xq_con{width:100%; min-height: 200px; height: auto; overflow: hidden; background: #fff; text-align: center; padding-bottom: 30px;}
 .xq_top{width:100%; min-height: 100px; height: auto; overflow: hidden; border-bottom: 1px solid #e5e5e5;}
 p.xq_p{ color: #006174; line-height: 60px; font-size: 1.1rem; margin-bottom: 0;}
@@ -379,7 +381,7 @@ ul.sj_ul li img{ width:100%;}
 
 @media (max-width: 750px)
 {
-	.le_left .le_p{width:100%; text-align: center; line-height: 100px; top: 35px; color: #fff; position: absolute; font-size: 1.0rem;}
+	.le_left .le_p{width:100%; text-align: center; line-height: 160px; top: 0px; color: #fff; position: absolute; font-size: 1.0rem; background: rgba(0,0,0,0.2);}
 }
 @media (max-width: 320px)
 {
@@ -397,7 +399,7 @@ ul.sj_ul li img{ width:100%;}
 	.yu_top .yu_topla p.tl_pa{ line-height: 20px;color: #333; font-size: 0.8rem;margin-bottom: 0; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 	.yu_top .yu_topla p.tl_pb{line-height: 20px;color: #333; font-size: 0.8rem;margin-bottom: 0; text-align: left; padding: 0 5px;}
 	.yu_topa img{width:70%; height: 180px;}
-	
+	.zx_bot .zx_botleft p.l_p{height: 20px; line-height: 20px; text-align: left; padding-left: 5px; color: #333; font-size: 0.7rem; margin: 0;}
 	
 	/*banner3 文字样式*/
 	#myCarouse3 .item .item_txt {

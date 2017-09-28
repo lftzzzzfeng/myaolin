@@ -77,7 +77,7 @@
             </div>
         <?php } ?>
     </div>
-    <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看详情<img src="<?php echo base_url() ?>ui/img/mobile/more.png" /></a></div>
+    <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看详情<img src="<?php echo base_url() ?>ui/img/mobile/index_xx.png" /></a></div>
 </div>
 
 <!-- banner3-->
