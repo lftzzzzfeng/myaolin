@@ -145,15 +145,14 @@
         var ps = parseInt(p)+1
         $('#scenic').val(ps);
         $.post(url+'scenicview/ajaxScenic?p='+ps,function(data){
-            if(data){
-                $('#scenics').append(data);
-                initPhotoSwipeFromDOM('.my-simple-gallery');
-            }else{ 
+            $('#scenics').append(data.html);
+            initPhotoSwipeFromDOM('.my-simple-gallery');
+            if(data.num == 2){
                 $('#jzgd').html('没有更多了');
                 $('#jzgds').css('background-color','#808080');
                 $("#jzgds").attr("onclick","");
-            } 
-        });
+            }
+        },'json');
     }
 
     var initPhotoSwipeFromDOM = function (gallerySelector) {

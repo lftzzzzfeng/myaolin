@@ -2,12 +2,12 @@
 <div class="relative">
     <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" alt=""/>
     <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center">
-        <p class="p1 size-12 margin-bottom-5">
+        <p class="p1 size-10 margin-bottom-5">
             <span class="block"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
             <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
         </p>
 
-        <p class="size-20 weight-800 margin-bottom-5 ipad_size">游记随笔</p>
+        <p class="size-25 weight-800 margin-bottom-5 ipad_size">游记随笔</p>
 
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>
@@ -166,15 +166,14 @@
         var ps = parseInt(p)+1
         $('#forum').val(ps);
         $.post(url+'forum/ajaxForum?p='+ps,function(data){
-            if(data){
-                $('#forums').append(data);
-                initPhotoSwipeFromDOM('.my-simple-gallery');
-            }else{ 
+            $('#forums').append(data.html);
+            initPhotoSwipeFromDOM('.my-simple-gallery');
+            if(data.num == 2){
                 $('#jzgd').html('没有更多了');
                 $('#jzgds').css('background-color','#808080');
                 $("#jzgds").attr("onclick","");
-            } 
-        });
+            }
+        },'json');
     }
     
     function quanwen() {

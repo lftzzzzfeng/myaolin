@@ -45,10 +45,18 @@ class Food extends MainController
     {
         $p = $this->input->get('p');
         $foods = $this->foodModel->getFoodM($p,'',4);
+        $data = $this->foodModel->getFoodM(($p+1),'',4);
+        if($data['food']){
+            $num = 1;
+        }else{
+            $num = 2;
+        }
         $html = '';
         foreach ($foods['food'] as $k => $v){
             $html .= '<li class="mli_top" style="margin-right:5px;width:48%;"><img src="'.$v['coverImage'].'" style="height:115px;"/><p class="mli_p"><a href="#">'.$v['title'].'</a></p><p class="mli_pa">'.$v['description'].'</p></li>';
-        } 
-         echo $html;
+        }
+        $rst['html'] = $html;
+        $rst['num'] = $num;
+        echo json_encode($rst);
     }
 }

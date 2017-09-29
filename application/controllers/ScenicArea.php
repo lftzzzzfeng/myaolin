@@ -34,11 +34,19 @@ class ScenicArea extends MainController
     {
         $p = $this->input->get('p');
         $scenicviews = $this->scenicAreaModel->getScenicAreasM($p,'',4);
+        $data = $this->scenicAreaModel->getScenicAreasM(($p+1),'',4);
+        if($data['scenicAreas']){
+            $num = 1;
+        }else{
+            $num = 2;
+        }
         $html = '';
         foreach ($scenicviews['scenicAreas'] as $k => $v){
             $html .= '<li class="li_i"><a href="'.base_url().'scenicarea/areaList?id='.$v['id'].'"><img src="'.$v['coverImage'].'" style="height:200px;" /></a><div class="li_bt"><p><a href="'.base_url().'scenicarea/areaList?id='.$v['id'].'">'.$v['title'].'<br /><span>'.$v['description'].'</span><br />('.$v['num'].'张)</a></p></div></li>';
-         } 
-         echo $html;
+        }
+        $rst['html'] = $html;
+        $rst['num'] = $num;
+        echo json_encode($rst);
     }
     
     //景区相册列表

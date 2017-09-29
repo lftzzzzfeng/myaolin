@@ -2,12 +2,12 @@
 <div class="relative">
     <img src="<?php echo base_url() ?>ui/img/mobile/banner_02.jpg" width="100%" alt=""/>
     <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center" style="height:50%;">
-        <p class="p1 size-12 margin-bottom-5">
+        <p class="p1 size-10 margin-bottom-5">
             <span class="block margin-bottom-6"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
             <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
         </p>
 
-        <p class="size-18 weight-800 margin-bottom-5 ipad_size">畅游瑶琳</p>
+        <p class="size-25 weight-800 margin-bottom-5 ipad_size">畅游瑶琳</p>
 
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>

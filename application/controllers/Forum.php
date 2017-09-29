@@ -44,6 +44,12 @@ class Forum extends MainController
     {
         $p = $this->input->get('p');
         $jottings = $this->jottingModel->getJottingsM($p);
+        $data = $this->jottingModel->getJottingsM($p+1);
+        if($data['jottings']){
+            $num = 1;
+        }else{
+            $num = 2;
+        }
         $result['data'] = [];
         if ($jottings['count'] > 0) {
             foreach ($jottings['jottings'] as $jotting) {
@@ -66,7 +72,9 @@ class Forum extends MainController
             }
             $html .= '</div><div class="share_look col-xs-12 col-sm-12 col-md-12 margin-top-10"><div class="share_look_box  clearfix "><div class="look_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center"><a href="javascript::"><img src="'.base_url().'ui/img/mobile/yj_2.png" width="20%" alt=""/> &nbsp;'.$v['jottingHits'].'</a></div><div class="pingLun_num col-xs-4 col-sm-4 col-md-4 padding-0 text-center"><a href="'.base_url().'forum/showJotting?id='.$v['jottingId'].'"><img src="'.base_url().'ui/img/mobile/yj_3.png" width="15%" alt=""/> &nbsp;'.$v['jottingCommentsCount'].'</a></div><div class="share col-xs-4 col-sm-4 col-md-4 padding-0 text-center"><a href="javascript:;"><img src="'.base_url().'ui/img/mobile/icon_share_2_03.png" width="12%" alt=""/> &nbsp;分享</a></div><div class="share_hid_box hidden"><div class="flex_box_between height-50"><a href="#"><img width="60%" src="'.base_url().'ui/img/mobile/icon_weibo.png" alt=""/></a><a href="#"><img width="60%" src="'.base_url().'ui/img/mobile/icon_weixin.png" alt=""/></a><a href="#"><img width="60%" src="'.base_url().'ui/img/mobile/icon_kongjian.png" alt=""/></a></div></div></div></div></div>';
         }
-        echo $html;
+        $rst['num'] = $num;
+        $rst['html'] = $html;
+        echo json_encode($rst);
     }
     
     //写游记
