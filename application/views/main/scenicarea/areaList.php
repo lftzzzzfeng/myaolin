@@ -25,8 +25,8 @@
     <script src="<?php echo base_url() ?>ui/js/mobile/photoswipe-ui-default.min.js"></script>
     <style>
         #myCarousel ol{ margin-bottom: 0;}
-	.carousel-indicators li{width:13px; height: 13px; border-radius: 50%;}
-	.carousel-indicators .active{width:13px; height: 13px; border-radius: 50%; margin-top: 1px;}
+        .carousel-indicators li{width:13px; height: 13px; border-radius: 50%;}
+        .carousel-indicators .active{width:13px; height: 13px; border-radius: 50%; margin-top: 1px;}
     </style>
     <script type="text/javascript">
     	
@@ -45,7 +45,9 @@
 <a id="a"><div class="top"></div></a>
 <!--banner-->
 <div class="relative">
-    <img src="<?php echo $coverimage; ?>" width="100%" alt="" style="height:225px;" />
+    <div style="max-height:200px; overflow: hidden;">
+        <img src="<?php echo $coverimage; ?>" width="100%" alt="" />
+    </div>
     <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center" style="height:50%;border: 0px;">
 <!--        <p class="p1 size-12 margin-bottom-5">
             <span class="block margin-bottom-6"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
@@ -64,20 +66,18 @@
 </div>
 </div>
 	<div class="jq_con">
-		
-	    <div class="jq_cona">
-	    	<ul  class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery">
-                        <li>
-                            <?php foreach ($area as $k => $v){ ?>
-	    			<figure class="img_a" itemscope itemtype="http://schema.org/ImageObject">
-			            <a href="<?php echo $v['image']; ?>" itemprop="contentUrl" data-size="964x1024">
-                                        <img src="<?php echo $v['image']; ?>" class=" padding-1" itemprop="thumbnail" alt="Image description" style="height:200px;"/>
-			            </a>
-			        </figure>
-                            <?php } ?>	    			
-	    		</li>
-	    	</ul>
-	    	
+        <div class="jq_cona">
+            <ul  class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery">
+                <li>
+                    <?php foreach ($area as $k => $v){ ?>
+                        <figure class="img_a" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="<?php echo $v['image']; ?>" itemprop="contentUrl" data-size="30000x10000">
+                                <img src="<?php echo $v['image']; ?>" class=" padding-1" itemprop="thumbnail" alt="Image description" style="width: 100%;"/>
+                            </a>
+                        </figure>
+                    <?php } ?>
+                </li>
+            </ul>
 	    </div>
 	</div>	
 	<!--插件按钮-->
@@ -180,8 +180,6 @@
                     w: parseInt(size[0], 10),
                     h: parseInt(size[1], 10)
                 };
-
-
 
                 if(figureEl.children.length > 1) {
                     // <figcaption> content
@@ -338,8 +336,6 @@
     // execute above function
     initPhotoSwipeFromDOM('.my-simple-gallery');
 </script>
-
-	<script src='js/sideToggleExtended.js'></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 		  $('#sideMenu').sideToggle({

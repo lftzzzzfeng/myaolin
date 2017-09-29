@@ -20,7 +20,7 @@
 		<div class="index_zxcon" id="new">
             <?php foreach ($news['news'] as $k => $v){ ?>
                 <div class="zx_left jing_a">
-                    <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage']; ?>" style="width: 100%; height:160px;" /></a>
+                    <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage']; ?>" style="width: 100%;" /></a>
                     <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><p class="zx_p"><?php echo $v['title']; ?><br/><?php echo $v['description']; ?></p></a>
                     <div class="zx_bot">
                         <div class="zx_botleft">
