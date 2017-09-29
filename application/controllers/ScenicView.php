@@ -46,6 +46,12 @@ class ScenicView extends MainController
     {
         $p = $this->input->get('p');
         $scenicviews = $this->scenicViewModel->getScenicViewsM($p,'',2);
+        $data = $this->scenicViewModel->getScenicViewsM(($p+1),'',2);
+        if($data['scenicViews']){
+            $num = 1;
+        }else{
+            $num = 2;
+        }
         $html = '';
         foreach ($scenicviews['scenicViews'] as $k => $v){
             $html .= '<div class="nature_box bg-white margin-top-20 padding-15 clearfix"><h4>'.$v['title'].'</h4><p class="margin-bottom-15" style="color: #333;">'.$v['description'].'</p><div class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery"><figure class="img-1  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v['coverImage'].'" itemprop="contentUrl" data-size="1024x1024"><img src="'.$v['coverImage'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
@@ -59,7 +65,9 @@ class ScenicView extends MainController
                 } 
             }
             $html .= '</div></div>';
-         }
-         echo $html;
+        }
+        $rst['html'] = $html;
+        $rst['num'] = $num;
+        echo json_encode($rst);
     }
 }

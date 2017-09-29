@@ -44,10 +44,18 @@ class News extends MainController
     {
         $p = $this->input->get('p');
         $news = $this->newsModel->getNewsM($p,'',4);
+        $data = $this->newsModel->getNewsM($p+1,'',4);
+        if($data['news']){
+            $num = 1;
+        }else{
+            $num = 2;
+        }
         $html = '';
         foreach ($news['news'] as $k => $v){ 
             $html .= '<div class="zx_left zx_right jing_a" style="padding-right:10px;padding-bottom:5px;"><a href="'. base_url().'news/detail?id='.$v['id'].'"><img src="'.$v['coverImage'].'" style="height:160px;" /></a><a href="'. base_url().'news/detail?id='.$v['id'].'"><p class="zx_p">'.$v['title'].'<br/>'.$v['description'].'</p></a><div class="zx_bot"><div class="zx_botleft"><p class="l_p">'.date('Y-m-d',$v['publishedTimestamp']).'</p><p class="l_p"><img src="'.base_url().'ui/img/mobile/eye.png" />'.$v['hits'].'人浏览</p></div><div class="zx_botleft zx_botright"><a href="'. base_url().'news/detail?id='.$v['id'].'">了解详情</a></div></div></div>';
-        } 
-        echo $html;
+        }
+        $rst['html'] = $html;
+        $rst['num'] = $num;
+        echo json_encode($rst);
     }
 }

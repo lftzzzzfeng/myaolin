@@ -14,7 +14,7 @@ body{
     color:#666 !important;
 }
 .color_blue{
-    color:#006174 !important;
+    color:#05b1bb !important;
 }
 .padding-1{
     padding:1px;
@@ -212,15 +212,15 @@ a{
 .nav_top img.mav_b{width:25px; margin-top: 4px;}
 .nav_top .nav_topleft{width:30%; position: absolute; left: 10px; top:20px; text-align: left;}
 .nav_top .nav_topright{width:30%; position: absolute; right: 10px; top:20px; text-align: right;}
-footer{width:100%; min-height: 200px; height: auto;overflow: hidden; background: #424242; margin: 0 auto 50px; padding: 20px 0;  margin-top: -5px; text-align: center;}
+footer{width:100%; min-height: 200px; height: auto;overflow: hidden; background: #424242; margin: 0 auto 50px; padding: 20px 0 0;  margin-top: -5px; text-align: center;}
 footer img.foot_logo{width:20%; margin: 10px auto;}
 .foot_con{width:95%; min-height: 100px; height: auto ; overflow: hidden; margin: 0 auto;}
 .foot_con .foot_conl{width:65%; float: left;}
 .foot_con .foot_conl p{ color: #fff; font-size: 1.3rem; text-align: left; margin: 0; line-height: 20px;}
 .foot_con .foot_conl p a{ color: #fff;}
 .foot_con .foot_conr{width:35%; float: left;}
-.foot_con .foot_conr img{width: 100%;}
-.foot_p{ text-align: center; line-height: 20px; font-size: 1.3rem; margin: 20px auto; color: #999;}
+.foot_con .foot_conr img{width: 80%;}
+.foot_p{ text-align: center; line-height: 20px; font-size: 1.3rem; margin: 10px auto; color: #999;}
 .foot_nav{width:100%; height: 50px; line-height: 50px; position: fixed; bottom: 0;}
 .foot_navl{width:50%; height: 50px; line-height: 50px; background: #0d0d0d; float: left;}
 .foot_navr{ background: #0d5b6a;}
@@ -244,10 +244,10 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
     text-decoration: none !important;
 }
 .write_something .write_img{
-    width: 7%;
+    width: 6%;
 }
 .write_something .gift_img{
-    width: 10%;
+    width: 7%;
 }
 
 /*消息动态*/

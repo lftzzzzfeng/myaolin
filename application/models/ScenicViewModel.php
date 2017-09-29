@@ -210,7 +210,7 @@ class ScenicViewModel extends CI_Model
             $img = $this->db->where('scenicViewId='.$item['id'])->order_by('id DESC')->limit(3)->get('scenicviewimage')->result_array();
             foreach ($img as $k1 => $v1){
                 $img[$k1]['image'] = $this->baseUrl . 'ui/img/scenicview/images/' . $item['id'].'_'.$v1['id']
-                . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
+                . '.' . explode('.', $v1['image'])[1] .'?' . time();
             }
             $result['scenicViews'][$k]['img'] = $img;
             $item['coverImage'] = $this->baseUrl . 'ui/img/scenicview/coverimage/' . $item['id']

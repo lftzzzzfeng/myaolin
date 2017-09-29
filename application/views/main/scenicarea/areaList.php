@@ -51,7 +51,7 @@
             <span class="block margin-bottom-6"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
             <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
         </p>-->
-        <p class="size-18 weight-800 margin-bottom-5 ipad_size" style="margin-top:40px;"><?php echo $name; ?></p>
+        <p class="size-25 weight-800 margin-bottom-5 ipad_size" style="margin-top:40px;"><?php echo $name; ?></p>
         <!--<p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>-->
     </div>
     <div class="you_fh" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png" style="height:80%;width: 70%" /></a></div>

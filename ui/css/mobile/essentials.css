@@ -323,8 +323,9 @@ h6 > span {
 /** 04. Commons
  **************************************************************** **/
 /* utils */
+.size-10 			{ font-size:10px !important; line-height:15px !important; }
 .size-11 			{ font-size:11px !important; line-height:15px !important; }
-.size-12 			{ font-size:12px !important; line-height:14px !important; }
+.size-12 			{ font-size:12px !important; line-height:14px !important; font-weight: bold; }
 .size-13 			{ font-size:13px !important; line-height:17px !important; }
 .size-14 			{ font-size:14px !important; line-height:18px !important; }
 .size-15 			{ font-size:15px !important; line-height:19px !important; }
