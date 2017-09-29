@@ -168,6 +168,7 @@
         $.post(url+'forum/ajaxForum?p='+ps,function(data){
             if(data){
                 $('#forums').append(data);
+                initPhotoSwipeFromDOM('.my-simple-gallery');
             }else{ 
                 $('#jzgd').html('没有更多了');
                 $('#jzgds').css('background-color','#808080');

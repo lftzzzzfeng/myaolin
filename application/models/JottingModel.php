@@ -117,7 +117,11 @@ class JottingModel extends CI_Model
         $images = $this->jottingImageModel->getJottingImages($jotting['jottingId']);
         if (count($images) > 0) {
             foreach ($images as $image) {
-                $jotting['jottingImages'][] = $this->baseUrl . 'ui/img/jotting/images/' . $jotting['jottingId'] . '_' . $image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
+                if($image['sourceType'] == 'mobile') {
+                    $jotting['jottingImages'][] = \util\Constant::MOBILE_DOMAIN . 'ui/img/jotting/images/' . $jotting['jottingId'] . '_' . $image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
+                }else{
+                    $jotting['jottingImages'][] = \util\Constant::PC_DOMAIN . 'ui/img/jotting/images/' . $jotting['jottingId'] . '_' . $image['id'] . '.' . explode('.', $image['image'])[1] . '?' . time();
+                }
             }
         }
 

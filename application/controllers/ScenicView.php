@@ -48,18 +48,18 @@ class ScenicView extends MainController
         $scenicviews = $this->scenicViewModel->getScenicViewsM($p,'',2);
         $html = '';
         foreach ($scenicviews['scenicViews'] as $k => $v){
-            $html .= '<div class="nature_box bg-white margin-top-20 padding-15 clearfix"><h4>'.$v['title'].'</h4><p class="margin-bottom-15" style="color: #333;">'.$v['description'].'</p><div class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery"><figure class="img-1  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg " itemprop="contentUrl" data-size="1024x1024"><img src="'.$v['coverImage'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+            $html .= '<div class="nature_box bg-white margin-top-20 padding-15 clearfix"><h4>'.$v['title'].'</h4><p class="margin-bottom-15" style="color: #333;">'.$v['description'].'</p><div class="my-simple-gallery clearfix img_box" itemscope itemtype="http://schema.org/ImageGallery"><figure class="img-1  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v['coverImage'].'" itemprop="contentUrl" data-size="1024x1024"><img src="'.$v['coverImage'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
             foreach ($v['img'] as $k1 => $v1){ 
                 if($k1 == 0){
-                    $html .= '<figure class="img-2  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="964x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
-                }else if($k1 == 1){ 
-                    $html .= '<figure class="img-3  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x683"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+                    $html .= '<figure class="img-2  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v1['image'].'" itemprop="contentUrl" data-size="960x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+                }else if($k1 == 1){
+                    $html .= '<figure class="img-3  col-xs-3" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v1['image'].'" itemprop="contentUrl" data-size="960x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
                 }else{
-                    $html .= '<figure class="img-4  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_b.jpg" itemprop="contentUrl" data-size="1024x768"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
+                    $html .= '<figure class="img-4  col-xs-6" itemscope itemtype="http://schema.org/ImageObject"><a href="'.$v1['image'].'" itemprop="contentUrl" data-size="960x1024"><img src="'.$v1['image'].'" class=" padding-1" itemprop="thumbnail" alt="Image description"/></a></figure>';
                 } 
             }
             $html .= '</div></div>';
-         } 
+         }
          echo $html;
     }
 }

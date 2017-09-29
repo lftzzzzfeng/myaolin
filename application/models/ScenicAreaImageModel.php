@@ -85,7 +85,7 @@ class ScenicAreaImageModel extends CI_Model
         }
         $area = $this->db->where("id=$scenicAreaId")->get('scenicarea')->row_array();
         $images['name'] = $area['title'];
-        $images['coverimage'] = base_url() . 'ui/img/scenicarea/coverimage/' . $area['id'] . '.' . explode('.', $area['coverImage'])[1] .'?' . time();
+        $images['coverimage'] = $this->baseUrl . 'ui/img/scenicarea/coverimage/' . $area['id'] . '.' . explode('.', $area['coverImage'])[1] .'?' . time();
         return $images;
     }
 }

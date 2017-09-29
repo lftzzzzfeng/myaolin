@@ -14,9 +14,9 @@ a{ text-decoration:none;}
 .index_banner{width:100%; min-height: 100px; height: auto; overflow: hidden; }
 .index_banner img{ width: 100%;}
 .carousel-indicators{ bottom: 30px;}
-.carousel-indicators li{width:20px; height: 10px; border-radius: 0;}
+.carousel-indicators li{width:25px; height: 5px; border-radius: 0; margin-right: 0;}
 
-.carousel-indicators .active{width:20px; height: 10px; border-radius: 0; margin: 0;}
+.carousel-indicators .active{width:25px; height: 5px; border-radius: 0; margin: 1px;}
 .ca_li{bottom:10px !important;}
 .ca_li li{width:15px; height: 15px; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; !important;}
 .ca_li .active2{width:15px !important; height: 15px !important; border-radius: 50% !important; -moz-border-radius: 50% !important; -webkit-border-radius: 50% !important; background: #fff !important;}
@@ -39,27 +39,30 @@ img.pin_i{width:95%; margin: 25px auto;}
 .index_le{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; margin-top: 20px; text-align: center;}
 .index_le img.le_a{width:95%; margin: 25px auto;}
 .le_con{width:100%; min-height: 150px; height: auto; overflow: hidden;}
-.le_left{width:49%; float: left; min-height: 100px; height: auto; position: relative;}
+.le_left{width:49%; float: left; min-height: 100px; height: auto; position: relative; margin-bottom: 8px;}
+.le_left:nth-child(2n){width:49%; float: right; min-height: 100px; height: auto; position: relative;margin-bottom: 8px;}
 .le_left img{ width: 100%;}
-.le_left .le_p{width:100%; text-align: center; line-height: 100px; top: 95px; color: #fff; position: absolute;font-size: 1.5rem;}
-.le_left .le_pa{background: rgba(0,0,0,0.4); padding: 5px 5px; position: absolute; left: 0; top: 0; color: #fff; font-size: 0.9rem;}
+.le_left .le_p{width:100%; text-align: center; line-height: 160px; top: 95px; color: #fff; position: absolute;font-size: 1.5rem; background: rgba(0,0,0,0.2);}
+.le_left .le_pa{background: rgba(0,0,0,0.4); z-index: 9; padding: 5px 5px; position: absolute; left: 0; top: 0; color: #fff; font-size: 0.7rem;}
 .le_right{ float: right;}
 .le_left .le_p a{ color: #fff; display: block; font-size: 1.0rem; margin: 0;}
 .le_btn{width:120px; height: 35px; line-height: 35px; text-align: center; background: #05b1bb; clear: both; margin: 20px auto;}
+.le_btn img{width:15px;margin: 15px 15px 0 0; float: right;}
 .le_btn a{ color: #fff; display: block; font-size: 1.0rem;}
 .index_you{width:100%; min-height: 120px; height: auto; overflow: hidden;  margin: 20px auto;}
 .index_you img{width:100%;}
 .index_zx{width:100%; min-height: 120px; height: auto; overflow: hidden; background: #fff; text-align:center;}
 .index_zxcon{width:100%; min-height: 150px; height: auto; overflow: hidden;}
 .index_zxcon .zx_left{width:49%; min-height: 100px; height: auto; overflow: hidden; float: left; background: #f5f5f5; margin-bottom: 10px;}
+.index_zxcon .zx_left:nth-child(2n){width:49%; min-height: 100px; height: auto; overflow: hidden; float: right; background: #f5f5f5; margin-bottom: 10px;}
 .index_zxcon .zx_left img{width:100%;}
 .index_zxcon .zx_left p.zx_p{ height: 50px; line-height: 25px; color: #333; padding: 0 3%; font-size:0.9rem;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; text-align: left;}
 .index_zxcon .zx_left .zx_bot{width:100%; min-height: 30px; height: auto; overflow: hidden; padding: 5px 3%;}
-.zx_bot .zx_botleft{width:50%; float: left;}
-.zx_bot .zx_botleft p.l_p{height: 30px; line-height: 30px; text-align: left; padding-left: 5px; color: #333; font-size: 0.9rem; margin: 0;}
-.zx_bot .zx_botleft p.l_p img{width:15px; float: left;  margin-top: 10px;}
+.zx_bot .zx_botleft{width:50%; float: left; }
+.zx_bot .zx_botleft p.l_p{height: 20px; line-height: 20px; text-align: left; padding-left: 5px; color: #333; font-size: 0.8rem; margin: 0;}
+.zx_bot .zx_botleft p.l_p img{width:15px; float: left;  margin-top: 5px; margin-right: 3px;}
 .zx_bot .zx_botleft a{ color: #006174; font-size: 0.9rem;}
-.zx_botright{padding-top: 32px; }
+.zx_botright{padding-top: 17px; text-align: right; }
 .index_zxcon .zx_right{ float: right;}
 .index_bg{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; }
 .index_bg img{width:100%;}
@@ -82,7 +85,7 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
 .jq_banner img{width: 100%;}
 .jq_weather{width:70px; min-height: 50px; position: absolute; top: 0; right: 5px;}
 .jq_weather img{width:100%;}
-.jq_con{width: 100%; min-height: 100px; height: auto; background: #f0f0f0; }
+.jq_con{width: 100%; min-height: 100px; height: auto; background: #fff; }
 .jq_con .jq_cona{width:100%; min-height: 100px; height: auto;overflow: hidden; margin: 20px auto;}
 .jq_con .jq_cona ul li .img_a{width: 48%; float: left; position: relative; margin: 0px 1% 10px;}
 .jq_con .jq_cona ul li.li_i {width: 48%; float: left; position: relative; margin: 0px 1% 10px;}
@@ -99,10 +102,10 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
 .login-bg{width:100%;height:100%;position:fixed;top:0px;left:0px;background:#ebebeb;filter:alpha(opacity=30);-moz-opacity:0.3;-khtml-opacity:0.3;opacity:0.3;display:none;}
 .ss_top{width:100%; height: 90px; background: #f8f8f8;}
 .ss_topa{width:95%; height: 90px; margin: 0 auto;}
-.ss_topa .ss_topal{width:85%; height: 50px; margin-top: 20px; float: left; background: #e5e5e5; border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;}
+.ss_topa .ss_topal{width:85%; height: 50px; margin-top: 20px; float: left; background: #e5e5e5; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;}
 .ss_topa a{ padding-top: 30px; display: block; padding-left:15px ; float: left; color: #333;}
 .ss_topala{width:88%; height: 50px; float: left; line-height: 50px;}
-.ss_topa .ss_topala input{width:100%; height: 50px; line-height: 50px; background: none; border: none; color: #333; padding-left: 5%;}
+.ss_topa .ss_topala input{width:100%; height: 50px; line-height: 50px; background: none; border: none; color: #333; padding-left: 2%;}
 .ss_topalb{width:12%; float: left; text-align: center;}
 .ss_topalb img{width:20px; }
 .ss_topalb a{ padding: 0; padding-top: 10px;}
@@ -146,6 +149,7 @@ p.meau_p{ line-height: 80px; color: #333; text-align: center; font-weight: bold;
 .meau_con{width:95%; min-height: 150px; height: auto; overflow: hidden;  background: #f8f8f8; margin: 0 auto;margin-top: 0px; padding: 15px 3%;}
 .meau_con ul.meau_ul{ background: #f8f8f8;}
 .meau_con ul.meau_ul li{width:49%; min-height: 100px; height: auto; float: left; margin-bottom: 15px; background: #f8f8f8; border: none; text-align: left;}
+.meau_con ul.meau_ul li:nth-child(2n){width:49%; min-height: 100px; height: auto; float: right; margin-bottom: 15px; background: #f8f8f8; border: none; text-align: left;}
 .meau_con ul.meau_ul li.mli_top{ float: right;}
 .meau_con ul.meau_ul li img{width:100%;}
 .meau_con ul.meau_ul li p.mli_p{ font-size: 1.0rem; line-height: 40px; margin: 0; font-weight: bold;text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
@@ -205,6 +209,7 @@ p.xing_p{ color: #333; line-height: 30px; font-size: 1.0rem; padding: 20px 10px;
 p.ya_p{ font-weight: bold; margin-top: 15px;}
 .jing_con{ background: #edefef; margin-top: 15px;}
 .index_zxcon .jing_a{ background: #fff;}
+.index_zxcon .jing_a:nth-child(2n){ background: #fff;}
 .xq_con{width:100%; min-height: 200px; height: auto; overflow: hidden; background: #fff; text-align: center; padding-bottom: 30px;}
 .xq_top{width:100%; min-height: 100px; height: auto; overflow: hidden; border-bottom: 1px solid #e5e5e5;}
 p.xq_p{ color: #006174; line-height: 60px; font-size: 1.1rem; margin-bottom: 0;}
@@ -331,21 +336,7 @@ ul.sj_ul{width:100%; min-height: 50px; height: auto; overflow: hidden; margin: 1
 ul.sj_ul li{width:32%; float: left; margin-right: 1%;}
 ul.sj_ul li img{ width:100%;}
 
-/*搜索样式*/
-.sslist_con{width:100%; min-height: 500px; height: auto; overflow: hidden; margin: 0 auto; background: #fff;}
-.ss_a{width:95%; min-height: 10px; height: auto; overflow: hidden;  margin: 0px auto 0;}
-.ss_a img{width:100%;}
-.ss_a h2{ font-size: 1.0rem; font-weight: normal; line-height: 30px; color: #05b1bb;border-bottom: 1px dashed #e5e5e5;}
-.ss_a h2 a{color: #05b1bb;}
-.ss_a p.aa_p{ color: #333; font-size: 0.9rem; line-height: 30px;overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical;
-word-wrap: break-word;}
-.p_ly{ color: #999;line-height: 30px;font-size: 0.9rem;}
-.ss_btn{width:150px; height: 40px; line-height: 40px; text-align: center; background: #05b1bb; margin: 20px auto;}
-.ss_btn a{ display: block; color: #fff;}
+
 
 
 
@@ -390,7 +381,7 @@ word-wrap: break-word;}
 
 @media (max-width: 750px)
 {
-	.le_left .le_p{width:100%; text-align: center; line-height: 100px; top: 35px; color: #fff; position: absolute; font-size: 1.0rem;}
+	.le_left .le_p{width:100%; text-align: center; line-height: 160px; top: 0px; color: #fff; position: absolute; font-size: 1.0rem; background: rgba(0,0,0,0.2);}
 }
 @media (max-width: 320px)
 {
@@ -408,7 +399,7 @@ word-wrap: break-word;}
 	.yu_top .yu_topla p.tl_pa{ line-height: 20px;color: #333; font-size: 0.8rem;margin-bottom: 0; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 	.yu_top .yu_topla p.tl_pb{line-height: 20px;color: #333; font-size: 0.8rem;margin-bottom: 0; text-align: left; padding: 0 5px;}
 	.yu_topa img{width:70%; height: 180px;}
-	
+	.zx_bot .zx_botleft p.l_p{height: 20px; line-height: 20px; text-align: left; padding-left: 5px; color: #333; font-size: 0.7rem; margin: 0;}
 	
 	/*banner3 文字样式*/
 	#myCarouse3 .item .item_txt {
@@ -443,4 +434,35 @@ word-wrap: break-word;}
 	.zhu_la .zhu_lac p.zhu_hha{ color: #fff; font-size: 0.8rem; padding: 0 15px;margin-bottom: 0;}
 	.zhu_la .zhu_btn{display: flex;	display: -webkit-flex;	justify-content: center;	align-items: center;	width: 40%;	height: 30px;	padding-left: 2%;	color:#fff;	margin:6% auto 0 auto ;	background:rgba(5,177,187,0.4) ;	border-radius: 20px;	font-size: 0.8rem;}
 	.zhu_bb ul li p{width:100%; color: #fff; position: absolute; text-align: center; top: 30px; font-size: 0.9rem;}
+}
+
+.owl-buttons{
+	display: none !important;
+}
+
+.owl-controls{
+	position: absolute;
+	left: 38%;
+	bottom: 10%;
+}
+.owl-controls .owl-page{
+	width: 25px ;
+	height: 5px ;
+	padding: 0 ;
+	margin: 0 5px ;
+	border-radius: 0 ;
+	border:1px solid #fff;
+	background-color: transparent;
+}
+.owl-pagination{
+	display: block !important;
+}
+.owl-pagination div{
+	float: left;
+}
+.owl-page span{
+	display: none !important;
+}
+.active{
+	background-color: #fff !important;
 }

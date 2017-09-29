@@ -147,6 +147,7 @@
         $.post(url+'scenicview/ajaxScenic?p='+ps,function(data){
             if(data){
                 $('#scenics').append(data);
+                initPhotoSwipeFromDOM('.my-simple-gallery');
             }else{ 
                 $('#jzgd').html('没有更多了');
                 $('#jzgds').css('background-color','#808080');
@@ -154,9 +155,8 @@
             } 
         });
     }
-    
-    var initPhotoSwipeFromDOM = function(gallerySelector) {
 
+    var initPhotoSwipeFromDOM = function (gallerySelector) {
         // parse slide data (url, title, size ...) from DOM elements
         // (children of gallerySelector)
         var parseThumbnailElements = function(el) {

@@ -118,7 +118,7 @@ class ScenicViewModel extends CI_Model
      * @return array
      */
     public function getCertainNumberScenicViews($number) {
-        $items = $this->db->order_by('isRecommended DESC, id DESC')->limit(6)->get(self::TABLE_SCENIC_VIEW)->result_array();
+        $items = $this->db->order_by('isRecommended DESC, id DESC')->limit($number)->get(self::TABLE_SCENIC_VIEW)->result_array();
 
         foreach ($items as &$item) {
             $item['coverImage'] = $this->baseUrl . 'ui/img/scenicview/coverimage/' . $item['id']

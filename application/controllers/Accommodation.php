@@ -24,13 +24,10 @@ class Accommodation extends MainController
 
     public function index()
     {
-        $this->content['pageTitle'] = '住在瑶琳';
-
-        $content['accommodationCategories'] = $this->accommodationCategoryModel->getAllAccommodationCategoriesDetail();
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(), $content);
         $content['pageTitle'] = '住在瑶琳 - 瑶琳国家森林公园';
         $content['accommodation'] = $this->accommodationCategoryModel->getAllAccommodationCategoriesDetail();
+//        var_dump($content['accommodation']);
+//        die;
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
         $this->load->view('main/template/footer');
     }

@@ -38,8 +38,8 @@
         <nav>
 
           <div id="sideMenu">
-                <span class="fa fa-navicon" id="sideMenuClosed"></span>
-
+<!--                <span class="fa fa-navicon" id="sideMenuClosed"></span>-->
+                <img src="<?php echo base_url() ?>ui/img/mobile/nav.png" style="width:22px;">
           </div>
           <div class="nav_logo">
                 <img style="width:100px;" src="<?php echo base_url() ?>ui/img/mobile/logo.png"  />
@@ -61,26 +61,28 @@
         <div class="login">
             <div class="ss_top">
                 <div class="ss_topa">
+                    <form action="<?php echo base_url(); ?>Welcome/search" method="post" id="forms">
                         <div class="ss_topal">
                                 <div class="ss_topala">
-                                        <input type="text" name="textfield" id="textfield" placeholder="搜索景点/酒店/游记" />
+                                        <input type="text" name="search" value="" id="textfield" placeholder="搜索景点/咨询" />
                                 </div>
                                 <div class="ss_topalb">
-                                        <a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/ss.png" /></a>
+                                        <a onclick="$('#forms').submit();"><img src="<?php echo base_url() ?>ui/img/mobile/ss.png" /></a>
                                 </div>
                         </div>
-                        <a href="javascript:void(0);" class="close-login">取消</a>
+                    </form>
+                    <a href="javascript:void(0);" class="close-login">取消</a>
                 </div>
             </div>
-            <div class="del_con">
-                <p><span><a href="#"><img src="<?php echo base_url() ?>ui/img/mobile/del.png" /></a></span>历史搜索</p>
-                <ul>
-                        <li>仰天洞</li>
-                        <li>老屋饭庄</li>
-                        <li>路线</li>
-                        <li>路线1</li>
-                        <li>老屋饭庄</li>
-                        <li>路线</li>
-                </ul>
-            </div>
+<!--            <div class="del_con">-->
+<!--                <p><span><a href="#"><img src="--><?php //echo base_url() ?><!--ui/img/mobile/del.png" /></a></span>历史搜索</p>-->
+<!--                <ul>-->
+<!--                        <li>仰天洞</li>-->
+<!--                        <li>老屋饭庄</li>-->
+<!--                        <li>路线</li>-->
+<!--                        <li>路线1</li>-->
+<!--                        <li>老屋饭庄</li>-->
+<!--                        <li>路线</li>-->
+<!--                </ul>-->
+<!--            </div>-->
         </div>

@@ -11,7 +11,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="First slide">
-                <div class="carousel-caption">2017-07-30 | 第十六届（国际）精功模特大赛选手在瑶琳森林</div>
+                <div class="carousel-caption">第十六届（国际）精功模特大赛选手在瑶琳森林公园举行</div>
             </div>
             <div class="item">
                 <img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Second slide">
@@ -70,14 +70,14 @@
     <img class="le_a" src="<?php echo base_url() ?>ui/img/mobile/index_h.jpg" />
     <div class="le_con">
         <?php foreach ($scenicViews as $k => $v){ ?>
-            <div class="le_left le_right" style="padding-right:10px;padding-bottom:5px;">
+            <div class="le_left">
                 <img src="<?php echo $v['coverImage'] ?>" style="height: 160px;" />
-                <div class="le_pa"><?php echo $v['title'] ?></div>
-                <p class="le_p"><a href="#"><?php echo $v['description'] ?></a></p>
+                <div class="le_pa">景点</div>
+                <p class="le_p"><a><?php echo $v['title'] ?></a></p>
             </div>
         <?php } ?>
     </div>
-    <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看更多<img src="<?php echo base_url() ?>ui/img/mobile/more.png" /></a></div>
+    <div class="le_btn"><a href="<?php echo base_url(); ?>scenicview">查看详情<img src="<?php echo base_url() ?>ui/img/mobile/index_xx.png" /></a></div>
 </div>
 
 <!-- banner3-->
@@ -98,7 +98,7 @@
                 <div class="item active">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_1.jpg" />
                     <!-- txt-->
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">游在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_2.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">吃在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_3.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">住在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_4.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">行在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_5.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">购在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="item">
                     <img src="<?php echo base_url() ?>ui/img/mobile/cy_6.jpg" />
-                    <div class="item_txt">
+                    <div class="item_txt" style="top:8%;">
                         <p class="item_txt_p1">娱在瑶琳</p>
 
                         <p class="item_txt_p2"></p>
@@ -178,7 +178,7 @@
     <img class="pin_i" src="<?php echo base_url() ?>ui/img/mobile/index_n.jpg" />
     <div class="index_zxcon">
         <?php foreach ($news as $k => $v){ ?>
-            <div class="zx_left zx_right" style="padding-right:10px;padding-bottom:5px;">
+            <div class="zx_left">
                 <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage'];?>" style="height:160px;" /></a>
                 <a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><p class="zx_p"><?php echo $v['title']; ?><br/><?php echo $v['description']; ?></p></a>
                 <div class="zx_bot">
