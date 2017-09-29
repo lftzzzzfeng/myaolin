@@ -24,6 +24,12 @@ class ScenicArea extends MainController
     {
         $this->content['pageTitle'] = '景区相册';
         $content = $this->scenicAreaModel->getScenicAreasM('','',8);
+        $data = $this->scenicAreaModel->getScenicAreasM(3,'',4);
+        if($data['scenicAreas']){
+            $content['num'] = 1;
+        }else{
+            $content['num'] = 2;
+        }
 //        var_dump($content);
 //        die;
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);

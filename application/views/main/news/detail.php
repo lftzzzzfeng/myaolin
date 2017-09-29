@@ -43,7 +43,7 @@
             <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
         </p>
 
-        <p class="size-25 weight-800 margin-bottom-5 ipad_size">景区咨询详情</p>
+        <p class="size-25 weight-800 margin-bottom-5 ipad_size">资讯详情</p>
 
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>
@@ -58,7 +58,7 @@
 			<p class="xq_p"><?php echo $item['title']; ?></p>
 			<p class="xq_pa">发布日期：<?php echo date('Y-m-d',$item['publishedTimestamp']); ?>  浏览数：<?php echo $item['hits']; ?></p>
 		</div>		
-                <span style="color: #555;"><p><?php echo $item['content']; ?></p></span>
+                <span style="color: #555;padding:0 15px;"><p><?php echo $item['content']; ?></p></span>
 		<div class="xq_share">
                     <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>	
 		</div>

@@ -54,16 +54,28 @@ a{
     width: 80% !important;
 }
 
-.banner_txt {
+.banner_txt{
     height: 60%;
     position: absolute;
     top: 20%;
     border: 3px solid #05b1bb;
 }
+.banner_txt_food{
+    height: 62%;
+    position: absolute;
+    top: 20%;
+    border: 3px solid #05b1bb;
+}
+.banner_txt2{
+     height: 60%;
+     position: absolute;
+     top: 16%;
+     border: 3px solid #05b1bb;
+ }
 .banner_txta {
     height: 50%;
     position: absolute;
-    top: 15%;
+    top: 16%;
     border: 3px solid #05b1bb;
 }
 .team_name .flex_box span{
@@ -92,9 +104,6 @@ a{
     align-items: center;
     justify-content: space-between;
 }
-
-
-
 
 .yuan_blue{
     width: 10px !important;
@@ -364,6 +373,12 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
     .img_box{
         height: 200px;
     }
+    .banner_txt_food{
+        height: 64%;
+        position: absolute;
+        top: 18%;
+        border: 3px solid #05b1bb;
+    }
 }
 @media only screen and (max-width: 360px ) {
     .banner_txt {
@@ -372,10 +387,22 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
         top: 17.5%;
         border: 3px solid #05b1bb;
     }
-    .banner_txta {
-        height: 65%;
+    .banner_txt2 {
+        height: 52% !important;
         position: absolute;
-        top: 17.5%;
+        top: 14%;
+        border: 3px solid #05b1bb;
+    }
+    .banner_txta {
+        height: 52%;
+        position: absolute;
+        top: 14%;
+        border: 3px solid #05b1bb;
+    }
+    .banner_txt_food{
+        height: 67%;
+        position: absolute;
+        top: 17%;
         border: 3px solid #05b1bb;
     }
 }
@@ -389,10 +416,22 @@ footer img.foot_logo{width:20%; margin: 10px auto;}
         top: 15%;
         border: 3px solid #05b1bb;
     }
+    .banner_txt2 {
+        height: 58% !important;
+        position: absolute;
+        top: 10%;
+        border: 3px solid #05b1bb;
+    }
     .banner_txta {
         height: 60%;
         position: absolute;
         top: 7%;
+        border: 3px solid #05b1bb;
+    }
+    .banner_txt_food{
+        height: 75%;
+        position: absolute;
+        top: 13%;
         border: 3px solid #05b1bb;
     }
     .team_name p{

@@ -24,6 +24,12 @@ class ScenicView extends MainController
     {
         $this->content['pageTitle'] = '景点介绍';
         $content = $this->scenicViewModel->getScenicViewsM('','',4);
+        $data = $this->scenicViewModel->getScenicViewsM(3,'',2);
+        if($data['scenicViews']){
+            $content['num'] = 1;
+        }else{
+            $content['num'] = 2;
+        }
 //        var_dump($content);
 //        die;
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);

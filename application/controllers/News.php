@@ -25,6 +25,12 @@ class News extends MainController
         $this->content['pageTitle'] = '瑶琳资讯';
         $content['currentPageNumber'] = $currentPageNumber ? $currentPageNumber : 1;
         $content['news'] = $this->newsModel->getNewsM($currentPageNumber, null, 8);
+        $data = $this->newsModel->getNewsM(3,'',4);
+        if($data['news']){
+            $content['num'] = 1;
+        }else{
+            $content['num'] = 2;
+        }
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(), $content);
     }
 

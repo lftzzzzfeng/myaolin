@@ -48,8 +48,6 @@ class Welcome extends MainController
     {
         $this->content['pageTitle'] = '联系我们';
 
-        $this->content['pageTitle'] = '首页';
-
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
     }
 
@@ -62,5 +60,12 @@ class Welcome extends MainController
 //        var_dump($content);
 //        die;
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
+    }
+
+    //瑶琳地图
+    public function map()
+    {
+        $content['pageTitle'] = '地图 - 瑶琳国家森林公园';
+        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
 }

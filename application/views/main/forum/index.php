@@ -1,5 +1,5 @@
 <!--banner-->
-<div class="relative">
+<div class="relative" style="margin-top:70px !important;">
     <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" alt=""/>
     <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center">
         <p class="p1 size-10 margin-bottom-5">
@@ -86,10 +86,12 @@
         </div>
     <?php } ?>
 </div>
-<div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
-    <input id="forum" value="1" type="hidden">
-    <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="forum()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
-</div>
+<?php if($num == 1){ ?>
+    <div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
+        <input id="forum" value="1" type="hidden">
+        <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="forum()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
+    </div>
+<?php } ?>
 <!--底部banner-->
 
 <!--图片预览插件按钮-->

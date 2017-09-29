@@ -25,7 +25,9 @@ nav {
   height: 70px;
   padding: 20px;
   font-size: 1.4rem;
-  position: relative;
+  position: fixed;
+  top:0;
+  z-index: 100;
   text-transform: uppercase;
   width: 100%;
   text-align: center;
@@ -35,7 +37,7 @@ nav {
   position: relative;
 }
 nav a, #sideMenu {
-  margin: 0 10px 0 0;
+  /*margin: 0 10px 0 0;*/
 
 } 
 #userMenuToggle {
@@ -107,5 +109,5 @@ ul#userMenu li a::after {
   top: 50%;
   margin: 0 auto;
 }
-.nav_ss{width:25px; height: 25px; position: absolute; right: 15px; top: 16px;}
+.nav_ss{width:25px; height: 25px; position: absolute; right: 15px; top: 20px;}
 .nav_ss img{width:100%;}
