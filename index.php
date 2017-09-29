@@ -36,6 +36,14 @@
  * @filesource
  */
 
+//require_once dirname(__FILE__) . '/application/util/MobileDetect.php';
+//
+//$detect = new MobileDetect;
+//if (!$detect->isMobile()) {
+//    $url = 'http://clubjoin.cn';
+//    header("Location: $url");
+//}
+
 if ( function_exists( 'date_default_timezone_set' ) ) {
     date_default_timezone_set('Asia/Shanghai');
 }

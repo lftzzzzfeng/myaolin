@@ -63,6 +63,7 @@ class CI_Model {
         } else {
             $this->baseUrl = \util\Constant::PC_DOMAIN;
         }
+//        $this->baseUrl = \util\Constant::PC_DOMAIN;
 	}
 
 	// --------------------------------------------------------------------
