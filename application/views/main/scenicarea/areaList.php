@@ -36,10 +36,10 @@
    		});
    		
     </script>
-    <style>
-        .pswp__zoom-wrap {height: 1024px;width: 1024px;}
-        .pswp__zoom-wrap img{height: 100%;width: 100%;}
-    </style>
+<!--    <style>-->
+<!--        .pswp__zoom-wrap {height: 1024px;width: 1024px;}-->
+<!--        .pswp__zoom-wrap img{height: 100%;width: 100%;}-->
+<!--    </style>-->
 </head>
 <body style="background: #fff;">
 <a id="a"><div class="top"></div></a>
@@ -71,7 +71,7 @@
                 <li>
                     <?php foreach ($area as $k => $v){ ?>
                         <figure class="img_a" itemscope itemtype="http://schema.org/ImageObject">
-                            <a href="<?php echo $v['image']; ?>" itemprop="contentUrl" data-size="30000x10000">
+                            <a href="<?php echo $v['image']; ?>" itemprop="contentUrl" data-size="1000x300">
                                 <img src="<?php echo $v['image']; ?>" class=" padding-1" itemprop="thumbnail" alt="Image description" style="width: 100%;"/>
                             </a>
                         </figure>
