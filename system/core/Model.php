@@ -58,12 +58,12 @@ class CI_Model {
 	public function __construct()
 	{
 		log_message('info', 'Model Class Initialized');
-        if (ENVIRONMENT == 'development') {
-            $this->baseUrl = base_url();
-        } else {
-            $this->baseUrl = \util\Constant::PC_DOMAIN;
-        }
-//        $this->baseUrl = \util\Constant::PC_DOMAIN;
+//        if (ENVIRONMENT == 'development') {
+//            $this->baseUrl = base_url();
+//        } else {
+//            $this->baseUrl = \util\Constant::PC_DOMAIN;
+//        }
+        $this->baseUrl = \util\Constant::PC_DOMAIN;
 	}
 
 	// --------------------------------------------------------------------
@@ -83,6 +83,31 @@ class CI_Model {
 		//	saying 'Undefined Property: system/core/Model.php', it's
 		//	most likely a typo in your model code.
 		return get_instance()->$key;
+	}
+
+	//获取天气及温度
+	public function weather(){
+		$content = [];
+		$content['weatherCode'] = '';
+		$content['temperature'] = '';
+		$weatherLogString = file_get_contents(dirname(__FILE__) . '/../../log/weather.txt');
+		$weatherLogJson = json_decode($weatherLogString, true);
+		if ($weatherLogString && ((intval(time()) - intval($weatherLogJson['time'])) <= 45)) {
+			$content['weatherCode'] = $weatherLogJson['weatherCode'];
+			$content['weatherText'] = $weatherLogJson['weatherText'];
+			$content['temperature'] = $weatherLogJson['temperature'];
+			$content['time'] = $weatherLogJson['time'];
+		} else {
+			$weatherResult = json_decode(\util\WeatherForecast::getWeatherReport2(), true)['HeWeather5'][0];
+			if ($weatherResult['status'] == 'ok') {
+				$content['weatherCode'] = $weatherResult['now']['cond']['code'];
+				$content['weatherText'] = $weatherResult['now']['cond']['txt'];
+				$content['temperature'] = $weatherResult['now']['tmp'];
+				$content['time'] = time();
+				file_put_contents(dirname(__FILE__) . '/../../log/weather.txt', json_encode($content));
+			}
+		}
+		return $content;
 	}
 
 }

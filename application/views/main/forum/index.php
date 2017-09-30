@@ -1,5 +1,5 @@
 <!--banner-->
-<div class="relative">
+<div class="relative" style="margin-top:70px !important;">
     <img src="<?php echo base_url() ?>ui/img/mobile/youji_banner_02.jpg" width="100%" alt=""/>
     <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center">
         <p class="p1 size-10 margin-bottom-5">
@@ -12,8 +12,12 @@
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>
     <div class="jq_weather">
-		<img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
-	</div>
+        <img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+        <p>
+            <span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+            <span>(瑶琳/实时)</span>
+        </p>
+    </div>
 </div>
 
 <!--写游记赢奖励-->
@@ -42,11 +46,11 @@
             </p>
             <div class="clearfix"></div>
             <!--可预览图片-->
-            <div class="my-simple-gallery flex_box_num clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
+            <div class="my-simple-gallery clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
                 <?php foreach ($v['jottingImages'] as $k1 => $v1){ ?>
                 <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
                         <a href="<?php echo $v1; ?>" itemprop="contentUrl" data-size="964x1024">
-                            <img src="<?php echo $v1; ?>" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
+                            <img src="<?php echo $v1; ?>" width="100%" itemprop="thumbnail" alt="Image description"/>
                         </a>
                     </figure>
                 <?php } ?>
@@ -86,10 +90,12 @@
         </div>
     <?php } ?>
 </div>
-<div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
-    <input id="forum" value="1" type="hidden">
-    <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="forum()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
-</div>
+<?php if($num == 1){ ?>
+    <div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
+        <input id="forum" value="1" type="hidden">
+        <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="forum()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
+    </div>
+<?php } ?>
 <!--底部banner-->
 
 <!--图片预览插件按钮-->
@@ -176,16 +182,16 @@
         },'json');
     }
     
-    function quanwen() {
-        var stutas = $('#quanwen').html();
+    function quanwen(num,nums) {
+        var stutas = $('#quanwen'+num+nums).html();
         if(stutas == '全文'){
-            $('#shouqi').css('display','none');
-            $('#quanbu').css('display','');
-            $('#quanwen').html('收起');
+            $('#shouqi'+num+nums).css('display','none');
+            $('#quanbu'+num+nums).css('display','');
+            $('#quanwen'+num+nums).html('收起');
         }else{
-            $('#shouqi').css('display','');
-            $('#quanbu').css('display','none');
-            $('#quanwen').html('全文');
+            $('#shouqi'+num+nums).css('display','');
+            $('#quanbu'+num+nums).css('display','none');
+            $('#quanwen'+num+nums).html('全文');
         }
     }
     

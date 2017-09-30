@@ -1,26 +1,43 @@
 <!-- banner1-->
-<div class="index_banner" style="margin-top:70px;">
+<div class="index_banner lunbo_one" style="margin-top:70px;">
     <div class="container">
     	<div class="row">
     		<div class="span12">
     			<div class="owl-carousel">
     				<div class="item darkCyan">
     					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Touch">
-    					<div class="item_txt">第十六届（国际）精功模特大赛选手在瑶琳森林公园举行</div>
     				</div>
     				<div class="item forestGreen">
     					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Grab">
-    					<div class="item_txt">标题 2</div>
     				</div>
     				<div class="item orange">
     					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Responsive">
-    					<div class="item_txt">标题 3</div>
     				</div>
     			</div>
     		</div>
     	</div>
     </div>
+	<div class="jq_weather">
+		<img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+		<p>
+			<span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+			<span>(瑶琳/实时)</span>
+		</p>
+	</div>
+<!--文字轮播
+<div id="broadcast" class="bar" name="giftactive">
+        <div id="demo" style="overflow:hidden;height:22px;line-height:22px;">
+          <ul class="mingdan" id="holder">
+            <li><a href="#" target="_blank">第十六届（国际）精功模特大赛选手在瑶琳森林公园举行</a></li>
+            <li><a href="#" target="_blank">标题 2</a></li>
+            <li><a href="#" target="_blank">标题 3</a></li>
+          </ul>
+        </div>
+      </div>
+
 </div>
+-->
+
 <div class="index_about">
     <img class="ab_img" src="<?php echo base_url() ?>ui/img/mobile/index_a.jpg" />
     <p><?php echo $website['content']; ?></p>
@@ -194,7 +211,23 @@
     	itemsMobile:[479,1],
     	itemsTablet:[768,1],
     	navigation:true,
-    	autoPlay:2000
+    	autoPlay:3000
     	});
     });
+
+    //文字滚动轮播
+//    function AutoScroll(obj) {
+//        $(obj).find("ul:first").animate({
+//            marginTop: "-22px"
+//        },
+//        500,
+//        function() {
+//            $(this).css({
+//                marginTop: "0px"
+//            }).find("li:first").appendTo(this);
+//        });
+//    }
+//    $(document).ready(function() {
+//        setInterval('AutoScroll("#demo")', 3000)
+//    });
 </script>

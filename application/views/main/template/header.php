@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/essentials.css"/>   
         <link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/photoswipe.css"/>
         <link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/default-skin.css"/>
+        <link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/owl.carousel.css"/>
         <link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/jd.css"/>
         
         <script src="<?php echo base_url() ?>ui/js/mobile/jquery-2.1.4.min.js"></script>
@@ -21,6 +22,7 @@
         <script src='<?php echo base_url() ?>ui/js/mobile/velocity.min.js'></script>
         <script src='<?php echo base_url() ?>ui/js/mobile/sideToggleExtended.js'></script>
         <script src="<?php echo base_url() ?>ui/js/mobile/ss.js"></script>
+        <script src="<?php echo base_url() ?>ui/js/mobile/owl.carousel.min.js"></script>
         <script src="<?php echo base_url() ?>ui/js/mobile/photoswipe.min.js"></script>
         <script src="<?php echo base_url() ?>ui/js/mobile/photoswipe-ui-default.min.js"></script>
         
@@ -64,7 +66,7 @@
                     <form action="<?php echo base_url(); ?>Welcome/search" method="post" id="forms">
                         <div class="ss_topal">
                                 <div class="ss_topala">
-                                        <input type="text" name="search" value="" id="textfield" placeholder="搜索景点/咨询" />
+                                        <input type="text" name="search" value="" id="textfield" placeholder="搜索景点/资讯" />
                                 </div>
                                 <div class="ss_topalb">
                                         <a onclick="$('#forms').submit();"><img src="<?php echo base_url() ?>ui/img/mobile/ss.png" /></a>

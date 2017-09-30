@@ -15,6 +15,7 @@ class Trip extends MainController
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('websiteModel');
         $this->load->helper('url');
         $this->load->library('session');
     }
@@ -22,7 +23,8 @@ class Trip extends MainController
     public function index()
     {
         $this->content['pageTitle'] = '畅游瑶琳';
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content['weather'] = $this->websiteModel->weather();
+        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
 
     public function travel()

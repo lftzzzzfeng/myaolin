@@ -1,7 +1,7 @@
 <!--banner-->
-<div class="relative">
+<div class="relative" style="margin-top:70px !important;">
     <img src="<?php echo base_url() ?>ui/img/mobile/banner_02.jpg" width="100%" alt=""/>
-    <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center" style="height:50%;">
+    <div class="banner_txt2  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center" style="height:50%;">
         <p class="p1 size-10 margin-bottom-5">
             <span class="block margin-bottom-6"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
             <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
@@ -17,18 +17,24 @@
         <p class="flex_box margin-bottom-5"><span></span><span class="yuan_blue"></span><span></span></p>
     </div>
 	<div class="jq_weather">
-			<img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
-		</div>
+		<img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+		<p>
+			<span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+			<span>(瑶琳/实时)</span>
+		</p>
+	</div>
 </div>
 	<div class="cy_con">
 		
 	    <div class="cy_a">
 	    	<img src="<?php echo base_url() ?>ui/img/mobile/cy_1.jpg"  />
 	    	<div class="cy_c">
-	    		<p class="cy_p">游在瑶琳</p>
-	    		<span></span>
-	    		<p class="cy_pa">尝试一下景区的不同旅行方式吧</p>
-                        <div class="cy_btn"><a href="<?php echo base_url() ?>trip/travel">查看详情<img src="<?php echo base_url() ?>ui/img/mobile/jt.png" /></a></div>
+	    		<div class="cy_c_box">
+	    			<p class="cy_p">游在瑶琳</p>
+	    			<span></span>
+	    			<p class="cy_pa">尝试一下景区的不同旅行方式吧</p>
+                    <div class="cy_btn"><a href="<?php echo base_url() ?>trip/travel">查看详情<img src="<?php echo base_url() ?>ui/img/mobile/jt.png" /></a></div>
+	    		</div>
 	    	</div>
 	    </div>
 	    <div class="cy_a">

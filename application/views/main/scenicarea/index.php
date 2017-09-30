@@ -1,5 +1,5 @@
 <!--banner-->
-<div class="relative">
+<div class="relative" style="margin-top: 70px;">
     <img src="<?php echo base_url() ?>ui/img/mobile/banner_02.jpg" width="100%" alt=""/>
     <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center" style="height:50%;">
         <p class="p1 size-10 margin-bottom-5">
@@ -16,9 +16,13 @@
 	
 	        <p class="flex_box margin-bottom-5"><span></span><span class="yuan_blue"></span><span></span></p>
 	    </div>
-	<div class="jq_weather">
-		<img src="<?php echo base_url() ?>ui/img/mobile/weathera.png"  />
-	</div>
+    <div class="jq_weather">
+        <img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+        <p>
+            <span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+            <span>(瑶琳/实时)</span>
+        </p>
+    </div>
 </div>
 	<div class="jq_con">
 		
@@ -32,10 +36,12 @@
                     <?php } ?>
 	    	</ul>
 	    </div>
-        <div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
-            <input id="scenic" value="1" type="hidden">
-            <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="scenic()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
-        </div>
+        <?php if($num == 1){ ?>
+            <div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
+                <input id="scenic" value="1" type="hidden">
+                <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="scenic()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
+            </div>
+        <?php } ?>
 	</div>
 	<script type="text/javascript">
                 var url = "<?php echo base_url(); ?>";

@@ -25,6 +25,12 @@ class Food extends MainController
         $content['pageTitle'] = '吃在瑶琳 - 瑶琳国家森林公园';
         $content['currentPageNumber'] = $currentPageNumber ? $currentPageNumber : 1;
         $content['food'] = $this->foodModel->getFoodM($currentPageNumber, null, 8);
+        $data = $this->foodModel->getFoodM(3,'',4);
+        if($data['food']){
+            $content['num'] = 1;
+        }else{
+            $content['num'] = 2;
+        }
 //        var_dump($content);
 //        die;
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $content);
@@ -53,7 +59,7 @@ class Food extends MainController
         }
         $html = '';
         foreach ($foods['food'] as $k => $v){
-            $html .= '<li class="mli_top" style="margin-right:5px;width:48%;"><img src="'.$v['coverImage'].'" style="height:115px;"/><p class="mli_p"><a href="#">'.$v['title'].'</a></p><p class="mli_pa">'.$v['description'].'</p></li>';
+            $html .= '<li style="margin-right:5px;width:48%;"><img src="'.$v['coverImage'].'" style="height:115px;"/><p class="mli_p"><a href="#">'.$v['title'].'</a></p><p class="mli_pa">'.$v['description'].'</p></li>';
         }
         $rst['html'] = $html;
         $rst['num'] = $num;

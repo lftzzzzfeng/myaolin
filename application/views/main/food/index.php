@@ -36,7 +36,7 @@
 <!--banner-->
 <div class="relative">
     <img src="<?php echo base_url() ?>ui/img/mobile/chi_banner.jpg" width="100%" alt=""/>
-    <div class="banner_txt  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center">
+    <div class="banner_txt_food  col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 tex-white text-center">
         <p class="p1 size-10 margin-bottom-5">
             <span class="block margin-bottom-6"><img src="<?php echo base_url() ?>ui/img/mobile/icon_yuan_03.png" alt=""/></span>
             <span class="">YAOLIN</span><br/><span>INTO NATURE</span>
@@ -47,10 +47,6 @@
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>
     <div class="you_fh" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png" style="height:80%;width: 70%"/></a></div>
-		<div class="jq_weather">
-			<img src="<?php echo base_url() ?>ui/img/mobile/weathera.png"  />
-		</div>
-
 </div>
 	<div class="chi_con">
 		 <div class="chi_top">
@@ -71,11 +67,13 @@
 		 			                    </li>
                                     <?php } ?>
 		 		</ul>
-		 	</div>
-                        <div class="look_more text-center margin-bottom-10 clearfix" style="background:#f8f8f8;">
-                            <input id="food" value="1" type="hidden">
-                            <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="food()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
-                        </div>
+		 	 </div>
+             <?php if($num == 1){ ?>
+                 <div class="look_more text-center margin-bottom-10 clearfix" style="background:#f8f8f8;">
+                     <input id="food" value="1" type="hidden">
+                     <button class="flex_box margin-0-auto btn radius-0 size-16" onclick="food()" id="jzgds"><span id="jzgd">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
+                 </div>
+             <?php } ?>
 		 </div>
 		 <div class="chi_zs">
 		 	<div id="myCarousel" class="carousel slide">

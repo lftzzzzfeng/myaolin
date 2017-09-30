@@ -48,10 +48,6 @@
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>
     <div class="you_fh"  onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png"  style="height:80%;width: 70%"/></a></div>
-    <div class="jq_weather">
-        <img src="<?php echo base_url() ?>ui/img/mobile/weathera.png"  />
-    </div>
-
 </div>
 <div class="zhu_con zhuz_con">
     <?php foreach ($accommodation as $k => $v){ ?>
