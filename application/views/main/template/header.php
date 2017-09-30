@@ -66,7 +66,7 @@
                     <form action="<?php echo base_url(); ?>Welcome/search" method="post" id="forms">
                         <div class="ss_topal">
                                 <div class="ss_topala">
-                                        <input type="text" name="search" value="" id="textfield" placeholder="搜索景点/咨询" />
+                                        <input type="text" name="search" value="" id="textfield" placeholder="搜索景点/资讯" />
                                 </div>
                                 <div class="ss_topalb">
                                         <a onclick="$('#forms').submit();"><img src="<?php echo base_url() ?>ui/img/mobile/ss.png" /></a>

@@ -31,6 +31,7 @@ class News extends MainController
         }else{
             $content['num'] = 2;
         }
+        $content['weather'] = $this->newsModel->weather();
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(), $content);
     }
 

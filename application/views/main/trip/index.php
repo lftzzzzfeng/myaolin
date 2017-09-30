@@ -17,8 +17,12 @@
         <p class="flex_box margin-bottom-5"><span></span><span class="yuan_blue"></span><span></span></p>
     </div>
 	<div class="jq_weather">
-			<img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
-		</div>
+		<img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+		<p>
+			<span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+			<span>(瑶琳/实时)</span>
+		</p>
+	</div>
 </div>
 	<div class="cy_con">
 		

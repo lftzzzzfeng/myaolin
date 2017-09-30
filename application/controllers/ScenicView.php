@@ -30,6 +30,7 @@ class ScenicView extends MainController
         }else{
             $content['num'] = 2;
         }
+        $content['weather'] = $this->scenicViewModel->weather();
 //        var_dump($content);
 //        die;
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);

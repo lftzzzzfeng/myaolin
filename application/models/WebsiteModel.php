@@ -67,7 +67,7 @@ class WebsiteModel extends CI_Model
      *
      * @return array
      */
-    public function search($search)
+    public function searchs($search)
     {
         if($search) {
             $rst = '';

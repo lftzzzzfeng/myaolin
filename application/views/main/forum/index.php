@@ -12,8 +12,12 @@
         <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
     </div>
     <div class="jq_weather">
-		<img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
-	</div>
+        <img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+        <p>
+            <span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+            <span>(瑶琳/实时)</span>
+        </p>
+    </div>
 </div>
 
 <!--写游记赢奖励-->
@@ -42,11 +46,11 @@
             </p>
             <div class="clearfix"></div>
             <!--可预览图片-->
-            <div class="my-simple-gallery flex_box_num clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
+            <div class="my-simple-gallery clearfix padding-15" itemscope itemtype="http://schema.org/ImageGallery">
                 <?php foreach ($v['jottingImages'] as $k1 => $v1){ ?>
                 <figure class="img-1" itemscope itemtype="http://schema.org/ImageObject">
                         <a href="<?php echo $v1; ?>" itemprop="contentUrl" data-size="964x1024">
-                            <img src="<?php echo $v1; ?>" width="100%" class=" padding-1" itemprop="thumbnail" alt="Image description"/>
+                            <img src="<?php echo $v1; ?>" width="100%" itemprop="thumbnail" alt="Image description"/>
                         </a>
                     </figure>
                 <?php } ?>
@@ -178,16 +182,16 @@
         },'json');
     }
     
-    function quanwen() {
-        var stutas = $('#quanwen').html();
+    function quanwen(num,nums) {
+        var stutas = $('#quanwen'+num+nums).html();
         if(stutas == '全文'){
-            $('#shouqi').css('display','none');
-            $('#quanbu').css('display','');
-            $('#quanwen').html('收起');
+            $('#shouqi'+num+nums).css('display','none');
+            $('#quanbu'+num+nums).css('display','');
+            $('#quanwen'+num+nums).html('收起');
         }else{
-            $('#shouqi').css('display','');
-            $('#quanbu').css('display','none');
-            $('#quanwen').html('全文');
+            $('#shouqi'+num+nums).css('display','');
+            $('#quanbu'+num+nums).css('display','none');
+            $('#quanwen'+num+nums).html('全文');
         }
     }
     

@@ -11,7 +11,11 @@
     <p class="p3 size-12 color_blue margin-bottom-5"><span>NICE TRIP</span><br/><span>TRAVEL SERVICE</span></p>
 </div>
 <div class="jq_weather">
-    <img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
+    <img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+    <p>
+        <span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+        <span>(瑶琳/实时)</span>
+    </p>
 </div>
 
 </div>

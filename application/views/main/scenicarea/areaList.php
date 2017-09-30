@@ -61,9 +61,6 @@
 	        <p class="margin-bottom-5 margin-top-20 size-14" style="color: #333;"><?php echo $area['description']; ?></p>
 	        <p class="flex_box margin-bottom-5"><span></span><span class="yuan_blue"></span><span></span></p>
     </div>-->
-<div class="jq_weather">
-    <img src="<?php echo base_url() ?>ui/img/mobile/weather.png"  />
-</div>
 </div>
 	<div class="jq_con">
         <div class="jq_cona">

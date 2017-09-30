@@ -17,7 +17,13 @@
     		</div>
     	</div>
     </div>
-
+	<div class="jq_weather">
+		<img src="<?php echo base_url() ?>ui/img/weather/<?php echo $weather['weatherCode'] ?>.png"/>
+		<p>
+			<span><?php echo $weather['temperature'] ?>℃ </span><span> <?php echo $weather['weatherText'] ?></span><br>
+			<span>(瑶琳/实时)</span>
+		</p>
+	</div>
 <!--文字轮播
 <div id="broadcast" class="bar" name="giftactive">
         <div id="demo" style="overflow:hidden;height:22px;line-height:22px;">

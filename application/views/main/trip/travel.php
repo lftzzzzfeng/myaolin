@@ -53,10 +53,6 @@
     		
     </div>
    <div class="you_fh" onclick="window.history.go(-1);"><a><img src="<?php echo base_url() ?>ui/img/mobile/fanhui.png" style="height:80%;width: 70%"/></a></div>
-		<div class="jq_weather">
-			<img src="<?php echo base_url() ?>ui/img/mobile/weathera.png"  />
-		</div>
-
 </div>
 	<div class="you_con">
 		<ul>

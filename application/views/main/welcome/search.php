@@ -1,8 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title><?php echo $pageTitle; ?></title>
+	<link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>ui/css/mobile/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>ui/css/mobile/demo.css">
+	<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/style.css">
+	<link href="<?php echo base_url() ?>ui/css/mobile/css.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/essentials.css"/>
+	<link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/photoswipe.css"/>
+	<link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/default-skin.css"/>
+	<link rel="stylesheet" href="<?php echo base_url() ?>ui/css/mobile/jd.css"/>
+
+	<script src="<?php echo base_url() ?>ui/js/mobile/jquery-2.1.4.min.js"></script>
+	<script src="<?php echo base_url() ?>ui/js/mobile/bootstrap.min.js"></script>
+	<script src='<?php echo base_url() ?>ui/js/mobile/jquery-2.1.4.min.js'></script>
+	<script src='<?php echo base_url() ?>ui/js/mobile/velocity.min.js'></script>
+	<script src='<?php echo base_url() ?>ui/js/mobile/sideToggleExtended.js'></script>
+	<script src="<?php echo base_url() ?>ui/js/mobile/ss.js"></script>
+	<script src="<?php echo base_url() ?>ui/js/mobile/photoswipe.min.js"></script>
+	<script src="<?php echo base_url() ?>ui/js/mobile/photoswipe-ui-default.min.js"></script>
+	<style>
+		#myCarousel ol{ margin-bottom: 0;}
+		.carousel-indicators li{width:13px; height: 13px; border-radius: 50%;}
+		.carousel-indicators .active{width:13px; height: 13px; border-radius: 50%; margin-top: 1px;}
+	</style>
+	<script type="text/javascript">
+
+		document.addEventListener('plusready', function(){
+			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+		});
+
+	</script>
 	<style>
 		.pswp__zoom-wrap {height: 1024px;width: 1024px;}
 		.pswp__zoom-wrap img{height: 100%;width: 100%;}
 	</style>
-	<div id="scenics">
+</head>
+<body style="background: #fff;">
+	<div class="login" style="display: block;height:0%;">
+		<div class="ss_top">
+			<div class="ss_topa">
+				<form action="<?php echo base_url(); ?>Welcome/search" method="post" id="forms">
+					<div class="ss_topal">
+						<div class="ss_topala">
+							<input type="text" name="search" value="" id="textfield" placeholder="搜索景点/资讯" />
+						</div>
+						<div class="ss_topalb">
+							<a onclick="$('#forms').submit();"><img src="<?php echo base_url() ?>ui/img/mobile/ss.png" /></a>
+						</div>
+					</div>
+				</form>
+				<a href="<?php echo base_url(); ?>Welcome" class="close-login">取消</a>
+			</div>
+		</div>
+	</div>
+	<div id="scenics" style="margin-top: 20%;">
+		<?php if(empty($search['scenicview']) && empty($search['news'])){ ?>
+			<a  style="color: #05b1bb; font-size: 1rem; margin-left:13px;font-weight: 100;">未搜索到相关内容</a>
+		<?php } ?>
 		<?php if($search['scenicview']){ ?>
 			<a  style="color: #05b1bb; font-size: 1rem; margin-left:13px;font-weight: 100;">景点介绍相关内容</a>
 		<?php } ?>
@@ -44,12 +104,11 @@
 		<?php } ?>
 	</div>
 	<?php if($search['news']){ ?>
-		<a  style="color: #05b1bb; font-size: 1rem; margin-left:6px;font-weight: 100;">景区咨询相关内容</a>
-	<?php } ?>
+		<a  style="color: #05b1bb; font-size: 1rem; margin-left:6px;font-weight: 100;">景区资讯相关内容</a>
 	<div class="index_zx" style="margin-top:5px;">
 		<div class="index_zxcon" id="new">
 			<?php foreach ($search['news'] as $k => $v){ ?>
-				<div class="zx_left zx_right jing_a" style="padding-right:10px;padding-bottom:5px;padding-top:5px;">
+				<div class="zx_left jing_a" style="padding-bottom:5px;padding-top:5px;">
 					<a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage']; ?>" style="height:160px;" /></a>
 					<a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><p class="zx_p"><?php echo $v['title']; ?><br/><?php echo $v['description']; ?></p></a>
 					<div class="zx_bot">
@@ -63,7 +122,7 @@
 			<?php } ?>
 		</div>
 	</div>
-
+	<?php } ?>
 	<!--插件按钮-->
 	<!-- Root element of PhotoSwipe. Must have class pswp. -->
 	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -339,3 +398,5 @@
 			$(this).addClass("active2");
 		});
 	</script>
+</body>
+</html>

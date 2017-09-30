@@ -34,32 +34,33 @@ class Welcome extends MainController
         $content['scenicAreaResult'] = $this->scenicAreaModel->getDetailScenicAreaById(null, \util\Constant::IS_RECOMMENDED_YES);
         $content['scenicViews'] = $this->scenicViewModel->getCertainNumberScenicViews(4);
         $content['news'] = $this->newsModel->getLatestNewsM(4);
+        $content['weather'] = $this->websiteModel->weather();
         $this->renderView($this->mainTemplatePath . $this->router->fetch_method(), $content);
     }
 
     public function aboutUs()
     {
         $this->content['pageTitle'] = '关于我们';
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content['weather'] = $this->websiteModel->weather();
+        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
 
     public function contactUs()
     {
         $this->content['pageTitle'] = '联系我们';
-
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method());
+        $content['weather'] = $this->websiteModel->weather();
+        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
 
     //搜索
     public function search()
     {
-        $this->content['pageTitle'] = '搜索列表';
+        $content['pageTitle'] = '搜索列表 - 瑶琳国家森林公园';
         $search = $this->input->post('search');
-        $content['search'] = $this->websiteModel->search($search);
+        $content['search'] = $this->websiteModel->searchs($search);
 //        var_dump($content);
 //        die;
-        $this->renderView($this->mainTemplatePath . $this->router->fetch_method(),$content);
+        $this->load->view($this->mainTemplatePath . $this->router->fetch_method(),$content);
     }
 
     //瑶琳地图
