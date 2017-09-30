@@ -178,6 +178,18 @@ class NewsModel extends CI_Model
         
         return $items;
     }
+
+    /**
+     * 更新点击量
+     *
+     * @param int $id
+     */
+    public function updateHits($id)
+    {
+        $this->db->where('id', intval($id));
+        $this->db->set('hits', '`hits`+ 1', false);
+        $this->db->update(self::TABLE_NEWS);
+    }
     
     /**
      * 移动端

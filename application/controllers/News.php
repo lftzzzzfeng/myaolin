@@ -37,6 +37,7 @@ class News extends MainController
     public function detail()
     {
         $id = $this->input->get('id');
+        $this->newsModel->updateHits($id);
         $content['pageTitle'] = '资讯详情 - 瑶琳国家森林公园';
         $content['item'] = $this->newsModel->getNewsById($id);
         $content['item']['UpDown'] = $this->newsModel->getNewsUpM($content['item']['orderNumber']);
