@@ -104,7 +104,7 @@ class Forum extends MainController
         $title = $this->input->post('title');
         $content = $this->input->post('content');
         $images = $_FILES['images'];
-        $images['name'] = array_unique($images['name']); 
+        $images['name'] = array_unique(array_filter($images['name']));
         $jottingId = $this->jottingModel->saveJotting(null, $title, $content);
         $this->jottingImageModel->saveJottingImages($jottingId, $images);
         echo "<script type='text/javascript'>location.href='".base_url()."forum'</script>"; 

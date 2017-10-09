@@ -67,34 +67,6 @@
                  function submits(){
                     $('#forms').submit();
                 }
-                
-                //上传图片预览效果
-                function showPicture(sourceId) {
-                    var id = $(sourceId).attr('id');
-                    var ids = $(sourceId).parent('div').attr('id');
-                    $(sourceId).attr('id',parseInt(id)+1);
-                    $(sourceId).parent('div').attr('id',parseInt(ids)+1+'s');
-                    var div = $(sourceId).parent();
-                    var newdiv = div.clone();
-                    $(sourceId).attr('id',id);
-                    $(sourceId).parent('div').attr('id',ids);
-                    div.after(newdiv);	
-                    var url = getFileUrl(id); 
-                    var imgPre = document.getElementById(ids);
-                    imgPre.style.backgroundImage= "url("+url+")"; 
-                } 
-                //从 file 域获取 本地图片 url
-                function getFileUrl(sourceId) {
-                    var url='';
-                    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
-                        url = document.getElementById(sourceId).value;
-                    } else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
-                        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
-                    } else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
-                        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
-                    }
-                    return url;
-                }
     </script>
 </head>
 <body style="background: #fff;">
@@ -109,9 +81,10 @@
 	<input type="text" name="title" id="textfield" placeholder="标题" />
 	<div class="yjx_cona">
 		<textarea name="content" id="textarea" cols="45" rows="5" placeholder="说点什么吧......"></textarea>
-                    <div class="yj_sc" id="1s" style="background:url('<?php echo base_url();?>ui/img/mobile/pic.png') no-repeat;background-size:58% 48%;margin-left:2%; float:left;">
-                        <input type="file" name="images[]" size="20" id="1" onchange="showPicture(this)" style="height: 48px;left: 0;opacity: 0;top: 0;width: 58%;z-index: 2; margin: 0px 0px;"/>
-                    </div>
+		<div id="fileList"></div>
+		<div class="yj_sc" style="background:url('<?php echo base_url();?>ui/img/mobile/pic.png') no-repeat;background-size:58% 48%;margin-left:2%;margin-top:2%; ">
+        	<input type="file" id="fileElem" name="images[]" onchange="handleFiles(this)" style="height: 48px;left: 0;opacity: 0;top: 0;width: 58%;z-index: 2; margin: 0px 0px;"/>
+		</div>
 	</div>
     </form>
 	<div class="yjx_conb">
@@ -134,4 +107,51 @@
 	</div>
 </div>
 </body>
+<script>
+	window.URL = window.URL || window.webkitURL;
+	var fileElem = document.getElementById("fileElem"),
+		fileList = document.getElementById("fileList");
+	function handleFiles(obj) {
+		var div = $(obj).parent();
+		var newdiv = div.clone();
+		div.after(newdiv);
+		div.css('display','none');
+		var files = obj.files,
+			img = new Image();
+		if(window.URL){
+			//File API
+			img.src = window.URL.createObjectURL(files[0]); //创建一个objectURL，并不是你的本地路径
+			img.width = 60;
+			img.style='margin-left:2%;';
+			img.onload = function(e) {
+				window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+			}
+			fileList.appendChild(img);
+		}else if(window.FileReader){
+			//opera不支持createObjectURL/revokeObjectURL方法。我们用FileReader对象来处理
+			var reader = new FileReader();
+			reader.readAsDataURL(files[0]);
+			reader.onload = function(e){
+				alert(files[0].name + "," +e.total + " bytes");
+				img.src = this.result;
+				img.width = 60;
+				img.style='margin-left:2%;';
+				fileList.appendChild(img);
+			}
+		}else{
+			//ie
+			obj.select();
+			obj.blur();
+			var nfile = document.selection.createRange().text;
+			document.selection.empty();
+			img.src = nfile;
+			img.width = 60;
+			img.style='margin-left:2%;';
+			img.onload=function(){
+				alert(nfile+","+img.fileSize + " bytes");
+			}
+			fileList.appendChild(img);
+		}
+	}
+</script>
 </html>
