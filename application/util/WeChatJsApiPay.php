@@ -14,7 +14,10 @@ class WeChatJsApiPay
     const APP_ID = 'wx7c0adb91597ff4e8';
     const APP_SECRET = '1a8361f95c1547d5adb211cdc9aa6f43'; //1a8361f95c1547d5adb211cdc9aa6f43
     const MERCHANT_ID  = '1486544382';
-    const API_KEY = 'e4f6328a76004ee7cd102436bb9dc05e'; //biEFhE1rdxZK1ZqivWb8go2J1D0CxDyH
+    const API_KEY = 'caimomoeasytimestudiob2117MOBILE';
+    //caimomoeasytimestudiob2117MOBILE
+    //e4f6328a76004ee7cd102436bb9dc05e
+    //biEFhE1rdxZK1ZqivWb8go2J1D0CxDyH
 
     const PUBLIC_REDIRECT_URI = 'http://clubjoin.cn/';
     const TRADE_TYPE_JS_API = 'JSAPI';

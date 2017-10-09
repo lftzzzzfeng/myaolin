@@ -19,6 +19,7 @@ class Shop extends CI_Controller
         parent::__construct();
         $this->load->model('memberModel');
         $this->load->model('productModel');
+        $this->load->model('merchantProductModel');
         $this->load->model('orderModel');
         $this->load->model('paymentModel');
         $this->load->helper('url');
@@ -105,7 +106,7 @@ exit;
         }
 
         $content['merchant']['id'] = $merchantId;
-        $content['products'] = $this->productModel->getProducts()['products'];
+        $content['products'] = $this->merchantProductModel->getMerchantProducts($merchantId);
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $content);
     }
@@ -115,19 +116,29 @@ exit;
         $content = [];
 
         $content['productId'] = '';
+        $content['productName'] = '';
+        $content['productDescription'] = '';
+        $content['productQuantity'] = '';
         $content['productFee'] = '';
+        $unitPrice = 0;
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $content['productId'] = $this->input->post('productId');
-            $content['productFee'] = $this->input->post('productFee');
+            $content['productName'] = $this->input->post('productName');
+            $content['productDescription'] = $this->input->post('productDescription');
+            $content['productQuantity'] = $this->input->post('productQuantity');
+            $unitPrice = $this->input->post('productFee') * 100;
+            $totalFee = $this->input->post('productFee') * 100 * $content['productQuantity'];
+            $content['productFee'] = $this->input->post('productFee') * $content['productQuantity'];
         }
         $orderId = 'M' . $_SESSION['merchant']['id'] . date('YmdHis');
 
         //wx20170920170701cf99b1bfca0068409885
 //        $content['jsApiParameters'] = json_encode(\util\WeChatJsApiPay::getJsApiParameters('o5p6C1a5mmG6VZRJIzA-dbuUfsME', 'abc', 20170830140010, 1, base_url() . 'merchants/shop/notify', 6600112));
-        $this->orderModel->saveOrder(null, $orderId, $_SESSION['member']['openid'], $_SESSION['merchant']['id'], $content['productFee']);
-        $this->paymentModel->savePayment($orderId, $_SESSION['member']['openid'], $_SESSION['merchant']['id'], $content['productFee']);
-        $content['jsApiParameters'] = json_encode(\util\WeChatJsApiPay::getJsApiParameters($_SESSION['member']['openid'], '产品' . $content['productId'], $orderId, $content['productFee'], base_url() . 'merchants/shop/notify', $content['productId']));
+        $this->orderModel->saveOrder(null, $orderId, $_SESSION['member']['openid'], $_SESSION['merchant']['id'], $content['productId'],
+            $content['productQuantity'], $unitPrice, $totalFee);
+        $this->paymentModel->savePayment($orderId, $_SESSION['member']['openid'], $_SESSION['merchant']['id'], $totalFee);
+        $content['jsApiParameters'] = json_encode(\util\WeChatJsApiPay::getJsApiParameters($_SESSION['member']['openid'], $content['productName'], $orderId, $totalFee, base_url() . 'merchants/shop/notify', $content['productId']));
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $content);
     }
 

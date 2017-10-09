@@ -30,18 +30,24 @@ class OrderModel extends CI_Model
      * @param string $orderId 订单号
      * @param string $openId 微信openId
      * @param string $merchantId 商户id
+     * @param int $productId 商品id
+     * @param int $purchaseQuantity 购买数量
+     * @param int $productUnitPrice 商品单价
      * @param int $totalFee 订单价格
      * @param int $status 状态
      *
      * @return int
      */
-    public function saveOrder($id, $orderId, $openId, $merchantId, $totalFee, $status = 2)
+    public function saveOrder($id, $orderId, $openId, $merchantId, $productId, $purchaseQuantity, $productUnitPrice, $totalFee, $status = 2)
     {
         $data = [];
 
         $data['orderId'] = $orderId;
         $data['openId'] = $openId;
         $data['merchantId'] = $merchantId;
+        $data['productId'] = $productId;
+        $data['purchaseQuantity'] = $purchaseQuantity;
+        $data['productUnitPrice'] = $productUnitPrice;
         $data['totalFee'] = $totalFee;
         $data['status'] = $status;
 
