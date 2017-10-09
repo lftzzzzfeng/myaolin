@@ -19,6 +19,7 @@ class Shop extends CI_Controller
         parent::__construct();
         $this->load->model('memberModel');
         $this->load->model('productModel');
+        $this->load->model('merchantProductModel');
         $this->load->model('orderModel');
         $this->load->model('paymentModel');
         $this->load->helper('url');
@@ -105,7 +106,7 @@ exit;
         }
 
         $content['merchant']['id'] = $merchantId;
-        $content['products'] = $this->productModel->getProducts()['products'];
+        $content['products'] = $this->merchantProductModel->getMerchantProducts($merchantId);
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $content);
     }
@@ -115,11 +116,17 @@ exit;
         $content = [];
 
         $content['productId'] = '';
+        $content['productName'] = '';
+        $content['productDescription'] = '';
+        $content['productQuantity'] = '';
         $content['productFee'] = '';
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $content['productId'] = $this->input->post('productId');
-            $content['productFee'] = $this->input->post('productFee');
+            $content['productName'] = $this->input->post('productName');
+            $content['productDescription'] = $this->input->post('productDescription');
+            $content['productQuantity'] = $this->input->post('productQuantity');
+            $content['productFee'] = $this->input->post('productFee') * $content['productQuantity'];
         }
         $orderId = 'M' . $_SESSION['merchant']['id'] . date('YmdHis');
 

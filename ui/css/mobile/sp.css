@@ -1,0 +1,82 @@
+body{ font-size:1.0rem; font-family:"微软雅黑"; background: #f0f0f0;}
+li{ list-style:none;}
+*{ padding: 0; margin: 0;}
+input, button, select, textarea { outline: none;}
+textarea {resize: none;}
+table { border-collapse: collapse;border-spacing: 0;}
+a{ text-decoration:none;}
+.sp_con{width:100%; min-height: 200px; height: auto; overflow: hidden; max-width: 750px; margin: 0 auto 50px;}
+.sp_con .sp_conleft{width:49%; height: 360px; float: left; background: #fff; margin-top: 6px; text-align: center;}
+.sp_con .sp_conleft:nth-child(2n){width:49%; height: 360px; float: right; background: #fff;margin-top: 6px;}
+.sp_con .sp_conleft img{width:auto; height: 180px; max-width: 96%; margin: 4px auto;}
+.sp_con .sp_conleft h1{ font-size: 1.0rem; color: #333; font-weight: normal; text-align: left; padding-left: 3%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.sp_con .sp_conleft p{ text-align: left; color: #777777; padding-left: 3%; font-size: 0.9rem; line-height: 30px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.sp_con .sp_conleft .sp_jg{width:100%; height: 60px; line-height: 60px; border-bottom: 1px solid #e5e5e5;}
+.sp_con .sp_conleft .sp_jg .sp_l{width:57%; float: left; padding-left: 3%; color: #f2000d; font-size: 1.1rem; text-align: left;}
+.sp_con .sp_conleft .sp_jg .sp_l span{ color: #777777; text-decoration:line-through; font-size: 0.9rem;}
+.sp_con .sp_conleft .sp_jg .sp_r{width:40%; float: left; margin-top: 20px;}
+.sp_con .sp_conleft .sp_jg .sp_r .sp_ra{width:20px; height: 20px; color: #ccc; line-height: 20px; text-align: center; border: 1px solid #cccccc; float: left; border-radius: 50%;}
+.sp_con .sp_conleft .sp_jg .sp_r .sp_ra a{ display: block; color: #ccc;}
+.sp_con .sp_conleft .sp_jg .sp_r .sp_rb{width:20px; height: 20px;line-height: 20px; color: #333; float: left;}
+.sp_con .sp_conleft .sp_jg .sp_r .sp_rc{width:20px; height: 20px; color: #ccc; line-height: 20px; text-align: center; background: #d1b373; float: left; border-radius: 50%;}
+.sp_con .sp_conleft .sp_jg .sp_r .sp_rc a{ display: block; color: #333;}
+.sp_btn{width:50%; line-height: 30px; text-align: center; background: #f3232d; border-radius: 5px; margin: 15px auto;}
+.sp_btn a{ color: #fff; display: block;}
+.sp_jscp{width:100%; min-height: 100px; height: auto; overflow: hidden; background: #fff; margin-bottom: 10px;}
+.sp_jscp table{width:100%;}
+.sp_jscp table tr td.td_a{width:10%; text-align: center; padding: 10px 0;}
+.sp_jscp table tr td.td_b{width:75%; text-align: left; padding: 10px 0;}
+.sp_jscp table tr td.td_b img{width:40%; float: left;}
+.sp_jscp table tr td.td_b .td_d{width:58%; float: left; padding-left: 2%;}
+.sp_jscp table tr td.td_b .td_d h2{ font-size: 1.0rem; font-weight: normal; color: #333;}
+.sp_jscp table tr td.td_b .td_d p.p_x{ color: #777; font-size: 0.9rem; line-height: 25px;}
+.sp_jscp table tr td.td_b .td_d p.p_xa{ color: #f2000d; font-size: 1.1rem; line-height: 25px;}
+.sp_jscp table tr td.td_b .td_d p.p_xa span{ color: #777777;text-decoration:line-through; font-size: 0.9rem; padding: 0 5px;}
+.sp_jscp table tr td.td_c{ text-align: center; padding: 10px 0 3% 10px; color: #777;}
+.sp_foot{width:100%; height: 50px; line-height: 50px; position: fixed; bottom: 0;}
+.sp_foot .sp_fleft{width:60%; float: left; height: 50px; background: #fff;}
+.sp_foot .sp_fleft p{ padding-left: 3%; color: #333;}
+.sp_foot .sp_fleft p span{ color: #f3232d; padding: 0 10px;}
+
+.sp_foot .sp_fright{ width:40%; text-align: center; background: #f3232d; float: left;}
+.sp_foot .sp_fright a{ display: block; color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 640px)
+{
+	.sp_con .sp_conleft img{width:auto; height: 180px; max-width: 96%; margin: 4px auto;}
+	.sp_con .sp_conleft{width:49%; height: 360px; float: left; background: #fff; margin-top: 6px; text-align: center;}
+	.sp_con .sp_conleft:nth-child(2n){width:49%; height: 360px; float: right; background: #fff;margin-top: 6px;}
+}
+@media (max-width: 320px)
+{
+	.sp_con .sp_conleft img{width:auto; height: 150px; max-width: 96%; margin: 4px auto;}
+	.sp_con .sp_conleft{width:49%; height: 330px; float: left; background: #fff; margin-top: 6px; text-align: center;}
+	.sp_con .sp_conleft:nth-child(2n){width:49%; height: 330px; float: right; background: #fff;margin-top: 6px;}
+	.sp_con .sp_conleft h1{ font-size: 1.0rem; color: #333; font-weight: normal;font-size: 0.9rem; text-align: left; padding-left: 3%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+	.sp_con .sp_conleft p{ text-align: left; color: #777777; padding-left: 3%; font-size: 0.8rem; line-height: 30px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+	.sp_con .sp_conleft .sp_jg .sp_l{width:57%; float: left; padding-left: 3%; color: #f2000d; font-size: 0.9rem; text-align: left;}
+	.sp_con .sp_conleft .sp_jg .sp_l span{ color: #777777; text-decoration:line-through; font-size: 0.8rem;}
+	.sp_jscp table tr td.td_b .td_d h2{ font-size: 0.9rem; font-weight: normal; color: #333;text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+	.sp_jscp table tr td.td_b .td_d p.p_x{ color: #777; font-size: 0.8rem; line-height: 25px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+	.sp_jscp table tr td.td_b .td_d p.p_xa{ color: #f2000d; font-size: 1.0rem; line-height: 25px;}
+	.sp_jscp table tr td.td_b .td_d p.p_xa span{ color: #777777;text-decoration:line-through; font-size: 0.8rem; padding: 0 5px;}
+}
