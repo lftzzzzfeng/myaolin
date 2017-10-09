@@ -47,6 +47,20 @@
         <div class="share_radioa" onClick="ad_img(this,'radio1_2')"></div> 不同意
     </div>
 </div>
-<div class="fw_next"><a href="#">下一步＞</a></div>
+<div class="fw_next" id="divNext"><a href="javascript:void(0);">下一步＞</a></div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var merchantType = '<?php echo $merchantType; ?>';
+        $('#divNext').click(function() {
+            if (document.getElementById('radio1_1').checked == true) {
+                if (merchantType == 1) {
+                    window.location = '<?php echo (base_url() . 'merchant/individualDetail') ?>';
+                } else if (merchantType == 2) {
+                    window.location = '<?php echo (base_url() . 'merchant/companyDetail') ?>';
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
