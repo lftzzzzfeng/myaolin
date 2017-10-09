@@ -181,13 +181,13 @@ p.chi_pa{ color: #333; text-align: left; line-height: 25px; font-size: 1.0rem; p
 p.meau_p{ line-height: 80px; color: #333; text-align: center; font-weight: bold; margin-bottom: 0;}
 .meau_con{width:95%; min-height: 150px; height: auto; overflow: hidden;  background: #f8f8f8; margin: 0 auto;margin-top: 0px; padding: 15px 3%;}
 .meau_con ul.meau_ul{ background: #f8f8f8;}
-.meau_con ul.meau_ul li{width:49%; min-height: 100px; height: auto; float: left; margin-bottom: 15px; background: #f8f8f8; border: none; text-align: left;}
-.meau_con ul.meau_ul li:nth-child(2n){width:49%; min-height: 100px; height: auto; float: right; margin-bottom: 15px; background: #f8f8f8; border: none; text-align: left;}
+.meau_con ul.meau_ul li{width:49%; min-height: 100px; height: auto; float: left; margin-bottom: 10px; background: #f8f8f8; border: none; text-align: left;}
+.meau_con ul.meau_ul li:nth-child(2n){width:49%; min-height: 100px; height: auto; float: right; margin-bottom: 10px; background: #f8f8f8; border: none; text-align: left;}
 .meau_con ul.meau_ul li.mli_top{ float: right;}
 .meau_con ul.meau_ul li img{width:100%;}
 .meau_con ul.meau_ul li p.mli_p{ font-size: 1.0rem; line-height: 40px; margin: 0; font-weight: bold;text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 .meau_con ul.meau_ul li p.mli_p a{ color: #333;}
-.meau_con ul.meau_ul li p.mli_pa{ font-size: 0.9rem; color: #333; line-height: 25px; margin: 0;}
+.meau_con ul.meau_ul li p.mli_pa{ font-size: 0.9rem; color: #333; line-height: 25px; margin: 0;min-height: 50px;}
 .chi_meau .meau_fy{width:90%; height: 40px; line-height: 40px; margin: 25px auto 0; padding-bottom: 30px; margin: 0 auto;}
 .meau_fy ul.fy_ul{padding: 0;}
 .meau_fy ul.fy_ul li{width:30px; height: 30px; line-height: 30px; text-align: center; float: left; font-size: 1.0rem; color: #333; margin-right: 5px; background: #e5e5e5;}
@@ -344,21 +344,21 @@ p.yr_p{ clear: both;color: #333; font-size: 1.0rem; line-height: 30px; margin-bo
 .yjx_con .yjx_conb{width:55%; min-height: 80px; line-height: 50px; height: auto; overflow: hidden; margin: 0 auto;}
 .yjx_con .yjx_conb p{ color: #999; font-size: 1.0rem; float: left;}
 .yjx_con .yjx_conb ul li{ float: left; margin-top: 15px; margin-right: 10px;}
-.yjx_con .yjx_conb ul li.xu_a{width:25px; height: 20px; background: url(/myaolin/ui/img/mobile/x_sina1.png) no-repeat; background-size:100% 100% ;}
-.yjx_con .yjx_conb ul li.xu_aa{width:25px; height: 20px; background: url(/myaolin/ui/img/mobile/x_sina.png) no-repeat; background-size:100% 100% ;}
-.yjx_con .yjx_conb ul li.xu_b{width:25px; height: 20px; background: url(/myaolin/ui/img/mobile/x_weixin1.png) no-repeat; background-size:100% 100% ;}
-.yjx_con .yjx_conb ul li.xu_c{width:21px; height: 21px; background: url(/myaolin/ui/img/mobile/x_py1.png) no-repeat; background-size:100% 100% ;}
+.yjx_con .yjx_conb ul li.xu_a{width:25px; height: 20px; background: url(/ui/img/mobile/x_sina1.png) no-repeat; background-size:100% 100% ;}
+.yjx_con .yjx_conb ul li.xu_aa{width:25px; height: 20px; background: url(/ui/img/mobile/x_sina.png) no-repeat; background-size:100% 100% ;}
+.yjx_con .yjx_conb ul li.xu_b{width:25px; height: 20px; background: url(/ui/img/mobile/x_weixin1.png) no-repeat; background-size:100% 100% ;}
+.yjx_con .yjx_conb ul li.xu_c{width:21px; height: 21px; background: url(/ui/img/mobile/x_py1.png) no-repeat; background-size:100% 100% ;}
 .checkboxborderm{width:25px;
 	height:20px;
-	background: url(/myaolin/ui/img/mobile/x_sina1.png) no-repeat; background-size:100% 100% ;
+	background: url(/ui/img/mobile/x_sina1.png) no-repeat; background-size:100% 100% ;
     }
    .checkboxborderma{width:25px;
 	height:20px;
-	background: url(/myaolin/ui/img/mobile/x_weixin1.png) no-repeat; background-size:100% 100% ;
+	background: url(/ui/img/mobile/x_weixin1.png) no-repeat; background-size:100% 100% ;
     }
 .checkboxbordermb{width:21px;
 	height:21px;
-	background: url(/myaolin/ui/img/mobile/x_py1.png) no-repeat; background-size:100% 100% ;
+	background: url(/ui/img/mobile/x_py1.png) no-repeat; background-size:100% 100% ;
     }
 .input_class{
 	display:none;}
@@ -567,6 +567,7 @@ ul.sj_ul li img{ width:100%;}
 .owl-page span{
 	display: none !important;
 }
+.owl-carousel img{width: 100%;}
 
 .active{
 	background-color: #fff !important;
