@@ -24,7 +24,7 @@
                     <div class="sp_rc"><a href="javascript:void(0)" class="plus">+</a></div>
                 </div>
             </div>
-            <div class="sp_btn item" data-product-id="<?php echo $product['id'] ?>" data-product-fee="<?php echo $product['unitPrice'] ?>">
+            <div class="sp_btn item" data-product-id="<?php echo $product['id'] ?>" data-product-fee="<?php echo $product['unitPrice'] / 100 ?>">
                 <a href="javascript:void(0);">立即购买</a>
             </div>
         </div>

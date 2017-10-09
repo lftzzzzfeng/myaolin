@@ -51,7 +51,7 @@
                     <div class="td_d">
                         <h2><?php echo $productName; ?></h2>
                         <p class="p_x"><?php echo $productDescription ?></p>
-                        <p class="p_xa">¥<?php echo ($productFee / ($productQuantity * 100)) ?></p>
+                        <p class="p_xa">¥<?php echo ($productFee / $productQuantity) ?></p>
                     </div>
                 </td>
                 <td class="td_c">x<?php echo $productQuantity ?></td>
@@ -61,7 +61,7 @@
 </div>
 <div class="sp_foot">
     <div class="sp_fleft">
-        <p>合计  <span> <?php echo $productFee / 100 ?>元</span></p>
+        <p>合计  <span> <?php echo $productFee ?>元</span></p>
     </div>
     <div class="sp_fright" onclick="callpay()"><a href="javascript:void(0);">结算</a></div>
 </div>
