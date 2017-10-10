@@ -80,3 +80,8 @@ p.zl_p span{ color: #eb0000;}
 .ewm p{ line-height: 40px; color: #d1b473;}
 .ewm_foot{width:100%; height: 60px; line-height: 60px; text-align: center; position: fixed; bottom: 50px;}
 .ewm_foot p{ color: #d1b473; font-size: 0.9rem;}
+/*订单列表*/
+.dd_con{width:100%; min-height: 200px; height: auto; overflow: hidden;}
+.dd_con table{width:98%; margin: 15px auto; border: 1px solid #e5e5e5; text-align: center; color: #333;table-layout:fixed;}
+.dd_con table tr td{ width:25%; line-height: 30px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; color: #666; font-size: 0.8rem;}
+.dd_con table tr th{ width:25%; line-height: 30px;font-size: 0.9rem;}

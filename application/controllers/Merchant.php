@@ -30,6 +30,9 @@ class Merchant extends MainController
         $this->content['pageTitle'] = '商户中心';
         $result['merchantType'] = $_SESSION['merchant']['type'];
 
+        $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($_SESSION['merchant']['id']);
+        $result['hasDetail'] = $merchantDetail ? true : false;
+
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $result);
     }
 
@@ -39,9 +42,11 @@ class Merchant extends MainController
             redirect(base_url() . 'merchant/login');
         }
 
+        $result['merchantType'] = $_SESSION['merchant']['type'];
+
         $this->content['pageTitle'] = '声明';
 
-        $this->load->view($this->mainTemplatePath .$this->router->fetch_method());
+        $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $result);
     }
 
     public function individualDetail()
@@ -241,6 +246,8 @@ class Merchant extends MainController
 
         $this->content['pageTitle'] = '商户订单';
 
+
+
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method());
     }
 
@@ -258,16 +265,20 @@ class Merchant extends MainController
             $password = $this->input->post('password');
             $type = $this->input->post('type');
 
-            if ($this->merchantModel->existUsername($result['content']['username'])) {
+            if ($this->merchantModel->existUsername($username)) {
                 $result = ['code' => 1, 'message' => '此商户名已存在'];
             }
 
-            $savedMerchantId = $this->merchantModel->saveMerchant($username, $password, $type);
+            if ($result['code'] == 0) {
+                $savedMerchantId = $this->merchantModel->saveMerchant($username, $password, $type);
+            }
 
-            if ($savedMerchantId > 0) {
-                $result = ['code' => -1, 'message' => '注册成功, 即将跳转至登陆页面'];
-            } else {
-                $result = ['code' => 1, 'message' => '注册失败'];
+            if ($result['code'] == 0) {
+                if ($savedMerchantId > 0) {
+                    $result = ['code' => -1, 'message' => '注册成功, 即将跳转至登陆页面'];
+                } else {
+                    $result = ['code' => 1, 'message' => '注册失败'];
+                }
             }
         }
 
