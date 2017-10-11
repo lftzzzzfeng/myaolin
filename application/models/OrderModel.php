@@ -165,4 +165,47 @@ class OrderModel extends CI_Model
 
         return $result;
     }
+
+    /**
+     * 获取商户订单
+     *
+     * @param $merchantId 商户id
+     * @param $pageNumber 当前页数
+     * @param $pageItemNumber 每页数据个数
+     *
+     * @return mixed
+     */
+    public function getOrdersByMerchantId($merchantId, $pageNumber, $pageItemNumber)
+    {
+        if ($pageNumber > 1) {
+            $start = ($pageNumber - 1) * $pageItemNumber;
+        } else {
+            $start = 0;
+        }
+
+        $select = 'order.orderId, product.name AS productName, order.purchaseQuantity, order.totalFee,';
+        $select .= '(CASE order.status WHEN 1 THEN "成功" WHEN 2 THEN "待处理" WHEN 3 THEN "取消" WHEN 4 THEN "失败" ELSE "" END) AS status';
+
+        $condition = [];
+        $condition['order.merchantId'] = $merchantId;
+        $condition['order.isDeleted'] = \util\Constant::IS_DELETED_NO;
+
+        $result['totalCount'] = count($this->db
+            ->select($select)
+            ->join('product', 'product.id = order.productId', 'LEFT')
+            ->where($condition)
+            ->order_by('order.id DESC')
+            ->get(self::TABLE_ORDER)
+            ->result_array());
+        $result['orders'] = $this->db
+            ->select($select)
+            ->join('product', 'product.id = order.productId', 'LEFT')
+            ->where($condition)
+            ->order_by('order.id DESC')
+            ->limit($pageItemNumber, $start)
+            ->get(self::TABLE_ORDER)
+            ->result_array();
+
+        return $result;
+    }
 }

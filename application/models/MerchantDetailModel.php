@@ -50,6 +50,7 @@ class MerchantDetailModel extends CI_Model
         $data['contactNumber'] = $contactNumber;
         if ($image) {
             $data['image'] = $image;
+            $data['imageSource'] = \util\Constant::TYPE_MOBILE;
         }
 
         if ($merchantType == MerchantModel::TYPE_INDIVIDUAL) {
@@ -60,6 +61,7 @@ class MerchantDetailModel extends CI_Model
 
         if ($logo) {
             $data['logo'] = $logo;
+            $data['logoSource'] = \util\Constant::TYPE_MOBILE;
         }
 
         if (!$this->getMerchantDetailById($merchantId)) {
@@ -92,6 +94,6 @@ class MerchantDetailModel extends CI_Model
         $condition .= ' AND `isDeleted` = ' . \util\Constant::IS_DELETED_NO;
         $condition .= ' AND `merchantId` = ' . intval($merchantId);
 
-        return $this->db->select('merchantId, type, name, companyContactName, ic, contactNumber, bankCardNumber, image, logo')->where($condition)->get(self::TABLE_MERCHANT_DETAIL)->row();
+        return $this->db->select('merchantId, type, name, companyContactName, ic, contactNumber, bankCardNumber, image, imageSource, logo, logoSource')->where($condition)->get(self::TABLE_MERCHANT_DETAIL)->row();
     }
 }
