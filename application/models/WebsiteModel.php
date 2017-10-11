@@ -67,11 +67,12 @@ class WebsiteModel extends CI_Model
      *
      * @return array
      */
-    public function searchs($search)
+    public function searchs($search,$num=4,$page=0)
     {
         if($search) {
+            $pages1 = $page*$num;
             $rst = '';
-            $rst['scenicview'] = $this->db->where("isDeleted=0 and status=1 and title LIKE '%$search%'")->order_by('orderNumber ASC')->get(self::TABLE_SCENICVIEW)->result_array();
+            $rst['scenicview'] = $this->db->where("isDeleted=0 and status=1 and title LIKE '%$search%'")->order_by('orderNumber ASC')->limit($num,$pages1)->get(self::TABLE_SCENICVIEW)->result_array();
             foreach ($rst['scenicview'] as $k => &$item) {
                 $img = $this->db->where('scenicViewId='.$item['id'])->order_by('id DESC')->limit(3)->get('scenicviewimage')->result_array();
                 foreach ($img as $k1 => $v1){
@@ -82,7 +83,9 @@ class WebsiteModel extends CI_Model
                 $item['coverImage'] = $this->baseUrl . 'ui/img/scenicview/coverimage/' . $item['id']
                     . '.' . explode('.', $item['coverImage'])[1] .'?' . time();
             }
-            $rst['news'] = $this->db->where("isDeleted=0 and status=1 and title LIKE '%$search%'")->order_by('orderNumber ASC')->get(self::TABLE_NEWS)->result_array();
+            $nums = $num*2;
+            $pages = $page*$nums;
+            $rst['news'] = $this->db->where("isDeleted=0 and status=1 and title LIKE '%$search%'")->order_by('orderNumber ASC')->limit($nums,$pages)->get(self::TABLE_NEWS)->result_array();
             foreach ($rst['news'] as $k => &$item) {
                 $item['coverImage'] = $this->baseUrl . 'ui/img/news/' . $item['id']
                     . '.' . explode('.', $item['coverImage'])[1] .'?' . time();

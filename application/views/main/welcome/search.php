@@ -48,7 +48,7 @@
 				<form action="<?php echo base_url(); ?>Welcome/search" method="post" id="forms">
 					<div class="ss_topal">
 						<div class="ss_topala">
-							<input type="text" name="search" value="" id="textfield" placeholder="搜索景点/资讯" />
+							<input type="text" name="search" value="<?php echo $keyword; ?>" id="textfield" placeholder="搜索景点/资讯" />
 						</div>
 						<div class="ss_topalb">
 							<a onclick="$('#forms').submit();"><img src="<?php echo base_url() ?>ui/img/mobile/ss.png" /></a>
@@ -61,12 +61,15 @@
 	</div>
 	<div id="scenics" style="margin-top: 20%;">
 		<?php if(empty($search['scenicview']) && empty($search['news'])){ ?>
-			<a  style="color: #05b1bb; font-size: 1rem; margin-left:13px;font-weight: 100;">未搜索到相关内容</a>
+			<div class="nothing_box">
+				<a  style="color: #666; font-size: 1rem;font-weight: 100;">未搜索到相关内容</a>
+				<img src="<?php echo base_url() ?>ui/img/mobile/nothing.png" width="30%" alt=""/>
+			</div>
 		<?php } ?>
 		<?php if($search['scenicview']){ ?>
 			<a  style="color: #05b1bb; font-size: 1rem; margin-left:13px;font-weight: 100;">景点介绍相关内容</a>
 		<?php } ?>
-		<?php foreach ($search['scenicview'] as $k => $v){ ?>
+		<?php if($search['scenicview']){ foreach ($search['scenicview'] as $k => $v){ ?>
 			<div class="nature_box bg-white padding-15 clearfix" style="margin-top: 5px;">
 				<h4><?php echo $v['title'] ?></h4>
 				<p class="margin-bottom-15" style="color: #333;"><?php echo $v['description'] ?></p>
@@ -101,15 +104,23 @@
 					<?php } ?>
 				</div>
 			</div>
-		<?php } ?>
+		<?php } } ?>
 	</div>
+	<?php if(!empty( $search['scenicview'])){ ?>
+		<?php if(!empty($num['scenicview'])){ ?>
+			<div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
+				<input id="page1" value="1" type="hidden">
+				<button class="flex_box margin-0-auto btn radius-0 size-16" onclick="scenic()" id="jzgds1" style="margin-bottom:10px;"><span id="jzgd1">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
+			</div>
+		<?php } ?>
+	<?php } ?>
 	<?php if($search['news']){ ?>
 		<a  style="color: #05b1bb; font-size: 1rem; margin-left:6px;font-weight: 100;">景区资讯相关内容</a>
 	<div class="index_zx" style="margin-top:5px;">
 		<div class="index_zxcon" id="new">
 			<?php foreach ($search['news'] as $k => $v){ ?>
 				<div class="zx_left jing_a" style="padding-bottom:5px;padding-top:5px;">
-					<a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage']; ?>" style="height:160px;" /></a>
+					<a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><img src="<?php echo $v['coverImage']; ?>"/></a>
 					<a href="<?php echo base_url() ?>news/detail?id=<?php echo $v['id']; ?>"><p class="zx_p"><?php echo $v['title']; ?><br/><?php echo $v['description']; ?></p></a>
 					<div class="zx_bot">
 						<div class="zx_botleft">
@@ -122,6 +133,12 @@
 			<?php } ?>
 		</div>
 	</div>
+	<?php if($num['news']){ ?>
+		<div class="look_more margin-top-20 text-center margin-bottom-10 clearfix">
+			<input id="page2" value="1" type="hidden">
+			<button class="flex_box margin-0-auto btn radius-0 size-16" onclick="news()" id="jzgds2" style="margin-bottom:10px;"><span id="jzgd2">加载更多 &nbsp;</span> <img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_03.png" width="13%" alt=""/></button>
+		</div>
+	<?php } ?>
 	<?php } ?>
 	<!--插件按钮-->
 	<!-- Root element of PhotoSwipe. Must have class pswp. -->
@@ -191,6 +208,38 @@
 	</div>
 
 	<script type="text/javascript">
+		var url = "<?php echo base_url(); ?>";
+		function news() {
+			var p = $('#page2').val();
+			var key = $('#textfield').val();
+			var ps = parseInt(p)+1
+			$('#page2').val(ps);
+			$.post(url+'welcome/ajaxnews?p='+ps+'&key='+key,function(data){
+				$('#new').append(data.html);
+				if(data.num == 2){
+					$('#jzgd2').html('没有更多了');
+					$('#jzgds2').css('background-color','#808080');
+					$("#jzgds2").attr("onclick","");
+				}
+			},'json');
+		}
+
+		function scenic() {
+			var p = $('#page1').val();
+			var key = $('#textfield').val();
+			var ps = parseInt(p)+1
+			$('#page1').val(ps);
+			$.post(url+'welcome/ajaxScenic?p='+p+'&key='+key,function(data){
+				$('#scenics').append(data.html);
+				initPhotoSwipeFromDOM('.my-simple-gallery');
+				if(data.num == 2){
+					$('#jzgd1').html('没有更多了');
+					$('#jzgds1').css('background-color','#808080');
+					$("#jzgds1").attr("onclick","");
+				}
+			},'json');
+		}
+
 		var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 			// parse slide data (url, title, size ...) from DOM elements
