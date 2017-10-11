@@ -40,6 +40,7 @@ class MerchantModel extends CI_Model
         //$_SESSION['merchant']['id']
         $data['creatorId'] = 2;
         $data['createdTimestamp'] = time();
+        $data['status'] = \util\Constant::STATUS_UNACTIVATED;
 
         $this->db->insert(self::TABLE_MERCHANT, $data);
         return $this->db->insert_id();
@@ -61,7 +62,8 @@ class MerchantModel extends CI_Model
         ];
 
         $merchant = $this->db->select('id, username, type')->where($condition)->get(self::TABLE_MERCHANT)->result_array();
-
+//var_dump($merchant);
+//exit;
         if ($merchant) {
             $_SESSION['merchant'] = [
                 'id' => $merchant[0]['id'],
@@ -83,9 +85,29 @@ class MerchantModel extends CI_Model
      */
     public function existUsername($username)
     {
+//        $condition = '`status` = ' . \util\Constant::STATUS_ACTIVE;
+        $condition = ' `isDeleted` = ' . \util\Constant::IS_DELETED_NO;
+        $condition .= ' AND `username` = "' . $username . '"';
+
+        if ($this->db->select('id')->where($condition)->get(self::TABLE_MERCHANT)->row()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 是否可以显示
+     *
+     * @param $merchantId 商户id
+     *
+     * @return bool
+     */
+    public function checkPermission($merchantId)
+    {
         $condition = '`status` = ' . \util\Constant::STATUS_ACTIVE;
         $condition .= ' AND `isDeleted` = ' . \util\Constant::IS_DELETED_NO;
-        $condition .= ' AND `username` = "' . $username . '"';
+        $condition .= ' AND `id` = ' . $merchantId . '';
 
         if ($this->db->select('id')->where($condition)->get(self::TABLE_MERCHANT)->row()) {
             return true;

@@ -73,7 +73,6 @@ class MerchantDetailModel extends CI_Model
             $data['lastEditorId'] = $_SESSION['merchant']['id'];
             $data['lastEditedTimestamp'] = time();
             $this->db->where('merchantId', intval($merchantId));
-
             $this->db->update(self::TABLE_MERCHANT_DETAIL, $data);
         }
 
