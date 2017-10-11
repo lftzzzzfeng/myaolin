@@ -9,6 +9,7 @@
     <script type="text/javascript"></script>
 </head>
 <body style=" background: #f6f6f6;">
+<div id="divLogout" style="margin-left: 5%; margin-top: 2%; border: 1px black dotted; cursor: pointer; text-align: center; background-color: #f2dede; width: 20%;"><a href="<?php echo (base_url() . 'merchant/logout') ?>">< 登出</a></div>
 <div class="sh_con">
     <ul>
         <li>

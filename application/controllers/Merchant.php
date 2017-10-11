@@ -368,4 +368,10 @@ class Merchant extends MainController
 
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $result);
     }
+
+    public function logout()
+    {
+        $_SESSION = [];
+        redirect(base_url() . 'merchant/login');
+    }
 }
