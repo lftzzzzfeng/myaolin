@@ -90,6 +90,7 @@ class Merchant extends MainController
         if ($merchantDetail) {
             $result['merchantDetail']['id'] = $merchantDetail->merchantId;
         } else {
+            $result['merchant']['status'] = false;
             $result['merchant']['type'] = '';
             $result['merchant']['name'] = '';
             $result['merchant']['ic'] = '';
@@ -144,6 +145,7 @@ class Merchant extends MainController
 
         if ($result['merchantDetail']['id']) {
             $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+            $result['merchant']['status'] = $this->merchantModel->checkPermission($result['merchantDetail']['id']);
             $result['merchant']['type'] = $merchantDetail->type;
             $result['merchant']['name'] = $merchantDetail->name;
             $result['merchant']['ic'] = $merchantDetail->ic;
@@ -197,6 +199,7 @@ class Merchant extends MainController
         if ($merchantDetail) {
             $result['merchantDetail']['id'] = $merchantDetail->merchantId;
         } else {
+            $result['merchant']['status'] = false;
             $result['merchant']['type'] = '';
             $result['merchant']['name'] = '';
             $result['merchant']['companyContactName'] = '';
@@ -250,6 +253,7 @@ class Merchant extends MainController
 
         if ($result['merchantDetail']['id']) {
             $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+            $result['merchant']['status'] = $this->merchantModel->checkPermission($result['merchantDetail']['id']);
             $result['merchant']['type'] = $merchantDetail->type;
             $result['merchant']['name'] = $merchantDetail->name;
             $result['merchant']['companyContactName'] = $merchantDetail->companyContactName;
@@ -337,7 +341,7 @@ class Merchant extends MainController
 
             if ($result['code'] == 0) {
                 if ($savedMerchantId > 0) {
-                    $result = ['code' => -1, 'message' => '注册成功, 即将跳转至登陆页面'];
+                    $result = ['code' => -1, 'message' => '注册成功，请尽快登陆并完善资料，方能被激活。 即将跳转至登陆页面。如没有自动跳转，<a href="'. base_url() .'merchant/login">请点击此处登陆</a>。'];
                 } else {
                     $result = ['code' => 1, 'message' => '注册失败'];
                 }

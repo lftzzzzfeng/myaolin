@@ -11,6 +11,9 @@
 <body style=" background: #f6f6f6;">
 <div id="divLogout" style="margin-left: 5%; margin-top: 2%; border: 1px black dotted; cursor: pointer; text-align: center; background-color: #f2dede; width: 20%;"><a href="<?php echo (base_url() . 'merchant/logout') ?>">< 登出</a></div>
 <div class="sh_con">
+<?php if (!$hasDetail): ?>
+    <em>您还未完善商户资料，请点击商户资料，完善后，可被激活。</em>
+<?php endif; ?>
     <ul>
         <li>
 <?php if ($merchantType == MerchantModel::TYPE_INDIVIDUAL): ?>

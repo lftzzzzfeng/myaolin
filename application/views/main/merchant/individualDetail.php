@@ -47,18 +47,20 @@
                             <p>点击进行上传</p>
                         </div>
                     </div>
+<?php if ($merchant['status']): ?>
                     <div class="zl_sc">
-                        <p class="zl_p">专属二维码</p>
+                        <p class="zl_p">专属二维码<a style="font-size: 12px;" href="<?php echo (base_url() . 'admin/merchant/downloadqrcode/' . $merchant['id']) ?>"><em>下载</em></a></p>
                         <div class="zl_pc qrCode">
                             <a href="javascript:void(0);">
-<?php if ($merchantDetail['id']): ?>
+    <?php if ($merchantDetail['id']): ?>
                                 <img src="<?php echo $merchant['qrcode'] ?>" id="imgQrCode" />
-<?php else: ?>
+    <?php else: ?>
                                 <img src="<?php echo base_url() ?>ui/img/mobile/tx.png" id="imgQrCode" />
-<?php endif; ?>
+    <?php endif; ?>
                             </a>
                         </div>
                     </div>
+<?php endif; ?>
                     <div class="zl_sca">
                         <div class="zl_name">
                             <div class="zl_namel"><p><span>*</span>类别</p></div>
