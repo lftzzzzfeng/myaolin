@@ -18,8 +18,29 @@ class Merchant extends MainController
         parent::__construct();
         $this->load->model('merchantModel');
         $this->load->model('merchantDetailModel');
+        $this->load->model('orderModel');
         $this->load->helper('url');
         $this->load->library('session');
+    }
+
+    public function test()
+    {
+        $result = [];
+        $result['isMore'] = true;
+        $pageNumber = $this->input->post('pageNumber');
+        $pageNumber = 1;
+        $merchantId = 8;
+        $pageItemNumber = 10;
+
+        $orderResult = $this->orderModel->getOrdersByMerchantId($merchantId, $pageNumber, $pageItemNumber);
+        $result['orderTotalCount'] = $orderResult['totalCount'];
+        $result['orders'] = $orderResult['orders'];
+
+        if ($pageNumber * $pageItemNumber >= $result['orderTotalCount']) {
+            $result['isMore'] = false;
+        }
+
+        echo json_encode($result);
     }
 
     public function index()
@@ -69,6 +90,7 @@ class Merchant extends MainController
         if ($merchantDetail) {
             $result['merchantDetail']['id'] = $merchantDetail->merchantId;
         } else {
+            $result['merchant']['status'] = false;
             $result['merchant']['type'] = '';
             $result['merchant']['name'] = '';
             $result['merchant']['ic'] = '';
@@ -123,22 +145,35 @@ class Merchant extends MainController
 
         if ($result['merchantDetail']['id']) {
             $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+            $result['merchant']['status'] = $this->merchantModel->checkPermission($result['merchantDetail']['id']);
             $result['merchant']['type'] = $merchantDetail->type;
             $result['merchant']['name'] = $merchantDetail->name;
             $result['merchant']['ic'] = $merchantDetail->ic;
             $result['merchant']['contactNumber'] = $merchantDetail->contactNumber;
             $result['merchant']['bankCardNumber'] = $merchantDetail->bankCardNumber;
             if ($merchantDetail->image) {
-                $result['merchant']['image'] = base_url() . 'ui/img/merchant/license/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->image)[1] . '?' . time();
+                $baseUrl = '';
+                if ($merchantDetail->imageSource == \util\Constant::TYPE_PC) {
+                    $baseUrl = 'http://clubjoin.cn/';
+                } else if ($merchantDetail->imageSource == \util\Constant::TYPE_MOBILE) {
+                    $baseUrl = base_url();
+                }
+                $result['merchant']['image'] = $baseUrl . 'ui/img/merchant/license/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->image)[1] . '?' . time();
             } else {
                 $result['merchant']['image'] = '';
             }
+            $baseUrl = '';
             if ($merchantDetail->logo) {
-                $result['merchant']['logo'] = base_url() . 'ui/img/merchant/logo/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->logo)[1] . '?' . time();
+                if ($merchantDetail->logoSource == \util\Constant::TYPE_PC) {
+                    $baseUrl = 'http://clubjoin.cn/';
+                } else if ($merchantDetail->logoSource == \util\Constant::TYPE_MOBILE) {
+                    $baseUrl = base_url();
+                }
+                $result['merchant']['logo'] = $baseUrl . 'ui/img/merchant/logo/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->logo)[1] . '?' . time();
             } else {
                 $result['merchant']['logo'] = '';
             }
-            $result['merchant']['qrcode'] = base_url() . 'ui/img/merchant/qrcode/' . $result['merchantDetail']['id'] . '.png?' . time();
+            $result['merchant']['qrcode'] = $baseUrl . 'ui/img/merchant/qrcode/' . $result['merchantDetail']['id'] . '.png?' . time();
         }
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $result);
@@ -164,6 +199,7 @@ class Merchant extends MainController
         if ($merchantDetail) {
             $result['merchantDetail']['id'] = $merchantDetail->merchantId;
         } else {
+            $result['merchant']['status'] = false;
             $result['merchant']['type'] = '';
             $result['merchant']['name'] = '';
             $result['merchant']['companyContactName'] = '';
@@ -217,22 +253,35 @@ class Merchant extends MainController
 
         if ($result['merchantDetail']['id']) {
             $merchantDetail = $this->merchantDetailModel->getMerchantDetailById($result['merchantDetail']['id']);
+            $result['merchant']['status'] = $this->merchantModel->checkPermission($result['merchantDetail']['id']);
             $result['merchant']['type'] = $merchantDetail->type;
             $result['merchant']['name'] = $merchantDetail->name;
             $result['merchant']['companyContactName'] = $merchantDetail->companyContactName;
             $result['merchant']['contactNumber'] = $merchantDetail->contactNumber;
             $result['merchant']['bankCardNumber'] = $merchantDetail->bankCardNumber;
             if ($merchantDetail->image) {
-                $result['merchant']['image'] = base_url() . 'ui/img/merchant/license/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->image)[1] . '?' . time();
+                $baseUrl = '';
+                if ($merchantDetail->imageSource == \util\Constant::TYPE_PC) {
+                    $baseUrl = 'http://clubjoin.cn/';
+                } else if ($merchantDetail->imageSource == \util\Constant::TYPE_MOBILE) {
+                    $baseUrl = base_url();
+                }
+                $result['merchant']['image'] = $baseUrl . 'ui/img/merchant/license/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->image)[1] . '?' . time();
             } else {
                 $result['merchant']['image'] = '';
             }
+            $baseUrl = '';
             if ($merchantDetail->logo) {
-                $result['merchant']['logo'] = base_url() . 'ui/img/merchant/logo/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->logo)[1] . '?' . time();
+                if ($merchantDetail->logoSource == \util\Constant::TYPE_PC) {
+                    $baseUrl = 'http://clubjoin.cn/';
+                } else if ($merchantDetail->logoSource == \util\Constant::TYPE_MOBILE) {
+                    $baseUrl = base_url();
+                }
+                $result['merchant']['logo'] = $baseUrl . 'ui/img/merchant/logo/' . $result['merchantDetail']['id'] . '.' . explode('.', $merchantDetail->logo)[1] . '?' . time();
             } else {
                 $result['merchant']['logo'] = '';
             }
-            $result['merchant']['qrcode'] = base_url() . 'ui/img/merchant/qrcode/' . $result['merchantDetail']['id'] . '.png?' . time();
+            $result['merchant']['qrcode'] = $baseUrl . 'ui/img/merchant/qrcode/' . $result['merchantDetail']['id'] . '.png?' . time();
         }
 
         $this->load->view($this->mainTemplatePath .$this->router->fetch_method(), $result);
@@ -246,9 +295,26 @@ class Merchant extends MainController
 
         $this->content['pageTitle'] = '商户订单';
 
-
-
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method());
+    }
+
+    public function loadOrders()
+    {
+        $result = [];
+        $result['isMore'] = true;
+        $pageNumber = $this->input->post('pageNumber');
+        $merchantId = $_SESSION['merchant']['id'];
+        $pageItemNumber = 10;
+
+        $orderResult = $this->orderModel->getOrdersByMerchantId($merchantId, $pageNumber, $pageItemNumber);
+        $result['orderTotalCount'] = $orderResult['totalCount'];
+        $result['orders'] = $orderResult['orders'];
+
+        if ($pageNumber * $pageItemNumber >= $result['orderTotalCount']) {
+            $result['isMore'] = false;
+        }
+
+        echo json_encode($result);
     }
 
     public function signUp()
@@ -275,7 +341,7 @@ class Merchant extends MainController
 
             if ($result['code'] == 0) {
                 if ($savedMerchantId > 0) {
-                    $result = ['code' => -1, 'message' => '注册成功, 即将跳转至登陆页面'];
+                    $result = ['code' => -1, 'message' => '注册成功，请尽快登陆并完善资料，方能被激活。 即将跳转至登陆页面。如没有自动跳转，<a href="'. base_url() .'merchant/login">请点击此处登陆</a>。'];
                 } else {
                     $result = ['code' => 1, 'message' => '注册失败'];
                 }
@@ -305,5 +371,11 @@ class Merchant extends MainController
         }
 
         $this->load->view($this->mainTemplatePath . $this->router->fetch_method(), $result);
+    }
+
+    public function logout()
+    {
+        $_SESSION = [];
+        redirect(base_url() . 'merchant/login');
     }
 }

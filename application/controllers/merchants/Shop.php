@@ -17,6 +17,7 @@ class Shop extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('merchantModel');
         $this->load->model('memberModel');
         $this->load->model('productModel');
         $this->load->model('merchantProductModel');
@@ -94,6 +95,11 @@ exit;
 
     public function products($merchantId)
     {
+        if (!$this->merchantModel->checkPermission($merchantId)) {
+            echo '未获得批准';
+            exit;
+        }
+
         $code = $this->input->get('code');
 
         $memberInfo = json_decode(\util\WeChat::getWeChatMemberInfo($code, $merchantId), true);
