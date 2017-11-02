@@ -13,14 +13,14 @@
 		</div>
 	</footer>
 	<div class="foot_nav">
-		<div class="foot_navl">
+<!--		<div class="foot_navl">
 			<a href="#" style="font-size: 1rem;">
 				<img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_13.png"  />预定
 			</a>
-		</div>
-		<div class="foot_navl foot_navr">
-			<a href="tel:0571-69966666" style="font-size: 1rem;">
-				<img src="<?php echo base_url() ?>ui/img/mobile/icon_btn_15.png"  />热线
+		</div>-->
+                <div class="foot_navl foot_navr" style="width: 100%;">
+			<a href="tel:0571-69966666" style="font-size: 1rem;text-align: center;">
+                            <img style="float:none;padding:0;margin:0 10px 0 0;" src="<?php echo base_url() ?>ui/img/mobile/icon_btn_15.png"  />预定热线
 			</a>
 		</div>
 	</div>

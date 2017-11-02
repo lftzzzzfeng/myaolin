@@ -5,14 +5,14 @@
     		<div class="span12">
     			<div class="owl-carousel">
     				<div class="item darkCyan">
-    					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Touch">
+                                    <img src="<?php echo base_url() ?>ui/img/mobile/valley2.jpg" alt="Touch">
     				</div>
     				<div class="item forestGreen">
-    					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Grab">
+                                    <img src="<?php echo base_url() ?>ui/img/mobile/valley1.jpg" alt="Grab">
     				</div>
-    				<div class="item orange">
+<!--    				<div class="item orange">
     					<img src="<?php echo base_url() ?>ui/img/mobile/index_banner.jpg" alt="Responsive">
-    				</div>
+    				</div>-->
     			</div>
     		</div>
     	</div>
